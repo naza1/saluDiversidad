@@ -14,5 +14,8 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'Hola mundo2';
 });
+
+Route::resource('/pacient', 'App\Http\Controllers\PacientController');
+
