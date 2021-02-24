@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreatePacientTable extends Migration
+class CreatePacientsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreatePacientTable extends Migration
      */
     public function up()
     {
-        Schema::create('pacient', function (Blueprint $table) {
+        Schema::create('pacients', function (Blueprint $table) {
             $table->mediumIncrements('Id');
             $table->timestamps();
             $table->string('FirstName', 255);
@@ -39,6 +39,6 @@ class CreatePacientTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pacient');
+        Schema::dropIfExists('pacients');
     }
 }

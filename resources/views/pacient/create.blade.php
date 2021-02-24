@@ -5,7 +5,13 @@
                 <div class="panel-heading">Crear Paciente</div>
 
                 <div class="panel-body">
-                    <!-- Aqui va la vista para crear un paciente -->
+                <div class="table-container">
+            <table id="mytable" class="table table-bordred table-striped">
+             <thead>
+             </thead>
+             <tbody>
+            </tbody>
+          </table>
                 </div>
             </div>
         </div>
