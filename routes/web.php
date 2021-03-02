@@ -17,5 +17,5 @@ Route::get('/', function () {
     return 'Hola mundo2';
 });
 
-Route::resource('/pacient', 'App\Http\Controllers\PacientController');
+Route::resource('/paciente', 'App\Http\Controllers\PacienteController');
 
