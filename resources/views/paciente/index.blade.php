@@ -39,7 +39,7 @@
             </tbody>
           </table>
         </div>
-        <p class="text-right"><a class="btn btn-sm btn-default" href="{{ url('paciente/create') }}">Crear</a></p>
+        <p class="text-right"><a class="btn btn-primary" href="{{ url('paciente/create') }}">Crear</a></p>
       </div>
     </div>
   </div>
