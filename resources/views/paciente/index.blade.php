@@ -1,3 +1,10 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Formulario en laravel</title>
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    </head>
+<body>
 <div class="">
   <div class="row">
     <div class="col-md-12">
@@ -37,3 +44,5 @@
     </div>
   </div>
 </div>
+</body>
+</html>
