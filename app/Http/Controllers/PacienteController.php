@@ -44,4 +44,10 @@ class PacienteController extends Controller
         $paciente->save();
         return redirect('/paciente/create')->with('message','Guardado Satisfactoriamente !');
     }
+
+    public function destroy($id)
+    {
+        DB::table('pacientes')->delete($id);
+        return ('Paciente eliminado!!!');
+    }
 }

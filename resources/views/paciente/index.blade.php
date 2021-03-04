@@ -3,6 +3,8 @@
         <meta charset="utf-8">
         <title>Formulario en laravel</title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="/js/laravel.js"></script>
     </head>
 <body>
 <div class="">
@@ -34,6 +36,9 @@
               <td>{{$paciente->Nationality}}</td>
               <td>{{$paciente->SocialWork}}</td>
               <td>{{$paciente->State}}</td>
+              <td>
+              <a href="#" onclick="eliminarPaciente('{{$paciente->Id}}', '{{ csrf_token() }}')" class="btn btn-xs btn-danger btn-delete">Eliminar</a>
+              </td>
             </tr>
             @endforeach
             </tbody>
