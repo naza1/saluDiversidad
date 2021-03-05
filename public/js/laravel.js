@@ -4,9 +4,27 @@ function eliminarPaciente(id, token){
       'X-CSRF-TOKEN': token
     },
     url: '/paciente/' + id,
-    method: 'DELETE',
+    type: 'post',
+    data:{
+      "_method": "delete"
+    },
     success: function(result) {
-    // bla bla
+      window.location.replace("/paciente");
+    }
+});
+}
+
+function editarPaciente(id, token){
+  $.ajax({
+    headers: {
+      'X-CSRF-TOKEN': token
+    },
+    url: '/paciente/' + id,
+    method: 'GET',
+    // data:{
+    //   "_method": "PUT"
+    // },
+    success: function(result) {
     }
 });
 }

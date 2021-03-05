@@ -1,13 +1,13 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Formulario en laravel</title>
+        <title>Crear Paciente</title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
 <body>
     <div class="container">
         <div class="col-sm-8">
-            <h1>Formulario en laravel</h1>
+            <h1>Crear Paciente</h1>
             <form action="{{url('paciente')}}" method="POST">
             @csrf
                 <div class="form-group row">
@@ -44,5 +44,6 @@
                     </div>
                 </div>
             </form>
+            <a href="{{ URL::previous() }}">Go Back</a>
 </body>
 </html>

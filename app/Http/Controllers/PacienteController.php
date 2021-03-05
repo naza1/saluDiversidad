@@ -42,12 +42,31 @@ class PacienteController extends Controller
         $paciente->nivelEducativo = $request->get('nivelEducativo');
         $paciente->isActive = $request->get('isActive');
         $paciente->save();
-        return redirect('/paciente/create')->with('message','Guardado Satisfactoriamente !');
+
+        return redirect('/paciente');
     }
 
     public function destroy($id)
     {
         DB::table('pacientes')->delete($id);
-        return ('Paciente eliminado!!!');
+
+        return redirect('/paciente');
+    }
+
+    public function show($id)
+    {
+        $paciente = Paciente::find($id);
+        return view('paciente.edit', ['paciente'=>$paciente]);
+    }
+
+    public function update(PacienteCreateRequest $request)
+    {
+        $paciente = Paciente::find($request->id);
+        $paciente->Nombre = $request->nombre;
+        $paciente->Apellido = $request->apellido;
+        $paciente->Dni = $request->dni;
+        $paciente->Email = $request->email;
+        $paciente->save();
+        return redirect('/paciente');
     }
 }

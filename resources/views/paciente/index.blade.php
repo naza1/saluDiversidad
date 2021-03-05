@@ -37,7 +37,8 @@
               <td>{{$paciente->SocialWork}}</td>
               <td>{{$paciente->State}}</td>
               <td>
-              <a href="#" onclick="eliminarPaciente('{{$paciente->Id}}', '{{ csrf_token() }}')" class="btn btn-xs btn-danger btn-delete">Eliminar</a>
+              <a href="#" onclick="eliminarPaciente('{{$paciente->id}}', '{{ csrf_token() }}')" class="btn btn-xs btn-danger btn-delete">Eliminar</a>
+              <a href="{{ url('paciente/'.$paciente->id) }}" class="btn btn-xs btn-danger btn-delete">Editar</a>
               </td>
             </tr>
             @endforeach
