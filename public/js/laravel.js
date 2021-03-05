@@ -13,18 +13,3 @@ function eliminarPaciente(id, token){
     }
 });
 }
-
-function editarPaciente(id, token){
-  $.ajax({
-    headers: {
-      'X-CSRF-TOKEN': token
-    },
-    url: '/paciente/' + id,
-    method: 'GET',
-    // data:{
-    //   "_method": "PUT"
-    // },
-    success: function(result) {
-    }
-});
-}
