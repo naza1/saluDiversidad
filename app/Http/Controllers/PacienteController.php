@@ -9,6 +9,11 @@ use DB;
 
 class PacienteController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     public function index()
     {
         $pacientes['pacientes'] = Paciente::paginate(3);
