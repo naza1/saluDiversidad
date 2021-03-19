@@ -13,12 +13,18 @@ class PacienteController extends Controller
     {
         $this->middleware('auth');
     }
-    
-    public function index()
-    {
-        $pacientes['pacientes'] = Paciente::paginate(3);
 
-        return view('paciente.index', $pacientes);
+    public function index(Request $request)
+    {
+        $texto = trim($request->get('texto'));
+        $pacientes=DB::table('pacientes')
+        ->select('Id', 'Nombre', 'Apellido', 'Dni', 'Email', 'NroHistorial', 'Address', 'City', 'PostalCode', 'Country', 'Nationality', 'SocialWork', 'State', 'id')
+        ->where('Nombre', 'LIKE','%'.$texto.'%')
+        ->orwhere('Apellido', 'LIKE','%'.$texto.'%')
+        ->orderBy('Nombre', 'desc')
+        ->paginate(10);
+
+        return view('paciente.index', compact('pacientes', 'texto'));
     }
 
     public function create()
