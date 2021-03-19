@@ -77,6 +77,18 @@ class PacienteController extends Controller
         $paciente->Apellido = $request->apellido;
         $paciente->Dni = $request->dni;
         $paciente->Email = $request->email;
+        $paciente->NroHistorial = $request->nroHistorial;
+        $paciente->Address = $request->address;
+        $paciente->City = $request->city;
+        $paciente->PostalCode = $request->postalCode;
+        $paciente->Country = $request->country;
+        $paciente->Nationality = $request->nationality;
+        $paciente->SocialWork = $request->socialWork;
+        $paciente->NroAfiliado = $request->nroAfiliado;
+        $paciente->State = $request->state;
+        $paciente->Genero = $request->genero;
+        $paciente->Pronombre = $request->pronombre;
+        $paciente->NivelEducativo = $request->nivelEducativo;
         $paciente->save();
         return redirect('/paciente');
     }
