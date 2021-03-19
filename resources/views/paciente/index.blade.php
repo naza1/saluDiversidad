@@ -26,6 +26,7 @@
           </form>
         </div>
         <div class="panel-body">
+        <p class="text-right"><a class="btn btn-primary" href="{{ url('paciente/create') }}">Crear</a></p>
           <table class="table table-bordered">
             <thead>
               <th class="">Nombre</th>
@@ -69,8 +70,8 @@
             @endforeach
             </tbody>
           </table>
+          {{$pacientes->links()}}
         </div>
-        <p class="text-right"><a class="btn btn-primary" href="{{ url('paciente/create') }}">Crear</a></p>
       </div>
     </div>
   </div>
