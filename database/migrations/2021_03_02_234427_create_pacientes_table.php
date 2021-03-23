@@ -16,22 +16,22 @@ class CreatePacientesTable extends Migration
         Schema::create('pacientes', function (Blueprint $table) {
             $table->mediumIncrements('id');
             $table->timestamps();
-            $table->string('Nombre', 255);
-            $table->string('Apellido', 255);
-            $table->string('Dni', 50);
-            $table->string('Email', 255);
-            $table->string('NroHistorial', 50);
-            $table->string('Address', 255);
-            $table->string('City', 255);
-            $table->string('PostalCode', 255);
-            $table->string('Country', 255);
-            $table->string('Nationality', 255);
-            $table->string('SocialWork', 255);
-            $table->string('NroAfiliado', 255);
-            $table->string('State', 255);
-            $table->string('Genero', 255);
-            $table->string('Pronombre', 255);
-            $table->string('NivelEducativo', 255);
+            $table->string('Nombre', 255)->nullable();
+            $table->string('Apellido', 255)->nullable();
+            $table->string('Dni', 50)->nullable();
+            $table->string('Email', 255)->nullable();
+            $table->string('NroHistorial', 50)->nullable();
+            $table->string('Address', 255)->nullable();
+            $table->string('City', 255)->nullable();
+            $table->string('PostalCode', 255)->nullable();
+            $table->string('Country', 255)->nullable();
+            $table->string('Nationality', 255)->nullable();
+            $table->string('SocialWork', 255)->nullable();
+            $table->string('NroAfiliado', 255)->nullable();
+            $table->string('State', 255)->nullable();
+            $table->string('Genero', 255)->nullable();
+            $table->string('Pronombre', 255)->nullable();
+            $table->string('NivelEducativo', 255)->nullable();
             $table->string('IsActive', true);
         });
     }

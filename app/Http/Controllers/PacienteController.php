@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Paciente;
+use App\Models\Genero;
 use App\Http\Requests\PacienteCreateRequest;
 use DB;
 
@@ -29,7 +30,8 @@ class PacienteController extends Controller
 
     public function create()
     {
-        return view('paciente.create');
+        $generos = Genero::all();
+        return view('paciente.create', compact('generos'));
     }
 
     public function store(PacienteCreateRequest $request)
@@ -51,7 +53,7 @@ class PacienteController extends Controller
         $paciente->genero = $request->get('genero');
         $paciente->pronombre = $request->get('pronombre');
         $paciente->nivelEducativo = $request->get('nivelEducativo');
-        $paciente->isActive = $request->get('isActive');
+        $paciente->isActive = true;
         $paciente->save();
 
         return redirect('/paciente');
@@ -67,7 +69,9 @@ class PacienteController extends Controller
     public function show($id)
     {
         $paciente = Paciente::find($id);
-        return view('paciente.edit', ['paciente'=>$paciente]);
+        $generos = Genero::all();
+
+        return view('paciente.edit', ['paciente'=>$paciente, 'generos'=>$generos]);
     }
 
     public function update(PacienteCreateRequest $request)

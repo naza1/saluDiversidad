@@ -49,7 +49,12 @@
                 <div class="form-group row">
                     <label for="genero" class="col-sm-2 col-form-label">Genero</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="genero" name="genero" placeholder="Genero">
+                        <select class="form-control" id="genero" name="genero">
+                            <option value="">-- Escoja el Genero --</option>
+                            @foreach($generos as $genero)
+                                <option value="{{ $genero['Nombre'] }}" required>{{$genero['Nombre']}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
 
