@@ -1,0 +1,27 @@
+@font-face {font-family: "Museo Sans 100"; src: url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.eot"); src: url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.woff") format("woff"), url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.svg#Museo Sans 100") format("svg"); }
+body{
+font-family: "Museo Sans 100", sans-serif !important;
+font-style: normal;
+font-weight: 500;
+}
+.logo {
+    position: static;
+    float: left;
+    width: 50%;
+    text-align: center;
+    margin: 0;
+}
+.card-header-gvf
+{
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+    background-color: #B91817;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+    color:#fff;
+}
+
+.btn-primary-gvf {
+    color: #fff;
+    background-color: #9ED115;
+    border-color: #9ED115;
+}
