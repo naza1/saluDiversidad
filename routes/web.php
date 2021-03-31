@@ -19,6 +19,13 @@ Route::get('/', function () {
 
 Route::resource('/paciente', 'App\Http\Controllers\PacienteController');
 
+Route::get('/changePassword', function() {
+     return view('auth.passwords.email');
+});
+
+Route::get('/homePaciente', function() {
+    return view('paciente');
+});
 
 Auth::routes();
 

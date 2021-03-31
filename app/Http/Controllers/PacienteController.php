@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Paciente;
 use App\Models\Genero;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\PacienteCreateRequest;
 use DB;
 
@@ -13,6 +15,8 @@ class PacienteController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('RoleViews');
+        
     }
 
     public function index(Request $request)
@@ -36,6 +40,14 @@ class PacienteController extends Controller
 
     public function store(PacienteCreateRequest $request)
     {
+        $userAdmin = User::create([
+            'name' => $request->get('nombre'),
+            'email' => $request->get('email'),
+            'password' => Hash::make('123456'),
+            'fullacces' => 'no',
+            'codigo' => 'paciente'
+        ]);
+
         $paciente = new Paciente;
         $paciente->nombre = $request->get('nombre');
         $paciente->apellido = $request->get('apellido');
@@ -54,6 +66,7 @@ class PacienteController extends Controller
         $paciente->pronombre = $request->get('pronombre');
         $paciente->nivelEducativo = $request->get('nivelEducativo');
         $paciente->isActive = true;
+        $paciente->UserId=$userAdmin->id;
         $paciente->save();
 
         return redirect('/paciente');
@@ -61,7 +74,10 @@ class PacienteController extends Controller
 
     public function destroy($id)
     {
+        $paciente = Paciente::find($id);
+
         DB::table('pacientes')->delete($id);
+        DB::table('users')->delete($paciente->UserId);
 
         return redirect('/paciente');
     }
