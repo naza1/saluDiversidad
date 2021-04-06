@@ -52,7 +52,7 @@
                 <div class="form-group row">
                     <label for="genero" class="col-sm-2 col-form-label">Genero</label>
                     <div class="col-sm-10">
-                    <select class="form-control" id="genero" name="genero">
+                    <select class="form-control" id="genero" name="genero" {{$paciente->Genero ? 'disabled':''}}>
                             <option value="{{$paciente->Genero}}">{{$paciente->Genero}}</option>
                             @foreach($generos as $genero)
                                 <option value="{{ $genero['Nombre'] }}" required>{{$genero['Nombre']}}</option>

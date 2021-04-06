@@ -9,6 +9,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\PacienteCreateRequest;
 use DB;
+use Illuminate\Support\Facades\Auth;
 
 class PacienteController extends Controller
 {
@@ -26,6 +27,7 @@ class PacienteController extends Controller
         ->select('Id', 'Nombre', 'Apellido', 'Dni', 'Email', 'NroHistorial', 'Address', 'City', 'PostalCode', 'Country', 'Nationality', 'SocialWork', 'State', 'id')
         ->where('Nombre', 'LIKE','%'.$texto.'%')
         ->orwhere('Apellido', 'LIKE','%'.$texto.'%')
+        ->where('FatherUserId', '=', auth::user()->id)
         ->orderBy('Nombre', 'desc')
         ->paginate(10);
 
@@ -40,36 +42,43 @@ class PacienteController extends Controller
 
     public function store(PacienteCreateRequest $request)
     {
-        $userAdmin = User::create([
-            'name' => $request->get('nombre'),
-            'email' => $request->get('email'),
-            'password' => Hash::make('123456'),
-            'fullacces' => 'no',
-            'codigo' => 'paciente'
-        ]);
+        try
+        {
+            $user = User::create([
+                'name' => $request->get('nombre'),
+                'email' => $request->get('email'),
+                'password' => Hash::make('123456'),
+                'fullacces' => 'no',
+                'codigo' => 'paciente'
+            ]);
 
-        $paciente = new Paciente;
-        $paciente->nombre = $request->get('nombre');
-        $paciente->apellido = $request->get('apellido');
-        $paciente->dni = $request->get('dni');
-        $paciente->email = $request->get('email');
-        $paciente->nroHistorial = $request->get('nroHistorial');
-        $paciente->address = $request->get('address');
-        $paciente->city = $request->get('city');
-        $paciente->postalCode = $request->get('postalCode');
-        $paciente->country = $request->get('country');
-        $paciente->nationality = $request->get('nationality');
-        $paciente->socialWork = $request->get('socialWork');
-        $paciente->nroAfiliado = $request->get('nroAfiliado');
-        $paciente->state = $request->get('state');
-        $paciente->genero = $request->get('genero');
-        $paciente->pronombre = $request->get('pronombre');
-        $paciente->nivelEducativo = $request->get('nivelEducativo');
-        $paciente->isActive = true;
-        $paciente->UserId=$userAdmin->id;
-        $paciente->save();
+            $paciente = new Paciente;
+            $paciente->nombre = $request->get('nombre');
+            $paciente->apellido = $request->get('apellido');
+            $paciente->dni = $request->get('dni');
+            $paciente->email = $request->get('email');
+            $paciente->nroHistorial = $request->get('nroHistorial');
+            $paciente->address = $request->get('address');
+            $paciente->city = $request->get('city');
+            $paciente->postalCode = $request->get('postalCode');
+            $paciente->country = $request->get('country');
+            $paciente->nationality = $request->get('nationality');
+            $paciente->socialWork = $request->get('socialWork');
+            $paciente->nroAfiliado = $request->get('nroAfiliado');
+            $paciente->state = $request->get('state');
+            $paciente->genero = $request->get('genero');
+            $paciente->pronombre = $request->get('pronombre');
+            $paciente->nivelEducativo = $request->get('nivelEducativo');
+            $paciente->isActive = true;
+            $paciente->UserId=$user->id;
+            $paciente->FatherUserId = auth::user()->id;
+            $paciente->save();
 
-        return redirect('/paciente');
+            return redirect('/paciente');
+        }
+        catch(Exception $e){
+            echo 'Excepción capturada: ',  $e->getMessage(), "\n";
+        }
     }
 
     public function destroy($id)

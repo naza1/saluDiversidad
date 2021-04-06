@@ -34,6 +34,7 @@ class CreatePacientesTable extends Migration
             $table->string('NivelEducativo', 255)->nullable();
             $table->string('IsActive', true);
             $table->string('UserId', 255);
+            $table->string('FatherUserId', 255);
         });
     }
 
