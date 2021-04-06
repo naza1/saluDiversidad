@@ -29,4 +29,6 @@ Route::get('/homePaciente', function() {
 
 Auth::routes();
 
+Route::get('/showPaciente/{id}','App\Http\Controllers\PacienteController@showPaciente');
+
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

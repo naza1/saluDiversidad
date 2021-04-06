@@ -87,7 +87,15 @@ class PacienteController extends Controller
         $paciente = Paciente::find($id);
         $generos = Genero::all();
 
-        return view('paciente.edit', ['paciente'=>$paciente, 'generos'=>$generos]);
+        return view('paciente.editAdmin', ['paciente'=>$paciente, 'generos'=>$generos]);
+    }
+
+    public function showPaciente($id)
+    {
+        $paciente = Paciente::find($id);
+        $generos = Genero::all();
+
+        return view('editPaciente', ['paciente'=>$paciente, 'generos'=>$generos]);
     }
 
     public function update(PacienteCreateRequest $request)
