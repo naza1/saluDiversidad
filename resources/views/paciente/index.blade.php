@@ -65,6 +65,7 @@
                 <button type="submit" class="btn btn-xs btn-danger btn-delete">Eliminar</button>
               </form>
               <a href="{{ url('paciente/'.$paciente->id) }}" class="btn btn-xs btn-danger btn-delete">Editar</a>
+              <a href="#" class="btn btn-xs btn-danger btn-delete">Recetar</a>
               </td>
             </tr>
             @endforeach

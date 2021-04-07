@@ -18,9 +18,14 @@ Route::get('/', function () {
 });
 
 Route::resource('/paciente', 'App\Http\Controllers\PacienteController');
+Route::resource('/receta', 'App\Http\Controllers\RecetaController');
 
 Route::get('/changePassword', function() {
      return view('auth.passwords.email');
+});
+
+Route::get('/dashboardAdmin', function(){
+    return view('dashboardAdmin');
 });
 
 Route::get('/homePaciente', function() {
