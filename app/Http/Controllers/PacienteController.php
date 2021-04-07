@@ -16,8 +16,6 @@ class PacienteController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('RoleViews');
-        
     }
 
     public function index(Request $request)
@@ -44,6 +42,13 @@ class PacienteController extends Controller
     {
         try
         {
+            $data = $request->validate([
+                'email' => ['Required', 'email', 'unique:users,email']
+            ]);
+            $data = $request->validate([
+                'email' => ['Required', 'email', 'unique:pacientes,email']
+            ]);
+
             $user = User::create([
                 'name' => $request->get('nombre'),
                 'email' => $request->get('email'),
@@ -109,6 +114,13 @@ class PacienteController extends Controller
 
     public function update(PacienteCreateRequest $request)
     {
+        // $data = $request->validate([
+        //     'email' => ['Required', 'email', 'unique:users,email']
+        // ]);
+        // $data = $request->validate([
+        //     'email' => ['Required', 'email', 'unique:pacientes,email']
+        // ]);
+
         $paciente = Paciente::find($request->id);
         $paciente->Nombre = $request->nombre;
         $paciente->Apellido = $request->apellido;
@@ -127,6 +139,10 @@ class PacienteController extends Controller
         $paciente->Pronombre = $request->pronombre;
         $paciente->NivelEducativo = $request->nivelEducativo;
         $paciente->save();
-        return redirect('/paciente');
+
+        if(auth::user()->fullacces == 'yes')
+            return redirect('/paciente');
+        else
+            return redirect()->to('homePaciente')->with('paciente', $request->id);
     }
 }
