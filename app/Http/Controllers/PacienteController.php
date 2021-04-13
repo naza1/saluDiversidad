@@ -10,6 +10,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\PacienteCreateRequest;
 use DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Validator;
 
 class PacienteController extends Controller
 {
@@ -25,7 +27,7 @@ class PacienteController extends Controller
         ->select('Id', 'Nombre', 'Apellido', 'Dni', 'Email', 'NroHistorial', 'Address', 'City', 'PostalCode', 'Country', 'Nationality', 'SocialWork', 'State', 'id')
         ->where('Nombre', 'LIKE','%'.$texto.'%')
         ->orwhere('Apellido', 'LIKE','%'.$texto.'%')
-        ->where('FatherUserId', '=', auth::user()->id)
+        //->where('FatherUserId', '=', auth::user()->id)
         ->orderBy('Nombre', 'desc')
         ->paginate(10);
 
@@ -42,19 +44,16 @@ class PacienteController extends Controller
     {
         try
         {
-            $data = $request->validate([
-                'email' => ['Required', 'email', 'unique:users,email']
-            ]);
-            $data = $request->validate([
-                'email' => ['Required', 'email', 'unique:pacientes,email']
-            ]);
-
             $user = User::create([
                 'name' => $request->get('nombre'),
                 'email' => $request->get('email'),
                 'password' => Hash::make('123456'),
                 'fullacces' => 'no',
                 'codigo' => 'paciente'
+            ]);
+
+            $data = $request->validate([
+                'dni' => ['Required', 'dni', 'unique:pacientes,Dni']
             ]);
 
             $paciente = new Paciente;

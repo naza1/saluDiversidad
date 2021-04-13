@@ -22,7 +22,7 @@ class CreateUsersTable extends Migration
             $table->rememberToken();
             $table->timestamps();
             $table->enum('fullacces', ['yes','no'])->nullable();
-            $table->string('codigo');
+            $table->string('codigo')->nullable();
         });
     }
 

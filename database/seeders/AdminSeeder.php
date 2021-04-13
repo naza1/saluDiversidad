@@ -22,5 +22,13 @@ class AdminSeeder extends Seeder
             'fullacces' => 'yes',
             'codigo' => 'admin'
         ]);
+
+        $userAdmin=User::create([
+            'name' => 'Admin2',
+            'email' => 'admin2@mail.com',
+            'password' => Hash::make('admin'),
+            'fullacces' => 'yes',
+            'codigo' => 'admin'
+        ]);
     }
 }

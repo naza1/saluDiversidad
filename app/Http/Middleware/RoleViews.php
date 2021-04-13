@@ -26,11 +26,12 @@ class RoleViews
         {
             return redirect()->to('changePassword');
         }
-
+        
         if($request->path() == 'home')
         {    
             $paciente = DB::table('pacientes')
-            ->where('UserId','=', auth::user()->id)
+            //->where('UserId','=', auth::user()->id)
+            ->orderBy('id', 'desc')
             ->first();
             
             return redirect()->to('homePaciente')->with('paciente', $paciente->id);

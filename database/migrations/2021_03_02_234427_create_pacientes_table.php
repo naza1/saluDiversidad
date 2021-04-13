@@ -33,8 +33,8 @@ class CreatePacientesTable extends Migration
             $table->string('Pronombre', 255)->nullable();
             $table->string('NivelEducativo', 255)->nullable();
             $table->string('IsActive', true);
-            $table->string('UserId', 255);
-            $table->string('FatherUserId', 255);
+            $table->string('UserId', 255)->nullable();
+            $table->string('FatherUserId', 255)->nullable();
         });
     }
 
