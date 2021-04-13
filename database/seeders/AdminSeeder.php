@@ -18,6 +18,7 @@ class AdminSeeder extends Seeder
         $userAdmin=User::create([
             'name' => 'Admin',
             'email' => 'admin@mail.com',
+            'email_verified_at' => date("Y-m-d H:i:s"),
             'password' => Hash::make('admin'),
             'fullacces' => 'yes',
             'codigo' => 'admin'
@@ -26,6 +27,7 @@ class AdminSeeder extends Seeder
         $userAdmin=User::create([
             'name' => 'Admin2',
             'email' => 'admin2@mail.com',
+            'email_verified_at' => date("Y-m-d H:i:s"),
             'password' => Hash::make('admin'),
             'fullacces' => 'yes',
             'codigo' => 'admin'

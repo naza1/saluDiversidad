@@ -33,7 +33,8 @@ Route::get('/homePaciente', function() {
 });
 
 Auth::routes();
+Auth::routes(['verify' => true]);
 
-Route::get('/showPaciente/{id}','App\Http\Controllers\PacienteController@showPaciente');
+Route::get('/showPaciente/{id}','App\Http\Controllers\PacienteController@showPaciente')->middleware('verified');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
