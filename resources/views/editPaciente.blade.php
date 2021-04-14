@@ -9,10 +9,23 @@
     <div class="container">
         <div class="col-sm-8">
             <h1>Editar Datos</h1>
-            <form action="{{ url('paciente/' .$paciente->id) }}" method="post">
+            <form action="{{ url('paciente/' .$paciente->id) }}" method="post" enctype="multipart/form-data">
             @csrf
             {{ method_field('PUT') }}
                 <input name="id" value="{{$paciente->id}}" type="hidden">
+
+                <div class="form-group row">
+                    <label for="imagen" class="col-sm-2 col-form-label">Subir imagen</label>
+                    <div class="col-sm-10">
+                        <!-- <form action=""> -->
+                            <input type="file" name="perfilFoto" id="perfilFoto" accept="image/*" value="{{$paciente->ImageUrl}}">
+                            @error('perfilFoto')
+                                <small class="text-danger">{{$message}}</small>
+                            @enderror
+                        <!-- </form> -->
+                    </div>
+                    <div><img src="{{url($paciente->ImageUrl)}}"></div>
+                </div>
 
                 <div class="form-group row">
                     <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>

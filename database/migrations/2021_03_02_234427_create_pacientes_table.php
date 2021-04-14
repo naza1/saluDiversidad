@@ -35,6 +35,7 @@ class CreatePacientesTable extends Migration
             $table->string('IsActive')->default('1');
             $table->string('UserId', 255)->nullable();
             $table->string('FatherUserId', 255)->nullable();
+            $table->string('ImageUrl', 255)->nullable();
         });
     }
 

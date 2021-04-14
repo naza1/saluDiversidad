@@ -12,6 +12,7 @@ use DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
 
 class PacienteController extends Controller
 {
@@ -119,17 +120,22 @@ class PacienteController extends Controller
 
     public function update(PacienteCreateRequest $request)
     {
-        $data = $request->validate([
-            'email' =>['Required', 'email', 'unique:users,Email'],
-            'dni' => 'required|unique:users|max:255',
-        ]);
+        // $data = $request->validate([
+        //     'email' =>['Required', 'email', 'unique:users,Email'],
+        //     'dni' => 'required|unique:users|max:255',
+        //     'perfilFoto' => 'image|max:2048',
+        // ]);
 
-        $data = $request->validate([
-            'email' =>['Required', 'email', 'unique:pacientes,Email'],
-            'dni' => 'required|unique:pacientes|max:255',
-        ]);
-        
         $paciente = Paciente::find($request->id);
+
+        if($request->perfilFoto != null)
+        {
+            $imageUrl = $request->file('perfilFoto')->store('public/imagenes/'. $request->dni);
+            $url = Storage::url($imageUrl);
+        }
+        else
+            $url = $paciente->ImageUrl;
+
         $paciente->Nombre = $request->nombre;
         $paciente->Apellido = $request->apellido;
         $paciente->Dni = $request->dni;
@@ -146,6 +152,7 @@ class PacienteController extends Controller
         $paciente->Genero = $request->genero;
         $paciente->Pronombre = $request->pronombre;
         $paciente->NivelEducativo = $request->nivelEducativo;
+        $paciente->ImageUrl = $url ?? "";
         $paciente->save();
 
         if(auth::user()->fullacces == 'yes')
