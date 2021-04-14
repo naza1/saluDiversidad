@@ -27,7 +27,6 @@ class PacienteController extends Controller
         ->select('Id', 'Nombre', 'Apellido', 'Dni', 'Email', 'NroHistorial', 'Address', 'City', 'PostalCode', 'Country', 'Nationality', 'SocialWork', 'State', 'id')
         ->where('Nombre', 'LIKE','%'.$texto.'%')
         ->orwhere('Apellido', 'LIKE','%'.$texto.'%')
-        //->where('FatherUserId', '=', auth::user()->id)
         ->orderBy('Nombre', 'desc')
         ->paginate(10);
 
@@ -44,16 +43,23 @@ class PacienteController extends Controller
     {
         try
         {
-            $user = User::create([
-                'name' => $request->get('nombre'),
-                'email' => $request->get('email'),
-                'password' => Hash::make('123456'),
-                'fullacces' => 'no',
-                'codigo' => 'paciente'
+            $data = $request->validate([
+                'email' =>['Required', 'email', 'unique:users,Email'],
+                'dni' => 'required|unique:users|max:255',
             ]);
 
             $data = $request->validate([
-                'dni' => ['Required', 'dni', 'unique:pacientes,Dni']
+                'email' =>['Required', 'email', 'unique:pacientes,Email'],
+                'dni' => 'required|unique:pacientes|max:255',
+            ]);
+
+            $user = User::create([
+                'name' => $request->get('nombre'),
+                'email' => $request->get('email'),
+                'dni' => $request->get('dni'),
+                'password' => Hash::make('123456'),
+                'fullacces' => 'no',
+                'codigo' => 'paciente'
             ]);
 
             $paciente = new Paciente;
@@ -113,13 +119,16 @@ class PacienteController extends Controller
 
     public function update(PacienteCreateRequest $request)
     {
-        // $data = $request->validate([
-        //     'email' => ['Required', 'email', 'unique:users,email']
-        // ]);
-        // $data = $request->validate([
-        //     'email' => ['Required', 'email', 'unique:pacientes,email']
-        // ]);
+        $data = $request->validate([
+            'email' =>['Required', 'email', 'unique:users,Email'],
+            'dni' => 'required|unique:users|max:255',
+        ]);
 
+        $data = $request->validate([
+            'email' =>['Required', 'email', 'unique:pacientes,Email'],
+            'dni' => 'required|unique:pacientes|max:255',
+        ]);
+        
         $paciente = Paciente::find($request->id);
         $paciente->Nombre = $request->nombre;
         $paciente->Apellido = $request->apellido;

@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration
             $table->timestamps();
             $table->enum('fullacces', ['yes','no'])->nullable();
             $table->string('codigo')->nullable();
+            $table->string('dni')->unique();
         });
     }
 

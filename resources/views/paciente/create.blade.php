@@ -38,7 +38,7 @@
                 <div class="form-group row">
                     <label for="dni" class="col-sm-2 col-form-label">Dni</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="dni" value="{{old('dni')}}" name="dni" maxlength="250" placeholder="Dni">
+                        <input type="text" class="form-control" id="dni" value="{{old('dni')}}" name="dni" maxlength="250" placeholder="Dni" required>
                     </div>
                 </div>
 

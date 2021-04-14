@@ -21,7 +21,8 @@ class AdminSeeder extends Seeder
             'email_verified_at' => date("Y-m-d H:i:s"),
             'password' => Hash::make('admin'),
             'fullacces' => 'yes',
-            'codigo' => 'admin'
+            'codigo' => 'admin',
+            'dni' => '54321'
         ]);
 
         $userAdmin=User::create([
@@ -30,7 +31,8 @@ class AdminSeeder extends Seeder
             'email_verified_at' => date("Y-m-d H:i:s"),
             'password' => Hash::make('admin'),
             'fullacces' => 'yes',
-            'codigo' => 'admin'
+            'codigo' => 'admin',
+            'dni' => '12345'
         ]);
     }
 }

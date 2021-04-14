@@ -53,6 +53,7 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'dni' => ['required', 'string', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
     }
@@ -65,18 +66,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $paciente = new Paciente;
-        $paciente->nombre = $data['name'];
-        $paciente->email = $data['email'];
-        $paciente->isActive = true;
-        $paciente->save();
+        Paciente::create([
+            'nombre' => $data['name'],
+            'email' => $data['email'],
+            'dni' => $data['dni'],
+            'isActive' => 1,
+        ]);
 
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'fullacces' => 'no',
-            'codigo' => 'paciente'
+            'codigo' => 'paciente',
+            'dni' => $data['dni'],
         ]);
     }
 }

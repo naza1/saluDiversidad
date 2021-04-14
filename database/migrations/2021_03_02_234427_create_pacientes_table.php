@@ -18,7 +18,7 @@ class CreatePacientesTable extends Migration
             $table->timestamps();
             $table->string('Nombre', 255)->nullable();
             $table->string('Apellido', 255)->nullable();
-            $table->string('Dni', 50)->nullable();
+            $table->string('Dni', 50);
             $table->string('Email', 255)->nullable();
             $table->string('NroHistorial', 50)->nullable();
             $table->string('Address', 255)->nullable();
@@ -32,7 +32,7 @@ class CreatePacientesTable extends Migration
             $table->string('Genero', 255)->nullable();
             $table->string('Pronombre', 255)->nullable();
             $table->string('NivelEducativo', 255)->nullable();
-            $table->string('IsActive', true);
+            $table->string('IsActive')->default('1');
             $table->string('UserId', 255)->nullable();
             $table->string('FatherUserId', 255)->nullable();
         });
