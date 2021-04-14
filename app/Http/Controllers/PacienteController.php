@@ -80,6 +80,8 @@ class PacienteController extends Controller
             $paciente->genero = $request->get('genero');
             $paciente->pronombre = $request->get('pronombre');
             $paciente->nivelEducativo = $request->get('nivelEducativo');
+            $paciente->telefono = $request->get('telefono');
+            $paciente->telefono_alternativo = $request->get('telefono_alternativo');
             $paciente->isActive = true;
             $paciente->UserId=$user->id;
             $paciente->FatherUserId = auth::user()->id;
@@ -153,6 +155,8 @@ class PacienteController extends Controller
         $paciente->Pronombre = $request->pronombre;
         $paciente->NivelEducativo = $request->nivelEducativo;
         $paciente->ImageUrl = $url ?? "";
+        $paciente->telefono = $request->telefono;
+        $paciente->telefono_alternativo = $request->telefono_alternativo;
         $paciente->save();
 
         if(auth::user()->fullacces == 'yes')

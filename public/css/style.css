@@ -25,3 +25,9 @@ font-weight: 500;
     background-color: #9ED115;
     border-color: #9ED115;
 }
+th
+{
+    background-color: #8ACFDD;
+    color: #fff;
+    font-weight: 700;
+}

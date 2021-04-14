@@ -36,7 +36,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="dni" class="col-sm-2 col-form-label">Dni</label>
+                    <label for="dni" class="col-sm-2 col-form-label">DNI</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="dni" value="{{old('dni')}}" name="dni" maxlength="250" placeholder="Dni" required>
                     </div>
@@ -48,6 +48,19 @@
                         <input type="text" class="form-control" id="email" name="email" value="{{old('email')}}" maxlength="250" placeholder="email" required>
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="email" class="col-sm-2 col-form-label">Telefóno</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="telefono" name="telefono" value="{{old('telefono')}}" maxlength="250" placeholder="telefono" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="email" class="col-sm-2 col-form-label">Telefóno alternativo</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="telefono_alternativo" name="telefono_alternativo" value="{{old('telefono_alternativo')}}" maxlength="250" placeholder="telefono alternativo">
+                    </div>
+                </div>
+
 
                 <div class="form-group row">
                     <label for="pronombre" class="col-sm-2 col-form-label">Pronombre</label>
@@ -57,7 +70,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="genero" class="col-sm-2 col-form-label">Genero</label>
+                    <label for="genero" class="col-sm-2 col-form-label">Género</label>
                     <div class="col-sm-10">
                         <select class="form-control" id="genero" name="genero" value="{{old('genero')}}">
                             <option value="">-- Escoja el Genero --</option>
@@ -81,16 +94,22 @@
                         <input type="text" class="form-control" id="nivelEducativo" name="nivelEducativo" value="{{old('nivelEducativo')}}" maxlength="250" placeholder="Educación">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="socialWork" class="col-sm-2 col-form-label">Obra social</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="socialWork" name="socialWork" value="{{old('socialWork')}}" maxlength="250" placeholder="Obra social">
+                    </div>
+                </div>
 
                 <div class="form-group row">
-                    <label for="nroAfiliado" class="col-sm-2 col-form-label"># Afiliado</label>
+                    <label for="nroAfiliado" class="col-sm-2 col-form-label">Nro de Afiliado</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="nroAfiliado" name="nroAfiliado" value="{{old('nroAfiliado')}}" maxlength="250" placeholder="# Afiliado">
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="nroHistorial" class="col-sm-2 col-form-label"># Historial</label>
+                    <label for="nroHistorial" class="col-sm-2 col-form-label">Nro de historia clínica</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="nroHistorial" name="nroHistorial" value="{{old('nroHistorial')}}" maxlength="250" placeholder="# Historial">
                     </div>
@@ -131,12 +150,7 @@
                     </div>
                 </div>
 
-                <div class="form-group row">
-                    <label for="socialWork" class="col-sm-2 col-form-label">Obra social</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="socialWork" name="socialWork" value="{{old('socialWork')}}" maxlength="250" placeholder="Obra social">
-                    </div>
-                </div>
+                
                 
                 <div class="form-group row">
                     <div class="col-sm-10">

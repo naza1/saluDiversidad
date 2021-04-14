@@ -39,7 +39,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="dni" class="col-sm-2 col-form-label">Dni</label>
+                    <label for="dni" class="col-sm-2 col-form-label">DNI</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="dni" name="dni" maxlength="250" placeholder="Dni" value="{{$paciente->Dni}}">
                     </div>
@@ -51,6 +51,18 @@
                         <input type="text" class="form-control" id="email" name="email" maxlength="250" placeholder="email" value="{{$paciente->Email}}">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="email" class="col-sm-2 col-form-label">Telefóno</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="telefono" name="telefono" value="{{$paciente->telefono}}" maxlength="250" placeholder="telefono" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="email" class="col-sm-2 col-form-label">Telefóno alternativo</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="telefono_alternativo" name="telefono_alternativo" value="{{$paciente->telefono_alternativo}}" maxlength="250" placeholder="telefono alternativo" required>
+                    </div>
+                </div>
 
                 <div class="form-group row">
                     <label for="pronombre" class="col-sm-2 col-form-label">Pronombre</label>
@@ -60,7 +72,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="genero" class="col-sm-2 col-form-label">Genero</label>
+                    <label for="genero" class="col-sm-2 col-form-label">Género</label>
                     <div class="col-sm-10">
                     <select class="form-control" id="genero" name="genero">
                             <option value="{{$paciente->Genero}}">{{$paciente->Genero}}</option>
@@ -86,7 +98,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="nroAfiliado" class="col-sm-2 col-form-label"># Afiliado</label>
+                    <label for="nroAfiliado" class="col-sm-2 col-form-label">Nro de afiliado</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="nroAfiliado" maxlength="250" name="nroAfiliado" placeholder="# Afiliado" value="{{$paciente->NroAfiliado}}">
                     </div>
