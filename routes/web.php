@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,16 +26,18 @@ Route::get('/changePassword', function() {
      return view('auth.passwords.email');
 });
 
+Auth::routes();
+Auth::routes(['verify' => true]);
+
 Route::get('/dashboardAdmin', function(){
-    return view('dashboardAdmin');
+    if(auth::user()->fullacces == 'yes')
+        return view('dashboardAdmin');
+    return view('paciente');
 });
 
 Route::get('/homePaciente', function() {
     return view('paciente');
 });
-
-Auth::routes();
-Auth::routes(['verify' => true]);
 
 Route::get('/showPaciente','App\Http\Controllers\PacienteController@showPaciente')->middleware('verified');
 
