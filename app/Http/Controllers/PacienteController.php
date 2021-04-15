@@ -25,7 +25,6 @@ class PacienteController extends Controller
     {
         $texto = trim($request->get('texto'));
         $pacientes=DB::table('pacientes')
-        ->select('Nombre', 'Apellido', 'Dni', 'Email', 'NroHistorial', 'Address', 'City', 'PostalCode', 'Country', 'Nationality', 'SocialWork', 'State', 'id','telefono','telefono_alternativo','Genero','Pronombre','created_at')
         ->where('Nombre', 'LIKE','%'.$texto.'%')
         ->orwhere('Apellido', 'LIKE','%'.$texto.'%')
         ->orwhere('Dni', 'LIKE','%'.$texto.'%')
