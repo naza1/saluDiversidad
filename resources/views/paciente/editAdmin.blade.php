@@ -29,7 +29,13 @@
                     </ul>
                 </div>
             @endif
-
+            <div class="row d-flex justify-content-center">
+            @if($paciente->ImageUrl != null)
+            <div class="card justify-content-center" style="width: 18rem;">
+                <img class="card-img-top" src="{{url($paciente->ImageUrl)}}" alt="Imagen de perfil"></div>
+                    @endif
+            </div>        
+           
             <form action="{{ url('paciente/' .$paciente->id) }}" method="post">
             @csrf
             {{ method_field('PUT') }}
@@ -104,7 +110,7 @@
                 <div class="card-header text-white bg-info mb-3">Datos de contacto</div>
                
                 <div class="card-body">
-
+                
                   <div class="form-group row">
                     <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
                     <div class="col-md-6">
