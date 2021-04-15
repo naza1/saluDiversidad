@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Noticia;
 
@@ -48,3 +49,8 @@ Route::get('/homePaciente', function() {
 Route::get('/showPaciente','App\Http\Controllers\PacienteController@showPaciente')->middleware('verified');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
+
+
+Route::get('/storage-link', function(){
+    Artisan::call('storage:link');
+});
