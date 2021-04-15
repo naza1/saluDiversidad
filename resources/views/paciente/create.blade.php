@@ -6,9 +6,18 @@
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
 <body>
-    <div class="container">
-        <div class="col-sm-8">
-            <h1>Crear Paciente</h1>
+<nav aria-label="breadcrumb" style="padding-top: -50px !important;">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ url('/dashboardAdmin') }}">Inicio</a></li>
+    <li class="breadcrumb-item active"><a href="{{ url('/paciente') }}">Opciones para pacientes</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Crear paciente</li>
+  </ol>
+</nav>
+    <<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-white bg-info mb-3">Crear Paciente</div>
             @if($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -22,56 +31,36 @@
             <form action="{{url('paciente')}}" method="POST">
             @csrf
                 <div class="form-group row">
-                    <label for="nombre" class="col-sm-2 col-form-label">Nombre</label>
-                    <div class="col-sm-10">
+                    <label for="nombre" class="col-md-4 col-form-label text-md-right">Nombre</label>
+                    <div class="col-md-6">
                         <input type="text" class="form-control" id="nombre" name="nombre" value="{{old('nombre')}}" placeholder="Nombre" maxlength="250" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="apellido" class="col-sm-2 col-form-label">Apellido</label>
-                    <div class="col-sm-10">
+                    <label for="apellido" class="col-md-4 col-form-label text-md-right">Apellido</label>
+                    <div class="col-md-6">
                         <input type="text" class="form-control" id="apellido" value="{{old('apellido')}}" name="apellido" maxlength="250" placeholder="Apellido">
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="dni" class="col-sm-2 col-form-label">DNI</label>
-                    <div class="col-sm-10">
+                    <label for="dni" class="col-md-4 col-form-label text-md-right">DNI</label>
+                    <div class="col-md-6">
                         <input type="text" class="form-control" id="dni" value="{{old('dni')}}" name="dni" maxlength="250" placeholder="Dni" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="email" class="col-sm-2 col-form-label">Email</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="email" name="email" value="{{old('email')}}" maxlength="250" placeholder="email" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="email" class="col-sm-2 col-form-label">Telefóno</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="telefono" name="telefono" value="{{old('telefono')}}" maxlength="250" placeholder="telefono" required>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="email" class="col-sm-2 col-form-label">Telefóno alternativo</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="telefono_alternativo" name="telefono_alternativo" value="{{old('telefono_alternativo')}}" maxlength="250" placeholder="telefono alternativo">
-                    </div>
-                </div>
-
-
-                <div class="form-group row">
-                    <label for="pronombre" class="col-sm-2 col-form-label">Pronombre</label>
-                    <div class="col-sm-10">
+                    <label for="pronombre" class="col-md-4 col-form-label text-md-right">Pronombre</label>
+                    <div class="col-md-6">
                         <input type="text" class="form-control" id="pronombre" name="pronombre" value="{{old('pronombre')}}" maxlength="250" placeholder="Pronombre">
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="genero" class="col-sm-2 col-form-label">Género</label>
-                    <div class="col-sm-10">
+                    <label for="genero" class="col-md-4 col-form-label text-md-right">Género</label>
+                    <div class="col-md-6">
                         <select class="form-control" id="genero" name="genero" value="{{old('genero')}}">
                             <option value="">-- Escoja el Genero --</option>
                             @foreach($generos as $genero)
@@ -80,84 +69,104 @@
                         </select>
                     </div>
                 </div>
-
                 <div class="form-group row">
-                    <label for="nationality" class="col-sm-2 col-form-label">Nacionalidad</label>
-                    <div class="col-sm-10">
+                    <label for="nationality" class="col-md-4 col-form-label text-md-right">Nacionalidad</label>
+                    <div class="col-md-6">
                         <input type="text" class="form-control" id="nationality" name="nationality" value="{{old('nationality')}}" maxlength="250" placeholder="Nacionalidad">
                     </div>
                 </div>
-
                 <div class="form-group row">
-                    <label for="nivelEducativo" class="col-sm-2 col-form-label">Educación</label>
-                    <div class="col-sm-10">
+                    <label for="nivelEducativo" class="col-md-4 col-form-label text-md-right">Nivel educativo</label>
+                    <div class="col-md-6">
                         <input type="text" class="form-control" id="nivelEducativo" name="nivelEducativo" value="{{old('nivelEducativo')}}" maxlength="250" placeholder="Educación">
                     </div>
                 </div>
+                
+               
+
+               
                 <div class="form-group row">
-                    <label for="socialWork" class="col-sm-2 col-form-label">Obra social</label>
-                    <div class="col-sm-10">
+                    <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="email" name="email" value="{{old('email')}}" maxlength="250" placeholder="email" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="telefono" class="col-md-4 col-form-label text-md-right">Telefóno</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="telefono" name="telefono" value="{{old('telefono')}}" maxlength="250" placeholder="telefono" required>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="telefono_alternativo" class="col-md-4 col-form-label text-md-right">Telefóno alternativo</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="telefono_alternativo" name="telefono_alternativo" value="{{old('telefono_alternativo')}}" maxlength="250" placeholder="telefono alternativo">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="socialWork" class="col-md-4 col-form-label text-md-right">Obra social</label>
+                    <div class="col-md-6">
                         <input type="text" class="form-control" id="socialWork" name="socialWork" value="{{old('socialWork')}}" maxlength="250" placeholder="Obra social">
                     </div>
                 </div>
-
                 <div class="form-group row">
-                    <label for="nroAfiliado" class="col-sm-2 col-form-label">Nro de Afiliado</label>
-                    <div class="col-sm-10">
+                    <label for="nroAfiliado" class="col-md-4 col-form-label text-md-right">Nro de Afiliado</label>
+                    <div class="col-md-6">
                         <input type="text" class="form-control" id="nroAfiliado" name="nroAfiliado" value="{{old('nroAfiliado')}}" maxlength="250" placeholder="# Afiliado">
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="nroHistorial" class="col-sm-2 col-form-label">Nro de historia clínica</label>
-                    <div class="col-sm-10">
+                    <label for="nroHistorial" class="col-md-4 col-form-label text-md-right">Nro de historia clínica</label>
+                    <div class="col-md-6">
                         <input type="text" class="form-control" id="nroHistorial" name="nroHistorial" value="{{old('nroHistorial')}}" maxlength="250" placeholder="# Historial">
                     </div>
                 </div>
-
                 <div class="form-group row">
-                    <label for="address" class="col-sm-2 col-form-label">Dirección</label>
-                    <div class="col-sm-10">
+                    <label for="address" class="col-md-4 col-form-label text-md-right">Calle y número</label>
+                    <div class="col-md-6">
                         <input type="text" class="form-control" id="address" name="address" value="{{old('address')}}" maxlength="250" placeholder="Dirección">
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="city" class="col-sm-2 col-form-label">Ciudad</label>
-                    <div class="col-sm-10">
+                    <label for="city" class="col-md-4 col-form-label text-md-right">Ciudad</label>
+                    <div class="col-md-6">
                         <input type="text" class="form-control" id="city" name="city" value="{{old('city')}}" maxlength="250" placeholder="Ciudad">
                     </div>
                 </div>
-
                 <div class="form-group row">
-                    <label for="state" class="col-sm-2 col-form-label">Estado</label>
-                    <div class="col-sm-10">
+                    <label for="postalCode" class="col-md-4 col-form-label text-md-right">Código postal</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="postalCode" name="postalCode" value="{{old('postalCode')}}" maxlength="250" placeholder="Codigo postal">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="state" class="col-md-4 col-form-label text-md-right">Provincia</label>
+                    <div class="col-md-6">
                         <input type="text" class="form-control" id="state" name="state" value="{{old('state')}}" maxlength="250" placeholder="Estado">
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="country" class="col-sm-2 col-form-label">País</label>
-                    <div class="col-sm-10">
+                    <label for="country" class="col-md-4 col-form-label text-md-right">País</label>
+                    <div class="col-md-6">
                         <input type="text" class="form-control" id="country" name="country" value="{{old('country')}}" maxlength="250" placeholder="País">
                     </div>
-                </div>
-
+                </div>                       
                 <div class="form-group row">
-                    <label for="postalCode" class="col-sm-2 col-form-label">Codigo postal</label>
-                    <div class="col-sm-10">
-                        <input type="text" class="form-control" id="postalCode" name="postalCode" value="{{old('postalCode')}}" maxlength="250" placeholder="Codigo postal">
-                    </div>
-                </div>
-
-                
-                
-                <div class="form-group row">
-                    <div class="col-sm-10">
-                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    <div class="col-md-6 offset-md-4">
+                        <button type="submit" class="btn btn-primary">Guardar paciente</button>
                     </div>
                 </div>
             </form>
-            <a href="{{ URL::previous() }}">Go Back</a>
+            </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><br>
+@include('layouts.footer')           
 </body>
 </html>

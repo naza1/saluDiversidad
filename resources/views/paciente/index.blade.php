@@ -8,36 +8,65 @@
         <script src="{{ asset('js/laravel.js') }}"></script>
     </head>
 <body>
-<div class="page-content">
-  <div class="row">
-  <div class="col-md-2"></div>
-    <div class="col-md-10">
-      <div class="panel panel-info">
-        <div class="panel-heading">
-          <h3 class="panel-title">Opciones para pacientes</h3>
-        </div>
-        <!--<div class="col-xl-12">
-          <form action="{{route('paciente.index')}}" method="get">
-            <div class="form-row">
-              <div class="col-sm-4 my-1">
-                <input type="text" class="form-control" name="texto" value="{{$texto}}">
-              </div>
-              <div class="col-auto my-1">
-                <input type="submit" class="btn btn-primary" value="Buscar">
-              </div>
+<nav aria-label="breadcrumb" style="padding-top: -50px !important;">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="{{ url('/dashboardAdmin') }}">Inicio</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Opciones para pacientes</li>
+  </ol>
+</nav>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-white bg-success mb-3">BÚSQUEDA POR PACIENTE</div>
+
+                <div class="card-body">
+                    <form class="row g-2" action="{{route('paciente.index')}}" method="get">
+                        @csrf
+
+                        <div class="form-group row">
+                            <label for="termino" class="col-md-4 col-form-label text-md-right">Ingrese apellido nombre o DNI...</label>
+
+                            <div class="col-md-8">
+                                  <input type="text" name="texto" value="{{$texto}}" class="form-control" autofocus>  
+                            </div>
+                        </div>
+
+                       
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                            <button type="submit" class="btn btn-success">Buscar</button>
+                                                                  
+                                
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-          </form>
-        </div>-->
-        <div class="panel-body">
-        <p class="text-right"><a class="btn btn-primary" href="{{ url('paciente/create') }}">Crear</a></p>
-          <table class="table table-responsive table-hover">
+        </div>
+    </div>
+   
+</div>
+<BR>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-white bg-info mb-3">PACIENTES</div>
+
+                <div class="card-body">
+                <div class="form-group row">
+                <div class="col-lg-12">
+                <p class="text-right"><a class="btn btn-primary" href="{{ url('paciente/create') }}">Crear paciente</a></p>
+                </div>
+                </div>
+                       <div class="form-group row">
+                          <div class="col-lg-12">
+          <table class="table table-responsive-lg table-hover">
             <thead>
               <th class="">Apellido</th>
               <th>Nombre</th>
               <th>Dni</th>
-              <th>Género</th>
-              <th>Pronombre</th>
-              <th>Obra social</th>
               <th>Acciones</th>
             </thead>
             <tbody>
@@ -46,31 +75,39 @@
               <td>{{$paciente->Apellido}}</td>
               <td>{{$paciente->Nombre}}</td>
               <td>{{$paciente->Dni}}</td>
-              <td>{{$paciente->Genero}}</td>
-              <td>{{$paciente->Pronombre}}</td>
-              <td>{{$paciente->SocialWork}}</td>
               <td>
+              <div class="btn-group">
+              <a href="{{ url('paciente/'.$paciente->id) }}" class="btn btn-success btn-sm">Ver+</a><br></div>
+              <div class="btn-group">
               <form method="POST" action="{{ url('paciente/'.$paciente->id) }}">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-xs btn-danger btn-delete">Eliminar</button>
+                <button type="submit" class="btn btn-xs btn-danger btn-delete btn-sm">Eliminar</button>
               </form>
-              <a href="{{ url('paciente/'.$paciente->id) }}" class="btn btn-xs btn-danger btn-delete">Editar</a>
-              <a href="#" class="btn btn-xs btn-danger btn-delete">Recetar</a>
-              <a href="#" class="btn btn-xs btn-danger btn-delete">+Datos</a>
-              <a href="#" class="btn btn-xs btn-danger btn-delete">Historia Clínica</a>
+              </div>
+              <div class="btn-group">
+                <a href="#" class="btn btn-secondary btn-sm">Recetar</a>
+                <a href="#" class="btn btn-secondary btn-sm">Órdenes</a>
+                <a href="#" class="btn btn-secondary btn-sm">Historial</a>
+              </div>
               </td>
             </tr>
             @endforeach
             </tbody>
           </table>
-          {{$pacientes->links()}}
+          {{$pacientes->links()}}        
+                          </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
-  <div class="col-md-2"></div>
+   
 </div>
-
+</div>
+<BR>
+<BR>
+@include('layouts.footer')
 </body>
 </html>

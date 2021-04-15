@@ -1,6 +1,12 @@
 @extends('layouts.app')
 
 @section('content')
+<nav aria-label="breadcrumb" style="padding-top: -50px !important;">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item">Verificar usuario</li>
+
+  </ol>
+</nav>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -25,4 +31,5 @@
         </div>
     </div>
 </div>
+@include('layouts.footer')
 @endsection

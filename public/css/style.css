@@ -1,6 +1,7 @@
-@font-face {font-family: "Museo Sans 100"; src: url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.eot"); src: url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.woff") format("woff"), url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.svg#Museo Sans 100") format("svg"); }
+/*@font-face {font-family: "Museo Sans 600"; src: url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.eot"); src: url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.woff") format("woff"), url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/3b12f78c783e678acc1f0fefe8e46380.svg#Museo Sans 300") format("svg"); }*/
+@font-face {font-family: "Museo Sans 500"; src: url("//db.onlinewebfonts.com/t/16697a764b01cdcc691b05f001046bc3.eot"); src: url("//db.onlinewebfonts.com/t/16697a764b01cdcc691b05f001046bc3.eot?#iefix") format("embedded-opentype"), url("//db.onlinewebfonts.com/t/16697a764b01cdcc691b05f001046bc3.woff2") format("woff2"), url("//db.onlinewebfonts.com/t/16697a764b01cdcc691b05f001046bc3.woff") format("woff"), url("//db.onlinewebfonts.com/t/16697a764b01cdcc691b05f001046bc3.ttf") format("truetype"), url("//db.onlinewebfonts.com/t/16697a764b01cdcc691b05f001046bc3.svg#Museo Sans 500") format("svg"); }
 body{
-font-family: "Museo Sans 100", sans-serif !important;
+font-family: "Museo Sans 500", sans-serif !important;
 font-style: normal;
 font-weight: 500;
 }
@@ -25,9 +26,26 @@ font-weight: 500;
     background-color: #9ED115;
     border-color: #9ED115;
 }
-th
+/*th
 {
     background-color: #8ACFDD;
     color: #fff;
     font-weight: 700;
+}*/
+.py-4-gvf
+{
+    padding-top: 0 auto;
+}
+.footer-style
+{
+bottom: 0;
+width: 100%;
+height: 100%;
+line-height: 20px;
+background-color: #8ACFDD;
+color: #fff;
+}
+container-gvf 
+{
+color: #fff;
 }
