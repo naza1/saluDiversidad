@@ -17,14 +17,14 @@
                 <div class="form-group row">
                     <label for="imagen" class="col-sm-2 col-form-label">Subir imagen</label>
                     <div class="col-sm-10">
-                        <!-- <form action=""> -->
                             <input type="file" name="perfilFoto" id="perfilFoto" accept="image/*" value="{{$paciente->ImageUrl}}">
                             @error('perfilFoto')
                                 <small class="text-danger">{{$message}}</small>
                             @enderror
-                        <!-- </form> -->
                     </div>
+                    @if($paciente->ImageUrl != null)
                     <div><img src="{{url($paciente->ImageUrl)}}"></div>
+                    @endif
                 </div>
 
                 <div class="form-group row">

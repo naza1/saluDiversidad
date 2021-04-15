@@ -15,7 +15,7 @@
                     @endif
 
                    <p>Bienvenido</p>
-                   <a href="{{ action('App\Http\Controllers\PacienteController@showPaciente', ['id' => session('paciente')]) }}" class="btn btn-xs btn-danger btn-delete">Editar tus datos</a>
+                   <a href="{{ action('App\Http\Controllers\PacienteController@showPaciente') }}" class="btn btn-xs btn-danger btn-delete">Editar tus datos</a>
                 </div>
             </div>
         </div>

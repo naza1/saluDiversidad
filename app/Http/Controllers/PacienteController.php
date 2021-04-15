@@ -110,9 +110,12 @@ class PacienteController extends Controller
         return view('paciente.editAdmin', ['paciente'=>$paciente, 'generos'=>$generos]);
     }
 
-    public function showPaciente($id)
+    public function showPaciente()
     {
-        $paciente = Paciente::find($id);
+        $dni = auth::user()->dni;
+        $paciente = DB::table('pacientes')
+            ->where('Dni', $dni)
+            ->first();
         $generos = Genero::all();
 
         return view('editPaciente', ['paciente'=>$paciente, 'generos'=>$generos]);
@@ -125,7 +128,6 @@ class PacienteController extends Controller
         //     'dni' => 'required|unique:users|max:255',
         //     'perfilFoto' => 'image|max:2048',
         // ]);
-
         $paciente = Paciente::find($request->id);
 
         if($request->perfilFoto != null)
