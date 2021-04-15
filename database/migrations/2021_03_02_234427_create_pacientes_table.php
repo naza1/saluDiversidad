@@ -36,6 +36,9 @@ class CreatePacientesTable extends Migration
             $table->string('UserId', 255)->nullable();
             $table->string('FatherUserId', 255)->nullable();
             $table->string('ImageUrl', 255)->nullable();
+            $table->string('telefono', 255)->nullable();
+            $table->string('telefono_alternativo', 255)->nullable();
+
         });
     }
 
