@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Noticia;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,14 +30,19 @@ Route::get('/changePassword', function() {
 Auth::routes();
 Auth::routes(['verify' => true]);
 
-Route::get('/dashboardAdmin', function(){
+Route::get('/dashboardAdmin', function() {
     if(auth::user()->fullacces == 'yes')
-        return view('dashboardAdmin');
+    {
+        $noticias = Noticia::all();
+        return view('dashboardAdmin', compact('noticias'));
+    }
+        
     return view('paciente');
 });
 
 Route::get('/homePaciente', function() {
-    return view('paciente');
+    $noticias = Noticia::all();
+    return view('paciente', compact('noticias'));
 });
 
 Route::get('/showPaciente','App\Http\Controllers\PacienteController@showPaciente')->middleware('verified');

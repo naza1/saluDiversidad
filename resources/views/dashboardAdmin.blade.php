@@ -32,7 +32,11 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header text-white bg-info mb-3">NOTICIAS</div>
-
+                @foreach($noticias as $noticia)
+                    <p>{{$noticia->Titulo}}</p>
+                    <p>{{$noticia->Contenido}}</p>
+                    <p>{{$noticia->Fecha}}</p>
+                @endforeach
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
