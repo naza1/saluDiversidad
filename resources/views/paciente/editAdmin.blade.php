@@ -31,10 +31,10 @@
             @endif
             <div class="row d-flex justify-content-center">
             @if($paciente->ImageUrl != null)
-            <div class="card justify-content-center" style="width: 18rem;">
+                <div class="card justify-content-center" style="width: 18rem;">
                 <img class="card-img-top" src="{{url($paciente->ImageUrl)}}" alt="Imagen de perfil"></div>
-                    @endif
-            </div>        
+            @endif
+            </div>
            
             <form action="{{ url('paciente/' .$paciente->id) }}" method="post">
             @csrf
@@ -76,14 +76,18 @@
                 <div class="form-group row">
                     <label for="genero" class="col-md-4 col-form-label text-md-right">Género</label>
                     <div class=col-md-6>
-                    <select class="form-control" id="genero" name="genero">
+                        <select class="form-control" id="genero" name="genero">
+                        @if($paciente->Genero != null)
                             <option value="{{$paciente->Genero}}">{{$paciente->Genero}}</option>
-                            @foreach($generos as $genero)
-                                <option value="{{ $genero['Nombre'] }}" required>{{$genero['Nombre']}}</option>
-                            @endforeach
+                        @else
+                            <option value="">-- Escoja el Genero --</option>
+                        @endif
+                        @foreach($generos as $genero)
+                            <option value="{{ $genero['Nombre'] }}" required>{{$genero['Nombre']}}</option>
+                        @endforeach
                         </select>
+                        </div>
                     </div>
-                </div>
 
                 <div class="form-group row">
                     <label for="nationality" class="col-md-4 col-form-label text-md-right">Nacionalidad</label>
@@ -120,13 +124,13 @@
                 <div class="form-group row">
                     <label for="email" class="col-md-4 col-form-label text-md-right">Telefóno</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="telefono" name="telefono" value="{{$paciente->telefono}}" maxlength="250" placeholder="telefono" required>
+                        <input type="text" class="form-control" id="telefono" name="telefono" value="{{$paciente->telefono}}" maxlength="250" placeholder="Telefono" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="email" class="col-md-4 col-form-label text-md-right">Telefóno alternativo</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="telefono_alternativo" name="telefono_alternativo" value="{{$paciente->telefono_alternativo}}" maxlength="250" placeholder="telefono alternativo" required>
+                        <input type="text" class="form-control" id="telefono_alternativo" name="telefono_alternativo" value="{{$paciente->telefono_alternativo}}" maxlength="250" placeholder="Telefono alternativo" required>
                     </div>
                 </div>           
                 <div class="form-group row">

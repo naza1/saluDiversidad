@@ -26,10 +26,9 @@ class CreateGeneroTable extends Migration
             ['Nombre'=>'Varon Trans'],
             ['Nombre'=>'Travesti'],
             ['Nombre'=>'No binarie'],
-            ['Nombre'=>'fluido'],
-            ['Nombre'=>'agénero'],
-            ['Nombre'=>'agénero'],
-            ['Nombre'=>'otro'],
+            ['Nombre'=>'Fluido'],
+            ['Nombre'=>'Agénero'],
+            ['Nombre'=>'Otro'],
         ];
         Genero::insert($data);
     }

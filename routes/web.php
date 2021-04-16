@@ -50,7 +50,6 @@ Route::get('/showPaciente','App\Http\Controllers\PacienteController@showPaciente
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('verified');
 
-
 Route::get('/storage-link', function(){
     Artisan::call('storage:link');
 });

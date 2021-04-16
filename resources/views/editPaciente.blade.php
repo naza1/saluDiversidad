@@ -70,8 +70,12 @@
                 <div class="form-group row">
                     <label for="genero" class="col-md-4 col-form-label text-md-right">Género</label>
                     <div class="col-md-6">
-                    <select class="form-control" id="genero" name="genero" >
-                            <option value="{{$paciente->Genero}}">{{$paciente->Genero}}</option>
+                        <select class="form-control" id="genero" name="genero" >
+                            @if($paciente->Genero != null)
+                                <option value="{{$paciente->Genero}}">{{$paciente->Genero}}</option>
+                            @else
+                                <option value="">-- Escoja el Genero --</option>
+                            @endif
                             @foreach($generos as $genero)
                                 <option value="{{ $genero['Nombre'] }}" required>{{$genero['Nombre']}}</option>
                             @endforeach
@@ -120,7 +124,7 @@
                 <div class="form-group row">
                     <label for="telefono" class="col-md-4 col-form-label text-md-right">Telefóno alternativo</label>
                     <div class="col-md-6">
-                        <input type="telefono_alternativo" class="form-control" id="telefono_alternativo" name="telefono_alternativo" maxlength="250" placeholder="telefono alternativo" value="{{$paciente->telefono_alternativo}}">
+                        <input type="telefono_alternativo" class="form-control" id="telefono_alternativo" name="telefono_alternativo" maxlength="250" placeholder="Telefono alternativo" value="{{$paciente->telefono_alternativo}}">
                     </div>
                 </div>
                 
