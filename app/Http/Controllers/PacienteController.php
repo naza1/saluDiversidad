@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Paciente;
 use App\Models\Genero;
 use App\Models\User;
+use App\Models\Pronombre;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\PacienteCreateRequest;
 use DB;
@@ -24,7 +25,7 @@ class PacienteController extends Controller
     public function index(Request $request)
     {
         $texto = trim($request->get('texto'));
-        $pacientes=DB::table('pacientes')
+        $pacientes = DB::table('pacientes')
         ->where('Nombre', 'LIKE','%'.$texto.'%')
         ->orwhere('Apellido', 'LIKE','%'.$texto.'%')
         ->orwhere('Dni', 'LIKE','%'.$texto.'%')
@@ -37,7 +38,8 @@ class PacienteController extends Controller
     public function create()
     {
         $generos = Genero::all();
-        return view('paciente.create', compact('generos'));
+        $pronombres = Pronombre::all();
+        return view('paciente.create', compact('generos', 'pronombres'));
     }
 
     public function store(PacienteCreateRequest $request)
@@ -108,8 +110,9 @@ class PacienteController extends Controller
     {
         $paciente = Paciente::find($id);
         $generos = Genero::all();
+        $pronombres = Pronombre::all();
 
-        return view('paciente.editAdmin', ['paciente'=>$paciente, 'generos'=>$generos]);
+        return view('paciente.editAdmin', ['paciente'=>$paciente, 'generos'=>$generos, 'pronombres' => $pronombres]);
     }
 
     public function showPaciente()
@@ -119,8 +122,9 @@ class PacienteController extends Controller
             ->where('Dni', $dni)
             ->first();
         $generos = Genero::all();
+        $pronombres = Pronombre::all();
 
-        return view('editPaciente', ['paciente'=>$paciente, 'generos'=>$generos]);
+        return view('editPaciente', ['paciente'=>$paciente, 'generos'=>$generos, 'pronombres' => $pronombres]);
     }
 
     public function update(PacienteCreateRequest $request)

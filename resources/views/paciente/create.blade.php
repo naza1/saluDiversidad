@@ -54,7 +54,12 @@
                 <div class="form-group row">
                     <label for="pronombre" class="col-md-4 col-form-label text-md-right">Pronombre</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="pronombre" name="pronombre" value="{{old('pronombre')}}" maxlength="250" placeholder="Pronombre">
+                    <select class="form-control" id="pronombre" name="pronombre" value="{{old('pronombre')}}">
+                            <option value="">-- Escoja el Pronombre --</option>
+                            @foreach($pronombres as $pronombre)
+                                <option value="{{ $pronombre['Nombre'] }}" required>{{$pronombre['Nombre']}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
 

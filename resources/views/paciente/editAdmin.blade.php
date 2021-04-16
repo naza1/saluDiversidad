@@ -69,7 +69,16 @@
                 <div class="form-group row">
                     <label for="pronombre" class="col-md-4 col-form-label text-md-right">Pronombre</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="pronombre" name="pronombre" maxlength="250" placeholder="Pronombre" value="{{$paciente->Pronombre}}">
+                        <select class="form-control" id="pronombre" name="pronombre">
+                            @if($paciente->Pronombre != null)
+                                <option value="{{$paciente->Pronombre}}">{{$paciente->Pronombre}}</option>
+                            @else
+                                <option value="">-- Escoja el Pronombre --</option>
+                            @endif
+                            @foreach($pronombres as $pronombre)
+                                <option value="{{ $pronombre['Nombre'] }}" required>{{$pronombre['Nombre']}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
 
