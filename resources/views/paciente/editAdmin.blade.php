@@ -133,13 +133,13 @@
                 <div class="form-group row">
                     <label for="email" class="col-md-4 col-form-label text-md-right">Telefóno</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="telefono" name="telefono" value="{{$paciente->telefono}}" maxlength="250" placeholder="Telefono" required>
+                        <input type="tel" class="form-control" id="telefono" name="telefono" value="{{$paciente->telefono}}" maxlength="250" placeholder="(Código de área) Número" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="email" class="col-md-4 col-form-label text-md-right">Telefóno alternativo</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="telefono_alternativo" name="telefono_alternativo" value="{{$paciente->telefono_alternativo}}" maxlength="250" placeholder="Telefono alternativo" required>
+                        <input type="tel" class="form-control" id="telefono_alternativo" name="telefono_alternativo" value="{{$paciente->telefono_alternativo}}" maxlength="250" placeholder="(Código de área) Número" required>
                     </div>
                 </div>           
                 <div class="form-group row">
@@ -151,14 +151,14 @@
                 <div class="form-group row">
                     <label for="nroAfiliado" class="col-md-4 col-form-label text-md-right">Nro de afiliado</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="nroAfiliado" maxlength="250" name="nroAfiliado" placeholder="# Afiliado" value="{{$paciente->NroAfiliado}}">
+                        <input type="text" class="form-control" id="nroAfiliado" maxlength="250" name="nroAfiliado" placeholder="Nro de afiliado de la Obra social" value="{{$paciente->NroAfiliado}}">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="nroHistorial" class="col-md-4 col-form-label text-md-right">Nro de historia clínica</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="nroHistorial" maxlength="250" name="nroHistorial" placeholder="# Historial" value="{{$paciente->NroHistorial}}">
+                        <input type="text" class="form-control" id="nroHistorial" maxlength="250" name="nroHistorial" placeholder="Historia clínica en CAPS" value="{{$paciente->NroHistorial}}">
                     </div>
                 </div>
                 </div>
@@ -196,7 +196,7 @@
                 <div class="form-group row">
                     <label for="state" class="col-md-4 col-form-label text-md-right">Provincia</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="state" name="state" maxlength="250" placeholder="Estado" value="{{$paciente->State}}">
+                        <input type="text" class="form-control" id="state" name="state" maxlength="250" placeholder="Provincia" value="{{$paciente->State}}">
                     </div>
                 </div>
                 <div class="form-group row">
