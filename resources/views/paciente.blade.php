@@ -32,10 +32,16 @@
         <div class="col-md-4">
             <div class="card">
                 <div class="card-header text-white bg-info mb-3">NOTICIAS</div>
+                <div class="card-body">
                 @foreach($noticias as $noticia)
-                    <p>{{$noticia->Titulo}}</p>
-                    <p>{{$noticia->Contenido}}</p>
-                    <p>{{$noticia->Fecha}}</p>
+                <div class="card" style="width: 18rem;">
+                    <div class="card-body">
+                        <h5 class="card-title text-danger">{{$noticia->Titulo}}</h5>
+                        <h6 class="card-subtitle mb-2 text-success">{{$noticia->Fecha}}</h6>
+                        <p class="card-text">{{$noticia->Contenido}}</p>
+                    </div>
+                </div>
+                <br>
                 @endforeach
                 <div class="card-body">
                     @if (session('status'))
@@ -45,6 +51,7 @@
                     @endif
 
                    <p></p>
+                   </div>
                 </div>
             </div>
         </div>

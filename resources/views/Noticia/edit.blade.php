@@ -9,7 +9,7 @@
 <nav aria-label="breadcrumb" style="padding-top: -50px !important;">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ url('/dashboardAdmin') }}">Inicio</a></li>
-    <li class="breadcrumb-item active"><a href="{{ url('/paciente') }}">Opciones para noticia</a></li>
+    <li class="breadcrumb-item active"><a href="{{ url('/noticia') }}">Opciones para noticia</a></li>
     <li class="breadcrumb-item active" aria-current="page">Ver y editar noticias</li>
   </ol>
 </nav>
@@ -17,7 +17,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-white bg-success mb-3">Datos de Noticia</div>
+                <div class="card-header text-white bg-success mb-3">EDITAR NOTICIA...</div>
                 @if($errors->any())
 
                 <div class="card-body">
@@ -43,23 +43,21 @@
                 <div class="form-group row">
                     <label for="fecha" class="col-md-4 col-form-label text-md-right">Fecha</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="fecha" name="fecha" maxlength="250" placeholder="Fecha" value="{{$noticia->Fecha}}">
+                        <input type="date" class="form-control" id="fecha" name="fecha" maxlength="250" placeholder="Fecha" value="{{$noticia->Fecha}}">
                     </div>
                 </div>
-
-                <div class="form-group row">
-                    <label for="contenido" class="col-md-4 col-form-label text-md-right">Contenido</label>
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" id="contenido" name="contenido" maxlength="250" placeholder="Contenido" value="{{$noticia->Contenido}}">
-                    </div>
-                </div>
-
                 <div class="form-group row">
                     <label for="titulo" class="col-md-4 col-form-label text-md-right">Titulo</label>
                     <div class="col-md-6">
                         <input type="text" class="form-control" id="titulo" name="titulo" maxlength="250" placeholder="Titulo" value="{{$noticia->Titulo}}">
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="contenido" class="col-md-4 col-form-label text-md-right">Contenido</label>
+                    <div class="col-md-6">
+                        <textarea class="form-control" id="contenido" name="contenido" maxlength="250" placeholder="Contenido">{{$noticia->Contenido}}</textarea>
+                    </div>
+                </div>            
                 <div class="form-group row">
                     <div class="col-md-6 offset-md-4">
                         <button type="submit" class="btn btn-primary">Actualizar</button>

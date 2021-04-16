@@ -18,38 +18,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-white bg-success mb-3">BÚSQUEDA POR NOTICIA</div>
-
-                <div class="card-body">
-                    <form class="row g-2" action="{{route('noticia.index')}}" method="get">
-                        @csrf
-
-                        <div class="form-group row">
-                            <label for="termino" class="col-md-4 col-form-label text-md-right">Ingrese titulo de noticia...</label>
-
-                            <div class="col-md-8">
-                                  <input type="text" name="texto" value="{{$texto}}" class="form-control" autofocus>  
-                            </div>
-                        </div>
-
-                        <div class="form-group row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-success">Buscar</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-   
-</div>
-<BR>
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header text-white bg-info mb-3">NOTICIAS</div>
+                <div class="card-header text-white bg-info mb-3">GESTIÓN DE NOTICIAS</div>
 
                 <div class="card-body">
                 <div class="form-group row">

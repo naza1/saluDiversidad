@@ -17,7 +17,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-white bg-info mb-3">Crear Noticia</div>
+                <div class="card-header text-white bg-info mb-3">CREAR NOTICIA</div>
             @if($errors->any())
                 <div class="alert alert-danger">
                     <ul>
@@ -33,23 +33,23 @@
                 <div class="form-group row">
                     <label for="fecha" class="col-md-4 col-form-label text-md-right">Fecha</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="fecha" name="fecha" value="{{old('fecha')}}" placeholder="Fecha" maxlength="250" required>
+                        <input type="date" class="form-control" id="fecha" name="fecha" value="{{old('fecha')}}" placeholder="Fecha" maxlength="250" required>
                     </div>
                 </div>
-
-                <div class="form-group row">
-                    <label for="contenido" class="col-md-4 col-form-label text-md-right">Contenido</label>
-                    <div class="col-md-6">
-                        <input type="text" class="form-control" id="contenido" value="{{old('contenido')}}" name="contenido" maxlength="250" placeholder="Contenido">
-                    </div>
-                </div>
-
                 <div class="form-group row">
                     <label for="titulo" class="col-md-4 col-form-label text-md-right">Titulo</label>
                     <div class="col-md-6">
                         <input type="text" class="form-control" id="titulo" value="{{old('titulo')}}" name="titulo" maxlength="250" placeholder="Titulo" required>
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label for="contenido" class="col-md-4 col-form-label text-md-right">Contenido</label>
+                    <div class="col-md-6">
+                        <textarea class="form-control" id="contenido" value="{{old('contenido')}}" name="contenido" maxlength="250" placeholder="Contenido"></textarea>
+                    </div>
+                </div>
+
+               
 
                 <div class="form-group row">
                     <div class="col-md-6 offset-md-4">
