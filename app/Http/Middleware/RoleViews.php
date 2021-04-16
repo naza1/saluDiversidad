@@ -29,8 +29,8 @@ class RoleViews
         {
             return redirect()->to('changePassword');
         }
-
-        if($request->path() == 'home')
+        
+        if($request->path() == 'home' || $request->path() == 'paciente')
         {    
             $paciente = DB::table('pacientes')
             //->where('UserId','=', auth::user()->id)

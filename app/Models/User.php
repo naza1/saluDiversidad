@@ -23,6 +23,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'fullacces',
         'codigo',
         'dni',
+        'email_verified_at',
     ];
 
     /**

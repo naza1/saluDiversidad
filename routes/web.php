@@ -42,8 +42,13 @@ Route::get('/dashboardAdmin', function() {
 });
 
 Route::get('/homePaciente', function() {
-    $noticias = Noticia::all();
-    return view('paciente', compact('noticias'));
+    
+    if(auth::user()->email_verified_at != null){
+        $noticias = Noticia::all();
+        return view('paciente', compact('noticias'));
+    }
+   
+    return view('auth.verify');
 });
 
 Route::get('/showPaciente','App\Http\Controllers\PacienteController@showPaciente')->middleware('verified');
