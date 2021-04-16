@@ -31,16 +31,17 @@
           <table class="table table-responsive-lg table-hover">
             <thead>
               <th class="">Fecha</th>
-              <th>Contenido</th>
               <th>Titulo</th>
+              <th>Contenido</th>
               <th>Acciones</th>
             </thead>
             <tbody>
             @foreach($noticias as $noticia)
             <tr>
               <td>{{$noticia->Fecha}}</td>
-              <td>{{$noticia->Contenido}}</td>
               <td>{{$noticia->Titulo}}</td>
+              <td>{{$noticia->Contenido}}</td>
+              
               <td>
               <div class="btn-group">
               <a href="{{ url('noticia/'.$noticia->id) }}" class="btn btn-success btn-sm">Editar</a><br></div>
