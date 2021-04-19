@@ -103,7 +103,7 @@ return [
     'required_with_all'    => 'El campo :attribute es obligatorio cuando :values están presentes.',
     'required_without'     => 'El campo :attribute es obligatorio cuando :values no está presente.',
     'required_without_all' => 'El campo :attribute es obligatorio cuando ninguno de :values está presente.',
-    'same'                 => ':attribute y :other deben coincidir.',
+    'same'                 => 'Los emails deben coincidir.',
     'size'                 => [
         'numeric' => 'El tamaño de :attribute debe ser :size.',
         'file'    => 'El tamaño de :attribute debe ser :size kilobytes.',

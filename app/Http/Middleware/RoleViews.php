@@ -31,7 +31,7 @@ class RoleViews
         }
         
         if($request->path() == 'home' || $request->path() == 'paciente')
-        {    
+        {
             $paciente = DB::table('pacientes')
             //->where('UserId','=', auth::user()->id)
             ->orderBy('id', 'desc')
