@@ -22,7 +22,10 @@ class RoleViews
     {
        if(auth::user()->fullacces == 'yes')
        {
-            return redirect()->to('dashboardAdmin');
+            if($request->path() == 'home')
+                return redirect()->to('dashboardAdmin');
+
+            return $next($request);
        }
 
         if(password_verify('123456', auth::user()->password)) 

@@ -23,6 +23,7 @@ Route::get('/', function () {
 Route::resource('/paciente', 'App\Http\Controllers\PacienteController');
 Route::resource('/receta', 'App\Http\Controllers\RecetaController');
 Route::resource('/noticia', 'App\Http\Controllers\NoticiaController');
+Route::resource('/turno', 'App\Http\Controllers\TurnoController');
 
 Route::get('/changePassword', function() {
      return view('auth.passwords.email');
@@ -32,6 +33,7 @@ Auth::routes();
 Auth::routes(['verify' => true]);
 
 Route::get('/dashboardAdmin', function() {
+
     if(auth::user()->fullacces == 'yes')
     {
         $noticias = Noticia::all();
@@ -58,3 +60,5 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 Route::get('/storage-link', function(){
     Artisan::call('storage:link');
 });
+
+Route::get('/indexAdmin','App\Http\Controllers\TurnoController@indexAdmin')->middleware('verified');
