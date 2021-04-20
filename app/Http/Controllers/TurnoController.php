@@ -32,6 +32,17 @@ class TurnoController extends Controller
     {
         $turnos = Turno::all();
 
+        foreach($turnos as $turno)
+        {
+            $paciente = DB::table('pacientes')
+            ->where('id', '=', $turno->PacienteId)
+            ->first();
+
+            $turno->NombrePaciente = $paciente->Nombre;
+            $turno->ApellidoPaciente = $paciente->Apellido;
+            $turno->save();
+        }
+
         return view('turno.indexAdmin', compact('turnos'));
     }
 
@@ -97,9 +108,17 @@ class TurnoController extends Controller
      * @param  \App\Models\Turno  $turno
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Turno $turno)
+    public function update(Request $request)
     {
-        //
+        $turno = Turno::find($request->id);
+
+        $turno->Dia = $request->fecha;
+        $turno->Hora = $request->hora;
+        $turno->save();
+
+        $turnos = Turno::all();
+
+        return view('turno.indexAdmin', compact('turnos'));
     }
 
     /**
@@ -108,8 +127,12 @@ class TurnoController extends Controller
      * @param  \App\Models\Turno  $turno
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Turno $turno)
+    public function destroy($id)
     {
-        //
+        DB::table('turnos')->delete($id);
+
+        $turnos = Turno::all();
+
+        return view('turno.indexAdmin', compact('turnos'));
     }
 }

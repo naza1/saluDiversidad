@@ -35,38 +35,52 @@
               <th>ACCIONES</th>
             </thead>
             <tbody>
+            @foreach($turnos as $turno)
             <tr>
-              <form action="" method="POST">
-                <td></td>
-                <td></td>
+              <form action="{{ url('turno/' .$turno->id) }}" method="POST">
+              @csrf
+              {{ method_field('PUT') }}
+              <input name="id" value="{{$turno->id}}" type="hidden">
+                <td>{{$turno->ApellidoPaciente}}</td>
+                <td>{{$turno->NombrePaciente}}</td>
                 <td>
-                  <select class="form-control" id="medico" name="medico" value="">
-                    <option value="">-- Escoja médico --</option>
+                  <select class="form-control" id="medico" name="medico">
+                    @if($turno->Medico != null)
+                      <option value="{{$turno->Medico}}">{{$turno->Medico}}</option>
+                    @else
+                      <option value="">-- Escoja el Medico --</option>
+                    @endif
                     <option value="Nicolás Zanier" required>Nicolás Zanier</option>
                     <option value="Virginia Barreneche" required>Virginia Barreneche</option>
                   </select>
                 </td>
                 <td>
-                  <input type="date" class="form-control" id="fecha" maxlength="250" name="fecha" placeholder="Día" value="">
+                  <input type="date" class="form-control" id="fecha" maxlength="250" name="fecha" placeholder="Día" value="{{$turno->Dia}}" required>
                 </td>
                 <td>
-                  <input type="time" class="form-control" id="hora" maxlength="250" name="hora" placeholder="Hora" value="">
+                  <input type="time" class="form-control" id="hora" maxlength="250" name="hora" placeholder="Hora" value="{{$turno->Hora}}" required>
                 </td>
                 <td>
-                  <select class="form-control" id="lugar" name="lugar" value="">
+                  <select class="form-control" id="lugar" name="lugar" value="CAPS1 - Colón y Salta" required>
                     <option value="CAPS1 - Colón y Salta" required>CAPS1 - Colón y Salta</option>
                   </select>
                 </td>
                 <td>
                   <div class="btn-group">
-                    <button type="submit" class="btn btn-success btn-sm">Asignar turno</button><br>
-                    </form>
-                  </div>
-                  <div class="btn-group">
-                    <a href="" class="btn btn-danger btn-sm">Eliminar turno</a><br>
-                  </div>
+                    <button type="submit" class="btn btn-success btn-sm">Asignar</button><br>
                 </td>
-              </tr>
+              </form>
+              <td>
+                <div class="btn-group">
+                <form method="POST" action="{{ url('turno/'.$turno->id) }}">
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="btn btn-xs btn-danger btn-delete btn-sm">Eliminar</button>
+              </form>
+                </div>
+              </td>
+            </tr>
+            @endforeach
             </tbody>
           </table>
 <!--FIN DE TABLA-->

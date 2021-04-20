@@ -19,14 +19,14 @@
                 <div class="card-header text-white bg-success mb-3">Mis datos personales</div>
             
             <form action="{{ url('paciente/' .$paciente->id) }}" method="post" enctype="multipart/form-data">
-            <div class="row d-flex justify-content-center">
-            @if($paciente->ImageUrl != null)
-            <div class="card justify-content-center" style="width: 18rem;">
-                <img class="card-img-top" src="{{url($paciente->ImageUrl)}}" alt="Imagen de perfil"></div>
-                    @endif
-            </div>        
-            @csrf
-            {{ method_field('PUT') }}
+                <div class="row d-flex justify-content-center">
+                @csrf
+                {{ method_field('PUT') }}
+                @if($paciente->ImageUrl != null)
+                    <div class="card justify-content-center" style="width: 18rem;">
+                        <img class="card-img-top" src="{{url($paciente->ImageUrl)}}" alt="Imagen de perfil"></div>
+                    </div>
+                @endif
                 <input name="id" value="{{$paciente->id}}" type="hidden">
                 <div class="card-body">
                 <div class="form-group row">
@@ -37,7 +37,6 @@
                                 <small class="text-danger">{{$message}}</small>
                             @enderror
                     </div>
-                   
                 </div>
 
                 <div class="form-group row">
@@ -102,7 +101,7 @@
                 <div class="form-group row">
                     <label for="nivelEducativo" class="col-md-4 col-form-label text-md-right">Nivel educativo</label>
                     <div class="col-md-6">
-                    <select class="form-control" id="nivelEducativo" name="nivelEducativo">
+                        <select class="form-control" id="nivelEducativo" name="nivelEducativo">
                             @if($paciente->NivelEducativo != null)
                                 <option value="{{$paciente->NivelEducativo}}">{{$paciente->NivelEducativo}}</option>
                             @else

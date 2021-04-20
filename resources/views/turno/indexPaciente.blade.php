@@ -32,7 +32,7 @@
  <div class="form-group row">
     <label for="medico" class="col-md-4 col-form-label text-md-right">Elegir profesional</label>
         <div class="col-md-6">
-            <select class="form-control" id="medico" name="medico" value="{{old('medico')}}">
+            <select class="form-control" id="medico" name="medico" value="{{old('medico')}}" required>
                 <option value="">-- Escoja médico --</option>
                 <option value="Nicolás Zanier" required>Nicolás Zanier</option>
                 <option value="Virginia Barreneche" required>Virginia Barreneche</option>
