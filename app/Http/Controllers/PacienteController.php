@@ -7,6 +7,7 @@ use App\Models\Paciente;
 use App\Models\Genero;
 use App\Models\User;
 use App\Models\Pronombre;
+use App\Models\Educacion;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\PacienteCreateRequest;
 use DB;
@@ -40,7 +41,8 @@ class PacienteController extends Controller
     {
         $generos = Genero::all();
         $pronombres = Pronombre::all();
-        return view('paciente.create', compact('generos', 'pronombres'));
+        $educaciones = Educacion::all();
+        return view('paciente.create', compact('generos', 'pronombres', 'educaciones'));
     }
 
     public function store(PacienteCreateRequest $request)
@@ -112,8 +114,12 @@ class PacienteController extends Controller
         $paciente = Paciente::find($id);
         $generos = Genero::all();
         $pronombres = Pronombre::all();
+        $educaciones = Educacion::all();
 
-        return view('paciente.editAdmin', ['paciente'=>$paciente, 'generos'=>$generos, 'pronombres' => $pronombres]);
+        return view('paciente.editAdmin', ['paciente'=>$paciente, 
+        'generos'=>$generos, 
+        'pronombres' => $pronombres,
+        'educaciones' => $educaciones]);
     }
 
     public function showPaciente()

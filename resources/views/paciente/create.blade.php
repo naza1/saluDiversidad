@@ -47,7 +47,7 @@
                 <div class="form-group row">
                     <label for="dni" class="col-md-4 col-form-label text-md-right">DNI</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="dni" value="{{old('dni')}}" name="dni" maxlength="250" placeholder="Dni" required>
+                        <input type="number" class="form-control" id="dni" value="{{old('dni')}}" name="dni" maxlength="250" placeholder="Dni" required>
                     </div>
                 </div>
 
@@ -80,15 +80,18 @@
                         <input type="text" class="form-control" id="nationality" name="nationality" value="{{old('nationality')}}" maxlength="250" placeholder="Nacionalidad">
                     </div>
                 </div>
+
                 <div class="form-group row">
                     <label for="nivelEducativo" class="col-md-4 col-form-label text-md-right">Nivel educativo</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="nivelEducativo" name="nivelEducativo" value="{{old('nivelEducativo')}}" maxlength="250" placeholder="Educación">
+                         <select class="form-control" id="nivelEducativo" name="nivelEducativo" value="{{old('nivelEducativo')}}">
+                            <option value="">-- Escoja el Nivel Educativo --</option>
+                            @foreach($educaciones as $educacion)
+                                <option value="{{ $educacion['Nombre'] }}" required>{{$educacion['Nombre']}}</option>
+                            @endforeach
+                        </select>
                     </div>
                 </div>
-                
-               
-
                
                 <div class="form-group row">
                     <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
