@@ -117,7 +117,7 @@ class TurnoController extends Controller
         $turno->Hora = $request->hora;
         $turno->save();
 
-        $turnos = Turno::all();
+        $turnos = DB::table('turnos')->paginate(10);
 
         return view('turno.indexAdmin', compact('turnos'));
     }
@@ -132,7 +132,7 @@ class TurnoController extends Controller
     {
         DB::table('turnos')->delete($id);
 
-        $turnos = Turno::all();
+        $turnos = DB::table('turnos')->paginate(10);
 
         return view('turno.indexAdmin', compact('turnos'));
     }
