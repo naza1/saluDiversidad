@@ -18,8 +18,8 @@ class CreatePacientesTable extends Migration
             $table->timestamps();
             $table->string('Nombre', 255)->nullable();
             $table->string('Apellido', 255)->nullable();
-            $table->string('Dni', 50);
-            $table->string('Email', 255)->nullable();
+            $table->string('Dni', 50)->unique();
+            $table->string('Email', 255)->unique();
             $table->string('NroHistorial', 50)->nullable();
             $table->string('Address', 255)->nullable();
             $table->string('City', 255)->nullable();
