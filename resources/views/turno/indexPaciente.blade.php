@@ -70,7 +70,7 @@
             <tbody>
             @foreach($turnos as $turno)
             <tr>
-                <td>{{$turno->Dia ?? 'Turno no aprobado'}}</td>
+                <td>{{$turno->Dia ?? 'Turno en espera de aprobación'}}</td>
                 <td>{{$turno->Hora}}</td>
                 <td>{{$turno->Medico}}</td>
                 <td>{{$turno->Lugar}}</td>
