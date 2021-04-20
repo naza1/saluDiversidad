@@ -33,33 +33,39 @@
               <th>HORA</th>
               <th>LUGAR</th>
               <th>ACCIONES</th>
-              </thead>
+            </thead>
             <tbody>
             <tr>
-            <form action="" method="POST">
-              <td></td>
-              <td></td>
-              <td><select class="form-control" id="medico" name="medico" value="">
-                <option value="">-- Escoja médico --</option>
-                                  <option value="" required>Nicolás Zanier</option>
-                                  <option value="" required>Virginia Barreneche</option>
-                           
-                        </select</td>
-              <td><input type="date" class="form-control" id="date" maxlength="250" name="date" placeholder="día" value=""></td>
-              <td><input type="time" class="form-control" id="hora" maxlength="250" name="hora" placeholder="hora" value=""></td>
-              <td><select class="form-control" id="medico" name="medico" value="">
-                                 <option value="" required>CAPS1 - Colón y Salta</option>
-                                                           
-                        </select></td>
-              <td>
-              <div class="btn-group">
-              <a href="" class="btn btn-success btn-sm">Asignar turno</a><br>
-              </div>
-              <div class="btn-group">
-              <a href="" class="btn btn-danger btn-sm">Eliminar turno</a><br>
-              </div>
-              </td>
-            </tr>
+              <form action="" method="POST">
+                <td></td>
+                <td></td>
+                <td>
+                  <select class="form-control" id="medico" name="medico" value="">
+                    <option value="">-- Escoja médico --</option>
+                    <option value="Nicolás Zanier" required>Nicolás Zanier</option>
+                    <option value="Virginia Barreneche" required>Virginia Barreneche</option>
+                  </select>
+                </td>
+                <td>
+                  <input type="fecha" class="form-control" id="fecha" maxlength="250" name="fecha" placeholder="Día" value="">
+                </td>
+                <td>
+                  <input type="time" class="form-control" id="hora" maxlength="250" name="hora" placeholder="Hora" value="">
+                </td>
+                <td>
+                  <select class="form-control" id="lugar" name="lugar" value="">
+                    <option value="CAPS1 - Colón y Salta" required>CAPS1 - Colón y Salta</option>
+                  </select>
+                </td>
+                <td>
+                  <div class="btn-group">
+                    <a href="" class="btn btn-success btn-sm">Asignar turno</a><br>
+                  </div>
+                  <div class="btn-group">
+                    <a href="" class="btn btn-danger btn-sm">Eliminar turno</a><br>
+                  </div>
+                </td>
+              </tr>
             </tbody>
           </table>
 <!--FIN DE TABLA-->

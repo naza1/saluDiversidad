@@ -23,25 +23,22 @@
            
                 <div class="alert alert-info">
                     <ul>
-                       
-                            <p>Aquí podrá solicitar un turno para los especialistas.Una vez asignado el turno podrá visualizarlo en el cuadro inferior de "Turnos asignados"</p>
-                        
+                        <p>Aquí podrá solicitar un turno para los especialistas.Una vez asignado el turno podrá visualizarlo en el cuadro inferior de "Turnos asignados"</p>
                     </ul>
                 </div>
             
- <form action="" method="POST">
-
+ <form action="{{url('turno')}}" method="POST">
+ @csrf
  <div class="form-group row">
-    <label for="genero" class="col-md-4 col-form-label text-md-right">Elegir profesional</label>
+    <label for="medico" class="col-md-4 col-form-label text-md-right">Elegir profesional</label>
         <div class="col-md-6">
-            <select class="form-control" id="medico" name="medico" value="{{old('genero')}}">
+            <select class="form-control" id="medico" name="medico" value="{{old('medico')}}">
                 <option value="">-- Escoja médico --</option>
-                                  <option value="" required>Nicolás Zanier</option>
-                                  <option value="" required>Virginia Barreneche</option>
-                           
-                        </select>
-                    </div>
-                </div> 
+                <option value="Nicolás Zanier" required>Nicolás Zanier</option>
+                <option value="Virginia Barreneche" required>Virginia Barreneche</option>
+            </select>
+        </div>
+</div> 
                 <div class="form-group row">
                     <div class="col-md-6 offset-md-4">
                         <button type="submit" class="btn btn-primary">Solicitar turno</button>
@@ -71,12 +68,14 @@
               <th>LUGAR</th>
             </thead>
             <tbody>
+            @foreach($turnos as $turno)
             <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
+                <td>{{$turno->Dia ?? 'Turno no aprobado'}}</td>
+                <td>{{$turno->Hora}}</td>
+                <td>{{$turno->Medico}}</td>
+                <td>{{$turno->Lugar}}</td>
             </tr>
+            @endforeach
             </tbody>
           </table>
 <!--FIN DE TABLA-->

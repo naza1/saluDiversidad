@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Turno;
 use Illuminate\Http\Request;
+use DB;
+use Illuminate\Support\Facades\Auth;
 
 class TurnoController extends Controller
 {
@@ -14,12 +16,23 @@ class TurnoController extends Controller
      */
     public function index()
     {
-        return view('turno.indexPaciente');
+        $paciente = DB::table('pacientes')
+        ->where('UserId', '=', auth::user()->id)
+        ->first();
+
+        $turnos = DB::table('turnos')
+        ->where('PacienteId', '=', $paciente->id)
+        ->orderBy('created_at', 'desc')
+        ->paginate(10);
+
+        return view('turno.indexPaciente', compact('turnos'));
     }
 
     public function indexAdmin()
     {
-        return view('turno.indexAdmin');
+        $turnos = Turno::all();
+
+        return view('turno.indexAdmin', compact('turnos'));
     }
 
     /**
@@ -40,7 +53,19 @@ class TurnoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $paciente = DB::table('pacientes')
+        ->where('UserId', '=', auth::user()->id)
+        ->first();
+
+        $turno = new Turno();
+        $turno->PacienteId = $paciente->id;
+        $turno->Medico = $request->get('medico');
+        $turno->NombrePaciente = $paciente->Nombre;
+        $turno->ApellidoPaciente = $paciente->Apellido;
+        $turno->Lugar = "CAPS1 - Colón y Salta";
+        $turno->save();
+
+        return redirect('/turno');
     }
 
     /**

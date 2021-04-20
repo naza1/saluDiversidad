@@ -18,8 +18,11 @@ class CreateTurnosTable extends Migration
             $table->timestamps();
             $table->string('Dia', 255)->nullable();
             $table->string('Hora', 255)->nullable();
-            $table->string('UserId', 255)->nullable();
+            $table->string('Medico', 255)->nullable();
             $table->string('PacienteId', 255)->nullable();
+            $table->string('NombrePaciente', 255)->nullable();
+            $table->string('ApellidoPaciente', 255)->nullable();
+            $table->string('Lugar', 255)->nullable();
             $table->string('IsActive', 255)->default('1');
         });
     }
