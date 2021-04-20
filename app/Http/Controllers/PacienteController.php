@@ -130,8 +130,12 @@ class PacienteController extends Controller
             ->first();
         $generos = Genero::all();
         $pronombres = Pronombre::all();
+        $educaciones = Educacion::all();
 
-        return view('editPaciente', ['paciente'=>$paciente, 'generos'=>$generos, 'pronombres' => $pronombres]);
+        return view('editPaciente', ['paciente'=>$paciente, 
+        'generos'=>$generos, 
+        'pronombres' => $pronombres,
+        'educaciones' => $educaciones]);
     }
 
     public function update(PacienteCreateRequest $request)

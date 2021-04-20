@@ -107,15 +107,15 @@
                 <div class="form-group row">
                     <label for="nivelEducativo" class="col-md-4 col-form-label text-md-right">Nivel educativo</label>
                     <div class="col-md-6">
-                    <select class="form-control" id="nivelEducativo" name="nivelEducativo">
-                        @if($paciente->NivelEducativo != null)
-                            <option value="{{$paciente->NivelEducativo}}">{{$paciente->NivelEducativo}}</option>
-                        @else
-                            <option value="">-- Escoja el Nivel Educativo --</option>
-                        @endif
-                        @foreach($educaciones as $educacion)
-                            <option value="{{ $educacion['Nombre'] }}" required>{{$educacion['Nombre']}}</option>
-                        @endforeach
+                        <select class="form-control" id="nivelEducativo" name="nivelEducativo">
+                            @if($paciente->NivelEducativo != null)
+                                <option value="{{$paciente->NivelEducativo}}">{{$paciente->NivelEducativo}}</option>
+                            @else
+                                <option value="">-- Escoja el Nivel Educativo --</option>
+                            @endif
+                            @foreach($educaciones as $educacion)
+                                <option value="{{ $educacion['Nombre'] }}" required>{{$educacion['Nombre']}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
