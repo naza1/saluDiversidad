@@ -47,7 +47,7 @@
                   </select>
                 </td>
                 <td>
-                  <input type="fecha" class="form-control" id="fecha" maxlength="250" name="fecha" placeholder="Día" value="">
+                  <input type="date" class="form-control" id="fecha" maxlength="250" name="fecha" placeholder="Día" value="">
                 </td>
                 <td>
                   <input type="time" class="form-control" id="hora" maxlength="250" name="hora" placeholder="Hora" value="">
@@ -59,7 +59,8 @@
                 </td>
                 <td>
                   <div class="btn-group">
-                    <a href="" class="btn btn-success btn-sm">Asignar turno</a><br>
+                    <button type="submit" class="btn btn-success btn-sm">Asignar turno</button><br>
+                    </form>
                   </div>
                   <div class="btn-group">
                     <a href="" class="btn btn-danger btn-sm">Eliminar turno</a><br>
