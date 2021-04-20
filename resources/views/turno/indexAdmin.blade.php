@@ -15,8 +15,64 @@
   </ol>
 </nav>
 <div class="container">
-   
+
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header text-white bg-success mb-3">TURNOS SOLICITADOS</div>
+                <div class="card-body">
+                   <div class="form-group row">
+                     <div class="col-lg-12">
+<!--INICIO DE TABLA-->
+          <table class="table table-responsive-lg table-hover">
+            <thead>
+              <th>APELLIDO</th>
+              <th>NOMBRE</th>
+              <th>PROFESIONAL</th>
+              <th>FECHA</th>
+              <th>HORA</th>
+              <th>LUGAR</th>
+              <th>ACCIONES</th>
+              </thead>
+            <tbody>
+            <tr>
+            <form action="" method="POST">
+              <td></td>
+              <td></td>
+              <td><select class="form-control" id="medico" name="medico" value="">
+                <option value="">-- Escoja médico --</option>
+                                  <option value="" required>Nicolás Zanier</option>
+                                  <option value="" required>Virginia Barreneche</option>
+                           
+                        </select</td>
+              <td><input type="date" class="form-control" id="date" maxlength="250" name="date" placeholder="día" value=""></td>
+              <td><input type="time" class="form-control" id="hora" maxlength="250" name="hora" placeholder="hora" value=""></td>
+              <td><select class="form-control" id="medico" name="medico" value="">
+                                 <option value="" required>CAPS1 - Colón y Salta</option>
+                                                           
+                        </select></td>
+              <td>
+              <div class="btn-group">
+              <a href="" class="btn btn-success btn-sm">Asignar turno</a><br>
+              </div>
+              <div class="btn-group">
+              <a href="" class="btn btn-danger btn-sm">Eliminar turno</a><br>
+              </div>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+<!--FIN DE TABLA-->
+                
+                          </div>
+                        </div>
+                   </div>
+            </div>
+        </div>
+    </div>
 </div>
+     
+
 @include('layouts.footer')
 </body>
 </html>
