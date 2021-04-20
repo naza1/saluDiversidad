@@ -45,7 +45,7 @@
                 <div class="form-group row">
                     <label for="contenido" class="col-md-4 col-form-label text-md-right">Contenido</label>
                     <div class="col-md-6">
-                        <textarea class="form-control" id="contenido" value="{{old('contenido')}}" name="contenido" maxlength="250" placeholder="Contenido"></textarea>
+                        <textarea class="form-control" id="contenido" value="{{old('contenido')}}" name="contenido" maxlength="250" placeholder="Contenido" required></textarea>
                     </div>
                 </div>
 

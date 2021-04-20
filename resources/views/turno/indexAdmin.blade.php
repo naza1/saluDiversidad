@@ -83,6 +83,7 @@
             @endforeach
             </tbody>
           </table>
+          {{$turnos->links()}}
 <!--FIN DE TABLA-->
                 
                           </div>

@@ -19,7 +19,6 @@
                             {{ session('status') }}
                         </div>
                     @endif
-
                    <p>Seleccione la opción a realizar...</p>
                    <p><a href="{{ action('App\Http\Controllers\PacienteController@index') }}" class="btn btn-success btn-md btn-block">Buscar y editar paciente</a></p>
                    <p><a href="{{ action('App\Http\Controllers\TurnoController@indexAdmin') }}" class="btn btn-success btn-md btn-block">Procesar turnos</a></p>
@@ -34,7 +33,6 @@
                 <div class="card-header text-white bg-info mb-3">NOTICIAS</div>
                 <div class="card-body">
                 @foreach($noticias as $noticia)
-                
                 <div class="card" style="width: 18rem;">
                     <div class="card-body">
                         <h5 class="card-title text-danger">{{$noticia->Titulo}}</h5>
@@ -44,13 +42,13 @@
                 </div>
                 <br>
                 @endforeach
+                {{$noticias->links()}}
                 <div class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
-
                    <p></p>
                 </div>
             </div>

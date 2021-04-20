@@ -42,6 +42,7 @@ class TurnoController extends Controller
             $turno->ApellidoPaciente = $paciente->Apellido;
             $turno->save();
         }
+        $turnos = DB::table('turnos')->paginate(10);
 
         return view('turno.indexAdmin', compact('turnos'));
     }

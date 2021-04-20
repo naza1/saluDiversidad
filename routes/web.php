@@ -36,7 +36,7 @@ Route::get('/dashboardAdmin', function() {
 
     if(auth::user()->fullacces == 'yes')
     {
-        $noticias = Noticia::all();
+        $noticias = DB::table('noticias')->paginate(10);
         return view('dashboardAdmin', compact('noticias'));
     }
         
