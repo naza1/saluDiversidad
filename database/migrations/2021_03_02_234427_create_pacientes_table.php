@@ -33,7 +33,7 @@ class CreatePacientesTable extends Migration
             $table->string('Pronombre', 255)->nullable();
             $table->string('NivelEducativo', 255)->nullable();
             $table->string('IsActive')->default('1');
-            $table->string('UserId', 255)->nullable();
+            $table->unsignedInteger('user_id')->nullable()->foreign('user_id')->references('id')->on('users');
             $table->string('FatherUserId', 255)->nullable();
             $table->string('ImageUrl', 255)->nullable();
             $table->string('telefono', 255)->nullable();

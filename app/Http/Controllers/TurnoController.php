@@ -20,7 +20,7 @@ class TurnoController extends Controller
     public function index()
     {
         $paciente = DB::table('pacientes')
-        ->where('UserId', '=', auth::user()->id)
+        ->where('user_id', '=', auth::user()->id)
         ->first();
 
         $turnos = DB::table('turnos')
@@ -69,7 +69,7 @@ class TurnoController extends Controller
     public function store(Request $request)
     {
         $paciente = DB::table('pacientes')
-        ->where('UserId', '=', auth::user()->id)
+        ->where('user_id', '=', auth::user()->id)
         ->first();
 
         $turno = new Turno();

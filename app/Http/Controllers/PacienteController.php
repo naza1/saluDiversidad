@@ -88,7 +88,7 @@ class PacienteController extends Controller
             $paciente->telefono = $request->get('telefono');
             $paciente->telefono_alternativo = $request->get('telefono_alternativo');
             $paciente->isActive = true;
-            $paciente->UserId=$user->id;
+            $paciente->user_id=$user->id;
             $paciente->FatherUserId = auth::user()->id;
             $paciente->save();
 
