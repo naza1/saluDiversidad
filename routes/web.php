@@ -46,7 +46,7 @@ Route::get('/dashboardAdmin', function() {
 Route::get('/homePaciente', function() {
     
     if(auth::user()->email_verified_at != null){
-        $noticias = Noticia::all();
+        $noticias = DB::table('noticias')->paginate(10);
         return view('paciente', compact('noticias'));
     }
    
@@ -62,3 +62,6 @@ Route::get('/storage-link', function(){
 });
 
 Route::get('/indexAdmin','App\Http\Controllers\TurnoController@indexAdmin')->middleware('verified');
+
+// Email related routes
+Route::get('mail/send', 'MailController@send');

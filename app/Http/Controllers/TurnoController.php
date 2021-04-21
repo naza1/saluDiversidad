@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Turno;
+use App\Models\Paciente;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Auth;
+use Mail;
+use App\Mail\TurnoEmail;
 
 class TurnoController extends Controller
 {
@@ -116,6 +119,10 @@ class TurnoController extends Controller
         $turno->Dia = $request->fecha;
         $turno->Hora = $request->hora;
         $turno->save();
+
+        $paciente = Paciente::find($turno->PacienteId);
+
+        Mail::to($paciente->Email)->send(new TurnoEmail($turno));
 
         $turnos = DB::table('turnos')->paginate(10);
 
