@@ -24,7 +24,7 @@ class TurnoController extends Controller
         ->first();
 
         $turnos = DB::table('turnos')
-        ->where('PacienteId', '=', $paciente->id)
+        ->where('PacienteId', '=', $paciente->id ?? null)
         ->orderBy('created_at', 'desc')
         ->paginate(10);
 
