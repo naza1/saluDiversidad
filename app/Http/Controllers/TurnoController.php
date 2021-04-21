@@ -126,7 +126,7 @@ class TurnoController extends Controller
 
         $turnos = DB::table('turnos')->paginate(10);
 
-        return view('turno.indexAdmin', compact('turnos'));
+        return redirect()->to('indexAdmin')->with('turnos', $turnos);
     }
 
     /**
