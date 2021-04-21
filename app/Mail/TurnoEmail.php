@@ -28,6 +28,6 @@ class TurnoEmail extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.turno');
+        return $this->subject('Asignación de turno')->view('mails.turno');
     }
 }

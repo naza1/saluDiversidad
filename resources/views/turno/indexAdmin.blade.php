@@ -28,6 +28,7 @@
             <thead>
               <th>APELLIDO</th>
               <th>NOMBRE</th>
+              <th>ESTADO</th>
               <th>PROFESIONAL</th>
               <th>FECHA</th>
               <th>HORA</th>
@@ -43,6 +44,7 @@
               <input name="id" value="{{$turno->id}}" type="hidden">
                 <td>{{$turno->ApellidoPaciente}}</td>
                 <td>{{$turno->NombrePaciente}}</td>
+                <td>{{$turno->Dia == null ? 'PENDIENTE' : 'APROBADO'}}</td>
                 <td>
                   <select class="form-control" id="medico" name="medico">
                     @if($turno->Medico != null)

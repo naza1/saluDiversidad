@@ -3,10 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0">
-    <title>Llamado de emergencia</title>
+    <title>Aprobación de turno</title>
 </head>
-<body>
-    <p>Hola! Se ha cofirmado su turno para el dia {{$turnoDato->Dia}} a las {{$turnoDato->Hora}}
-    con el medico {{$turnoDato->Medico}} en el centro de salud {{$turnoDato->Lugar}}.</p>
+<body><img src="{{ url('http://c2170987.ferozo.com/wp-content/uploads/2021/03/logo.png') }}" alt="Logo Salud y Diversidad" class="logo" width="30%">
+    <p>Estimadx: {{$turnoDato->NombrePaciente}} {{$turnoDato->ApellidoPaciente}} <br><br>
+    Se ha cofirmado su turno para el dia {{$turnoDato->Dia}} a las {{$turnoDato->Hora}}
+    con el medico {{$turnoDato->Medico}} en el Centro de Salud {{$turnoDato->Lugar}}.</p>
+    <br>
+    ----------------------------------------<br>
+    Programa Municipal de Salud y Diversidad<br>
+    Municipalidad del Partido de Gral. Pueyrredón
 </body>
 </html>
