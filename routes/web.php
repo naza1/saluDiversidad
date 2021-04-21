@@ -62,3 +62,6 @@ Route::get('/storage-link', function(){
 });
 
 Route::get('/indexAdmin','App\Http\Controllers\TurnoController@indexAdmin')->middleware('verified');
+
+// Email related routes
+Route::get('mail/send', 'MailController@send');
