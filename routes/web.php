@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Noticia;
+use App\Http\Controllers\PdfController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +25,7 @@ Route::resource('/paciente', 'App\Http\Controllers\PacienteController');
 Route::resource('/receta', 'App\Http\Controllers\RecetaController');
 Route::resource('/noticia', 'App\Http\Controllers\NoticiaController');
 Route::resource('/turno', 'App\Http\Controllers\TurnoController');
+Route::resource('/estudio', 'App\Http\Controllers\EstudioController');
 
 Route::get('/changePassword', function() {
      return view('auth.passwords.email');
@@ -63,5 +65,6 @@ Route::get('/storage-link', function(){
 
 Route::get('/indexAdmin','App\Http\Controllers\TurnoController@indexAdmin')->middleware('verified');
 
-// Email related routes
-Route::get('mail/send', 'MailController@send');
+Route::get('generate-pdf', [PdfController::class, 'generatePDF']);
+
+Route::get('/indexEstudioAdmin','App\Http\Controllers\EstudioController@indexEstudioAdmin')->middleware('verified');
