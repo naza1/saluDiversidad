@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Estudio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use DB;
 
 class EstudioController extends Controller
 {
@@ -14,12 +16,38 @@ class EstudioController extends Controller
      */
     public function index()
     {
-        return view('estudio.indexPaciente');
+        $paciente = DB::table('pacientes')
+            ->where('user_id', '=', auth::user()->id)
+            ->first();
+
+        $estudios = DB::table('estudios')
+            ->where('paciente_id', '=', $paciente->id)
+            ->where('IsDeleted', '=', 0)
+            ->first();
+
+        return view('estudio.indexPaciente', compact('estudios'));
     }
 
     public function indexEstudioAdmin()
     {
-        return view('estudio.indexAdmin');
+        $estudios = Estudio::where('IsDeleted', 0)->get();
+
+        foreach($estudios as $estudio)
+        {
+            $paciente = DB::table('pacientes')
+                ->where('id', '=', $estudio->paciente_id)
+                ->first();
+
+            $estudio->NombrePaciente = $paciente->Nombre;
+            $estudio->ApellidoPaciente = $paciente->Apellido;
+            $estudio->save();
+        }
+        
+        $estudios = DB::table('estudios')
+        ->where('IsDeleted', '=', 0)
+        ->paginate(10);
+
+        return view('estudio.indexAdmin', compact('estudios'));
     }
 
     /**
@@ -40,7 +68,22 @@ class EstudioController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $paciente = DB::table('pacientes')
+        ->where('user_id', '=', auth::user()->id)
+        ->first();
+
+        $estudio = new Estudio();
+        $estudio->paciente_id = $paciente->id;
+        $estudio->NombrePaciente = $paciente->Nombre;
+        $estudio->ApellidoPaciente = $paciente->Apellido;
+        $estudio->save();
+        
+        $estudios = DB::table('estudios')
+        ->where('paciente_id', '=', $paciente->id)
+        ->where('IsDeleted', '=', 0)
+        ->first();
+
+        return view('estudio.indexPaciente', compact('estudios'));
     }
 
     /**
@@ -49,9 +92,16 @@ class EstudioController extends Controller
      * @param  \App\Models\Estudio  $estudio
      * @return \Illuminate\Http\Response
      */
-    public function show(Estudio $estudio)
+    public function show($id)
     {
-        //
+         $estudio = Estudio::find($id);
+        // $estudio->Estado = "Aprobado";
+        // $estudio->save();
+
+        // $estudios = Estudio::where('IsDeleted', 0)->get();
+
+        // return redirect()->to('indexEstudioAdmin')->with('estudios', $estudios);
+        return view('estudio.asignaEstudio', compact('estudio'));
     }
 
     /**
@@ -83,8 +133,14 @@ class EstudioController extends Controller
      * @param  \App\Models\Estudio  $estudio
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Estudio $estudio)
+    public function destroy($id)
     {
-        //
+        $estudio = Estudio::find($id);
+        $estudio->IsDeleted = 1;
+        $estudio->save();
+
+        $estudios = Estudio::where('IsDeleted', 0)->get();
+
+        return redirect()->to('estudio.indexAdmin')->with('estudios', $estudios);
     }
 }

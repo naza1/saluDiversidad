@@ -38,8 +38,8 @@ class TurnoController extends Controller
         foreach($turnos as $turno)
         {
             $paciente = DB::table('pacientes')
-            ->where('id', '=', $turno->PacienteId)
-            ->first();
+                ->where('id', '=', $turno->PacienteId)
+                ->first();
 
             $turno->NombrePaciente = $paciente->Nombre;
             $turno->ApellidoPaciente = $paciente->Apellido;

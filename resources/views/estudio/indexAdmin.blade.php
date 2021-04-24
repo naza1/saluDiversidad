@@ -33,17 +33,19 @@
               <th>ACCIONES</th>
             </thead>
             <tbody>
+            @foreach($estudios as $estudio)
               <tr>
+                <td>{{$estudio->NombrePaciente}}</td>
+                <td>{{$estudio->ApellidoPaciente}}</td>
+                <td>{{$estudio->created_at}}</td>
+                <td>{{$estudio->Estado}}</td>
                 <td></td>
-                <td></td>
-                <td></td>
-                <td></td>
-                <td>                  
+                <td>
                 <div class="btn-group">
-                  <a href="" class="btn btn-success btn-sm">Asignar</a><br>
-                  </div>
+                  <a href="{{ url('estudio/'.$estudio->id) }}" class="btn btn-success btn-sm">Asignar</a><br>
+                </div>
                  <div class="btn-group">
-                    <form method="POST" action="">
+                    <form method="POST" action="{{ url('estudio/'.$estudio->id) }}">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-xs btn-danger btn-delete btn-sm">Eliminar</button>
@@ -51,6 +53,7 @@
                 </div>
               </td>
             </tr>
+            @endforeach
           </tbody>
           </table>
        
@@ -63,11 +66,6 @@
         </div>
     </div>
 </div>
-     
-
-
-
-
 @include('layouts.footer')
 </body>
 </html>

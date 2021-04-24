@@ -70,37 +70,22 @@ class RegisterController extends Controller
     {
         $user = User::create([
             'name' => $data['name'],
+            'apellido' => $data['apellido'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'fullacces' => 'no',
             'codigo' => 'paciente',
             'dni' => $data['dni'],
         ]);
-$user->paciente()->create([
-         'nombre' => $data['name'],
-         'apellido' => $data['apellido'],
-         'email' => $data['email'],
-         'dni' => $data['dni'],
-         'isActive' => 1,
-     ]);
-        // Paciente::create([
-        //     'nombre' => $data['name'],
-        //     'apellido' => $data['apellido'],
-        //     'email' => $data['email'],
-        //     'dni' => $data['dni'],
-        //     'isActive' => 1,
-        //     'UserId' => $user->id,
-        // ]);
+
+        $user->paciente()->create([
+            'nombre' => $data['name'],
+            'apellido' => $data['apellido'],
+            'email' => $data['email'],
+            'dni' => $data['dni'],
+            'isActive' => 1,
+        ]);
 
         return $user;
-
-        // return User::create([
-        //     'name' => $data['name'],
-        //     'email' => $data['email'],
-        //     'password' => Hash::make($data['password']),
-        //     'fullacces' => 'no',
-        //     'codigo' => 'paciente',
-        //     'dni' => $data['dni'],
-        // ]);
     }
 }

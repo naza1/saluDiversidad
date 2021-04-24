@@ -14,33 +14,31 @@
     <li class="breadcrumb-item active" aria-current="page">Opciones para estudios y laboratorios</li>
   </ol>
 </nav>
-
-
     <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-              <div class="card-header text-white bg-info mb-3">SOLICITAR ORDEN DE ESTUDIO</div>
-                <div class="body">    
-                <div class="alert alert-info">
-                    <ul>
-                        <p>Desde esta opción podrá solicitar una orden para la realización de exámenes de laboratorio. <br>Una vez aprobada la órden podrá descargarla en la tabla inferior.</p>
-                    </ul>
-                </div>
-            <form action="" method="POST">
-                <input type="hidden"> <!-- acá deberíamos ver qué debería viajar oculto para el médico-->
-                    <div class="form-group row">
-                        <div class="col-md-6 offset-md-3">
-                          <button type="submit" class="btn btn-info btn-md btn-block text-white">Solicitar orden</button>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header text-white bg-info mb-3">SOLICITAR ORDEN DE ESTUDIO</div>
+                        <div class="body">
+                            <div class="alert alert-info">
+                                <ul>
+                                    <p>Desde esta opción podrá solicitar una orden para la realización de exámenes de laboratorio. <br>Una vez aprobada la órden podrá descargarla en la tabla inferior.</p>
+                                </ul>
+                            </div>
+                            <form action="{{url('estudio')}}" method="POST">
+                            @csrf
+                                <div class="form-group row">
+                                    <div class="col-md-6 offset-md-3">
+                                        <button type="submit" class="btn btn-info btn-md btn-block text-white">Solicitar orden</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
                     </div>
                 </div>
-            </form>
- </div>
-</div>
-</div>
-</div>
-</div>
-<BR><BR>
+            </div>
+        </div>
+<br><br>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

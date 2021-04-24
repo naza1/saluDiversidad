@@ -13,5 +13,6 @@ class Paciente extends Model
         'nombre',
         'email',
         'dni',
+        'apellido',
     ];
 }

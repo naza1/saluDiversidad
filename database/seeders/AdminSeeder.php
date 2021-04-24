@@ -16,22 +16,24 @@ class AdminSeeder extends Seeder
     public function run()
     {
         $userAdmin=User::create([
-            'name' => 'Nicolas Zanier',
+            'name' => 'Nicolas',
             'email' => 'admin@mail.com',
             'email_verified_at' => date("Y-m-d H:i:s"),
             'password' => Hash::make('admin'),
             'fullacces' => 'yes',
             'codigo' => 'admin',
+            'apellido' => 'Zanier',
             'dni' => '54321'
         ]);
 
         $userAdmin=User::create([
-            'name' => 'Virginia Barreneche',
+            'name' => 'Virginia',
             'email' => 'admin2@mail.com',
             'email_verified_at' => date("Y-m-d H:i:s"),
             'password' => Hash::make('admin'),
             'fullacces' => 'yes',
             'codigo' => 'admin',
+            'apellido' => 'Barreneche',
             'dni' => '12345'
         ]);
     }
