@@ -82,12 +82,12 @@
                                         <label class="form-check-label" for="glucemia">Glucemia</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="" name="estudios">
-                                        <label class="form-check-label" for="">Urea</label>
+                                        <input class="form-check-input" type="checkbox" value="Urea" id="urea" name="estudios">
+                                        <label class="form-check-label" for="urea">Urea</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="" name="estudios">
-                                        <label class="form-check-label" for="">Creatinina</label>
+                                        <input class="form-check-input" type="checkbox" value="Creatinina" id="creatinina" name="estudios">
+                                        <label class="form-check-label" for="creatinina">Creatinina</label>
                                     </div>
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="" id="" name="estudios">

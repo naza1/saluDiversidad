@@ -65,6 +65,7 @@ class PacienteController extends Controller
                 'dni' => $request->get('dni'),
                 'password' => Hash::make('123456'),
                 'fullacces' => 'no',
+                'apellido' => $request->get('apellido'),
                 'codigo' => 'paciente'
             ]);
 
