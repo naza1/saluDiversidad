@@ -21,13 +21,93 @@
                 <div class="row d-flex justify-content-center">
                 <div class="card-body">
                 <div class="form-group row">
-                    <label for="laboratorio" class="col-md-4 col-form-label text-md-right">Seleccionar laboratorio</label>
+                    <label for="laboratorio-inicio" class="col-md-4 col-form-label text-md-right">Seleccionar laboratorios de inicio</label>
                     <div class="col-md-6">
-                    <select class="form-control" id="" name="">
-                                <option value="">--Escoja el laboratorio--</option>
-                                <option value="">Laboratorio de inicio</option>
-                                <option value="">Laboratorio de seguimiento</option>
-                    </select>
+                       <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label" for="">Hemograma</label>
+                            </div>
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label" for="">Glucemia</label>
+                            </div>
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label" for="">Urea</label>
+                            </div>
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label" for="">Creatinina</label>
+                            </div>
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label" for="">Colesterol total/HDL/LDL/Triglicéridos</label>
+                            </div> 
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label" for="">Hepatograma</label>
+                            </div> 
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label" for="">TSH</label>
+                            </div> 
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label" for="">LH</label>
+                            </div> 
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label" for="">FSH</label>
+                            </div> 
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label" for="">Estradiol</label>
+                            </div> 
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label" for="">Testosterona libre y total</label>
+                            </div>             
+                    </div>
+                    </div>
+                    <div class="form-group row">
+                    <label for="laboratorio-inicio" class="col-md-4 col-form-label text-md-right">Seleccionar laboratorios de seguimiento</label>
+                    <div class="col-md-6">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label" for="">Hemograma</label>
+                            </div>
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label" for="">Glucemia</label>
+                            </div>
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label" for="">Urea</label>
+                            </div>
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label" for="">Creatinina</label>
+                            </div>
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label" for="">Colesterol total/HDL/LDL/Triglicéridos</label>
+                            </div> 
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label" for="">Hepatograma</label>
+                            </div> 
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label" for="">TSH</label>
+                            </div> 
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label" for="">Estradiol</label>
+                            </div> 
+                            <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="">
+                            <label class="form-check-label" for="">Testosterona libre y total</label>
+                            </div>             
                     </div>
                 </div>
 
@@ -54,25 +134,27 @@
                             <input class="form-check-input" type="checkbox" value="" id="">
                             <label class="form-check-label" for="">Hepatitis C</label>
                             </div> 
-                    </div>
+                    </div>  
                 </div>
 
                 <div class="form-group row">
-                            <label for="Otros-estudios">Agregue manualmente otros estudios</label>
-                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                   <label for="Otros-estudios" class="col-md-4 col-form-label text-md-right">Agregue manualmente otros estudios</label>
+                        <div class="col-md-6">
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        </div>
                 </div>
                 <div class="form-group row">
                     <div class="col-md-6 offset-md-4">
                         <button type="submit" class="btn btn-primary">Asignar orden</button>
                     </div>
                 </div>
-                </div>
-                </div>
-                </div>
-                </div>
             </div>
         </div>
-    </div>
+     </div>
+ </div>
+ </div>
+</div>
+</div>
 </div>
  </form>
  @include('layouts.footer')

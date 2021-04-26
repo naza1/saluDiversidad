@@ -39,7 +39,6 @@
                 <td>{{$estudio->ApellidoPaciente}}</td>
                 <td>{{$estudio->created_at}}</td>
                 <td>{{$estudio->Estado}}</td>
-                <td></td>
                 <td>
                 <div class="btn-group">
                   <a href="{{ url('estudio/'.$estudio->id) }}" class="btn btn-success btn-sm">Asignar</a><br>
