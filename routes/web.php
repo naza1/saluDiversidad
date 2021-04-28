@@ -66,5 +66,6 @@ Route::get('/storage-link', function(){
 Route::get('/indexAdmin','App\Http\Controllers\TurnoController@indexAdmin')->middleware('verified');
 
 Route::get('generate-pdf', [PdfController::class, 'generatePDF']);
+Route::get('generate-orden', [PdfController::class, 'generateOrden']);
 
 Route::get('/indexEstudioAdmin','App\Http\Controllers\EstudioController@indexEstudioAdmin')->middleware('verified');

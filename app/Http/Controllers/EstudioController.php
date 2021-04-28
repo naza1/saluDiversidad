@@ -6,6 +6,7 @@ use App\Models\Estudio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
+use PDF;
 
 class EstudioController extends Controller
 {
@@ -23,7 +24,7 @@ class EstudioController extends Controller
         $estudios = DB::table('estudios')
             ->where('paciente_id', '=', $paciente->id)
             ->where('IsDeleted', '=', 0)
-            ->first();
+            ->paginate(10);
 
         return view('estudio.indexPaciente', compact('estudios'));
     }
@@ -124,7 +125,19 @@ class EstudioController extends Controller
      */
     public function update(Request $request, Estudio $estudio)
     {
-        //
+        if(request()->estudioManual != null)
+            $estudio->Estudios = implode(", ", request()->estudios).", ".request()->estudioManual;
+        else
+            $estudio->Estudios = implode(", ", request()->estudios);
+        
+        $estudio->Estado = "Asignado";
+        $estudio->save();
+        
+        $estudios = DB::table('estudios')
+        ->where('IsDeleted', '=', 0)
+        ->paginate(10);
+
+        return view('estudio.indexAdmin', compact('estudios'));
     }
 
     /**

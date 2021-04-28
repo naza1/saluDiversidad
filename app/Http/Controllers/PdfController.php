@@ -23,4 +23,17 @@ class PdfController extends Controller
     
         return $pdf->download('itsolutionstuff.pdf');
     }
+
+    public function generateOrden(Request $request)
+    {
+        $data = [
+            'fecha' => date("Y-m-d H:i"),
+            'nombre' => request()->estudio['NombrePaciente'],
+            'apellido' => request()->estudio['ApellidoPaciente'],
+            'estudios' => explode(',', request()->estudio['Estudios']),
+        ];
+        $pdf = PDF::loadView('pdf.estudios', $data);
+
+        return $pdf->download('itsolutionstuff.pdf');
+    }
 }

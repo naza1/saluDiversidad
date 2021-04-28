@@ -50,14 +50,16 @@
 <!--INICIO DE TABLA-->
       <table class="table table-responsive-lg table-hover">
         <thead>
-            <th>ORDEN</th>
+            <th>ESTADO</th>
             <th>DESCARGAR</th>
         </thead>
         <tbody> 
+            @foreach($estudios as $estudio)
             <tr>
-              <td></td>
-               <td></td>
+              <td>{{$estudio->Estado}}</td>
+               <td><p><a href="{{ action('App\Http\Controllers\PdfController@generateOrden',['estudio' => $estudio]) }}">Descargar Orden</a></p></td>
             </tr>
+            @endforeach
         </tbody>
         </table>
        
