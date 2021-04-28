@@ -27,22 +27,56 @@
                             </div>
                             <form action="" method="POST">
                             @csrf
-                            <div class="form-group">
-                                <label for="SeleccionDroga">Seleccionar drogas</label>
-                                <select multiple class="form-control" id="exampleFormControlSelect2">
-                                    <option value="">Acetato de ciproterona - comprimido 50 mg</option>
-                                    <option value="">Acetato de triptorelina - ampolla inyectable 3,75 mg-kit x 1 mensual</option>
-                                    <option value="">Acetato de triptorelina - ampolla inyectable 11.25 mg-kit x 1 trimestral</option>
-                                    <option value="">Espironolactona - comprimidos 100 mg</option>
-                                    <option value="">Estradiol gel 0,06% - envase x 80 grs</option>
-                                    <option value="">Estradiol cápsulas/comprimidos 2 mg</option>
-                                    <option value="">Finasteride - comprimidos 5 mg</option>
-                                    <option value="">Testosterona gel 1% - envase por 150 grs</option>
-                                    <option value="">Undecanoato de testosterona - ampolla 1000 mg/4ml</option>
-                                </select>
+                            <div class="col-md-10">
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="" name="">
+                                <label class="form-check-label" for="Acetato de ciproterona - comprimido 50 mg">Acetato de ciproterona - comprimido 50 mg</label>
+                                </div>
+                                
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="" name="">
+                                <label class="form-check-label" for="Acetato de triptorelina - ampolla inyectable 3,75 mg-kit x 1 mensual<">Acetato de triptorelina - ampolla inyectable 3,75 mg-kit x 1 mensual</label>
+                                </div>
+                                
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="" name="">
+                                <label class="form-check-label" for="Acetato de triptorelina - ampolla inyectable 11.25 mg-kit x 1 trimestral">Acetato de triptorelina - ampolla inyectable 11.25 mg-kit x 1 trimestral</label>
+                                </div>
+                            
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="" name="">
+                                <label class="form-check-label" for="Espironolactona - comprimidos 100 mg">Espironolactona - comprimidos 100 mg</label>
+                                </div>
+                                
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="" name="">
+                                <label class="form-check-label" for="Estradiol gel 0,06% - envase x 80 grs">Estradiol gel 0,06% - envase x 80 grs</label>
+                                </div>
+                                
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="" name="">
+                                <label class="form-check-label" for="Estradiol cápsulas/comprimidos 2 mg">Estradiol cápsulas/comprimidos 2 mg</label>
+                                </div>
+                                
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="" name="">
+                                <label class="form-check-label" for="Finasteride - comprimidos 5 mg">Finasteride - comprimidos 5 mg</label>
+                                </div>
+                                
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="" name="">
+                                <label class="form-check-label" for="Testosterona gel 1% - envase por 150 grs">Testosterona gel 1% - envase por 150 grs</label>
+                                </div>
+                                
+                                <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="" name="">
+                                <label class="form-check-label" for="Undecanoato de testosterona - ampolla 1000 mg/4ml">Undecanoato de testosterona - ampolla 1000 mg/4ml</label>
+                                </div>
                             </div>
+                        </div>
                                 <div class="form-group row">
                                     <div class="col-md-6 offset-md-3">
+                                        <br>
                                         <button type="submit" class="btn btn-info btn-md btn-block text-white">Solicitar orden</button>
                                     </div>
                                 </div>

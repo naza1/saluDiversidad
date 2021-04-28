@@ -40,6 +40,7 @@
                                         <td></td>
                                         <td></td>
                                         <td></td>
+                                        <td></td>
                                         <td>
                                         <div class="btn-group">
                                           <a href="" class="btn btn-success btn-sm">Recetar</a><br>
