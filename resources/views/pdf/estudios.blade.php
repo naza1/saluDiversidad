@@ -6,6 +6,7 @@
 <body>
     <h1>Nombre {{ $nombre }}</h1>
     <p>Apellido {{ $apellido }}</p>
+    <p>Dni {{ $dni }}</p>
     <p>Fecha {{ $fecha }}</p>
     @foreach($estudios as $estudio)
     <p>{{ $estudio }}</p>

@@ -31,6 +31,7 @@ class PdfController extends Controller
             'nombre' => request()->estudio['NombrePaciente'],
             'apellido' => request()->estudio['ApellidoPaciente'],
             'estudios' => explode(',', request()->estudio['Estudios']),
+            'dni' => request()->estudio['Dni'],
         ];
         $pdf = PDF::loadView('pdf.estudios', $data);
 

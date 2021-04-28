@@ -19,6 +19,7 @@ class CreateEstudiosTable extends Migration
             $table->string('IsDeleted')->default(0);
             $table->string('NombrePaciente', 255)->nullable();
             $table->string('ApellidoPaciente', 255)->nullable();
+            $table->string('Dni', 255)->nullable();
             $table->string('Estado', 255)->default('Espera');
             $table->unsignedInteger('paciente_id')->nullable()
                 ->foreign('paciente_id')->references('id')->on('pacientes');

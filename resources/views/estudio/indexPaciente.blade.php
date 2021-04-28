@@ -57,7 +57,12 @@
             @foreach($estudios as $estudio)
             <tr>
               <td>{{$estudio->Estado}}</td>
-               <td><p><a href="{{ action('App\Http\Controllers\PdfController@generateOrden',['estudio' => $estudio]) }}">Descargar Orden</a></p></td>
+               <td>
+               @if($estudio->Estado == "Espera")
+                <p>Descargar Orden</p>
+               @else
+                <p><a href="{{ action('App\Http\Controllers\PdfController@generateOrden',['estudio' => $estudio]) }}">Descargar Orden</a></p></td>
+               @endif
             </tr>
             @endforeach
         </tbody>

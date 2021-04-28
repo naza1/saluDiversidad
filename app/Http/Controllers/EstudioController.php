@@ -77,14 +77,16 @@ class EstudioController extends Controller
         $estudio->paciente_id = $paciente->id;
         $estudio->NombrePaciente = $paciente->Nombre;
         $estudio->ApellidoPaciente = $paciente->Apellido;
+        $estudio->Dni = $paciente->Dni;
+        $estudio ->Estado = "Espera";
         $estudio->save();
         
         $estudios = DB::table('estudios')
         ->where('paciente_id', '=', $paciente->id)
-        ->where('IsDeleted', '=', 0)
-        ->first();
+        ->where('IsDeleted', '=', 0);
 
         return view('estudio.indexPaciente', compact('estudios'));
+        //return redirect()->to('estudio.indexPaciente')->with('estudios', $estudios);
     }
 
     /**
