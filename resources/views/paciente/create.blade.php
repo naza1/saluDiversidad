@@ -52,6 +52,13 @@
                 </div>
 
                 <div class="form-group row">
+                    <label for="fechaNacimiento" class="col-md-4 col-form-label text-md-right">Fecha de Nacimiento</label>
+                    <div class="col-md-6">
+                        <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" maxlength="250" placeholder="Fecha de Nacimiento" value="{{old('FechaNacimiento')}}">
+                    </div>
+                </div>
+
+                <div class="form-group row">
                     <label for="pronombre" class="col-md-4 col-form-label text-md-right">Pronombre</label>
                     <div class="col-md-6">
                     <select class="form-control" id="pronombre" name="pronombre" value="{{old('pronombre')}}">

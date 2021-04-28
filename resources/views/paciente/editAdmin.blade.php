@@ -70,7 +70,7 @@
                 <div class="form-group row">
                     <label for="nacimiento" class="col-md-4 col-form-label text-md-right">Fecha de Nacimiento</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="nacimiento" name="nacimiento" maxlength="250" placeholder="Fecha de Nacimiento" value="{{$paciente->FechaNacimiento}}">
+                        <input type="date" class="form-control" id="nacimiento" name="nacimiento" maxlength="250" placeholder="Fecha de Nacimiento" value="{{$paciente->FechaNacimiento}}">
                     </div>
                 </div>
 

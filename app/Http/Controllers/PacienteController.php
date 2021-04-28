@@ -91,6 +91,7 @@ class PacienteController extends Controller
             $paciente->isActive = true;
             $paciente->user_id=$user->id;
             $paciente->FatherUserId = auth::user()->id;
+            $paciente->FechaNacimiento = $request->get('fechaNacimiento');
             $paciente->save();
 
             return redirect('/paciente');
