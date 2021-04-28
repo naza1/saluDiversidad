@@ -9,7 +9,7 @@
 <nav aria-label="breadcrumb" style="padding-top: -50px !important;">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ url('/dashboardAdmin') }}">Inicio</a></li>
-    <!-- agregar segundo nivel -->
+    <li class="breadcrumb-item active" aria-current="page"><a href="{{ url('indexEstudioAdmin') }}">Opciones para estudios y laboratorios</a></li>
     <li class="breadcrumb-item active" aria-current="page">Crear orden de exámenes</li>
   </ol>
 </nav>
