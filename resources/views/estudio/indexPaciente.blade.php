@@ -67,7 +67,7 @@
             @endforeach
         </tbody>
         </table>
-       
+        {{$estudios->links()}}
 <!--FIN DE TABLA-->               
                           </div>
                         </div>
