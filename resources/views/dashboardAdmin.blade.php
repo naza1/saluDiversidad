@@ -22,7 +22,7 @@
                    <p>Seleccione la opción a realizar...</p>
                    <p><a href="{{ action('App\Http\Controllers\PacienteController@index') }}" class="btn btn-success btn-md btn-block">Buscar y editar paciente</a></p>
                    <p><a href="{{ action('App\Http\Controllers\TurnoController@indexAdmin') }}" class="btn btn-success btn-md btn-block">Procesar turnos</a></p>
-                   <p><a href="#" class="btn btn-success btn-md btn-block">Procesar solicitudes de recetas</a></p>
+                   <p><a href="{{ action('App\Http\Controllers\RecetaController@indexRecetaAdmin') }}" class="btn btn-success btn-md btn-block">Procesar solicitudes de recetas</a></p>
                    <p><a href="{{ action('App\Http\Controllers\EstudioController@indexEstudioAdmin') }}" class="btn btn-success btn-md btn-block">Procesar órdenes para la realización de estudios</a></p>
                    <p><a href="{{ action('App\Http\Controllers\NoticiaController@index') }}" class="btn btn-success btn-md btn-block">Gestionar noticias</a></p>
                 </div>

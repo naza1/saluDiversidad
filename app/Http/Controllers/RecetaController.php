@@ -14,7 +14,12 @@ class RecetaController extends Controller
      */
     public function index()
     {
-        //
+        return view('receta.indexPaciente');
+    }
+
+    public function indexRecetaAdmin()
+    {
+        return view('receta.indexAdmin');
     }
 
     /**
