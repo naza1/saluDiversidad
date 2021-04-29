@@ -3,7 +3,7 @@
 @section('content')
 <nav aria-label="breadcrumb" style="padding-top: -50px !important;">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item">Ver accion</li>
+    <li class="breadcrumb-item">Reestablecer contraseña</li>
 
   </ol>
 </nav>
