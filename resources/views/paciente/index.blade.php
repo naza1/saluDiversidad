@@ -85,10 +85,7 @@
                 <button type="submit" class="btn btn-xs btn-danger btn-delete btn-sm">Eliminar</button>
               </form>
               </div>
-              <div class="btn-group">
-                <a href="#" class="btn btn-secondary btn-sm">Recetar</a>
-                <a href="#" class="btn btn-secondary btn-sm">Órdenes</a>
-                <a href="#" class="btn btn-secondary btn-sm">Historial</a>
+                <a href="#" class="btn btn-info btn-sm">Historial</a>
               </div>
               </td>
             </tr>
