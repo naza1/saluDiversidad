@@ -16,9 +16,14 @@ class CreateRecetasTable extends Migration
         Schema::create('recetas', function (Blueprint $table) {
             $table->mediumIncrements('id');
             $table->timestamps();
-            $table->string('PacienteId', 255);
-            $table->string('NroReceta', 255);
-            $table->string('Description', 500);
+            $table->string('NombrePaciente', 255)->nullable();
+            $table->string('ApellidoPaciente', 255)->nullable();
+            $table->string('Dni', 255)->nullable();
+            $table->string('Estado', 255)->default('Espera');
+            $table->unsignedInteger('paciente_id')->nullable()
+                ->foreign('paciente_id')->references('id')->on('pacientes');
+            $table->string('Recetas', 500)->nullable();
+            $table->string('IsDeleted')->default(0);
         });
     }
 

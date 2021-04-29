@@ -67,6 +67,7 @@ Route::get('/indexAdmin','App\Http\Controllers\TurnoController@indexAdmin')->mid
 
 Route::get('generate-pdf', [PdfController::class, 'generatePDF']);
 Route::get('generate-orden', [PdfController::class, 'generateOrden']);
+Route::get('generate-receta', [PdfController::class, 'generateReceta']);
 
 Route::get('/indexEstudioAdmin','App\Http\Controllers\EstudioController@indexEstudioAdmin')->middleware('verified');
 Route::get('/indexRecetaAdmin','App\Http\Controllers\RecetaController@indexRecetaAdmin')->middleware('verified');

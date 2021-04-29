@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Receta;
 use Illuminate\Http\Request;
+use DB;
+use Illuminate\Support\Facades\Auth;
 
 class RecetaController extends Controller
 {
@@ -14,12 +16,25 @@ class RecetaController extends Controller
      */
     public function index()
     {
-        return view('receta.indexPaciente');
+        $paciente = DB::table('pacientes')
+        ->where('user_id', '=', auth::user()->id)
+        ->first();
+        
+        $recetas = DB::table('recetas')
+        ->where('paciente_id', '=', $paciente->id)
+        ->where('IsDeleted', '=', 0)
+        ->paginate(10);
+
+        return view('receta.indexPaciente', compact('recetas'));
     }
 
     public function indexRecetaAdmin()
     {
-        return view('receta.indexAdmin');
+        $recetas = DB::table('recetas')
+        ->where('IsDeleted', '=', 0)
+        ->paginate(10);
+
+        return view('receta.indexAdmin', compact('recetas'));
     }
 
     /**
@@ -40,7 +55,28 @@ class RecetaController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $paciente = DB::table('pacientes')
+        ->where('user_id', '=', auth::user()->id)
+        ->first();
+        
+        $receta = new Receta();
+        $receta->paciente_id = $paciente->id;
+        $receta->NombrePaciente = $paciente->Nombre;
+        $receta->ApellidoPaciente = $paciente->Apellido;
+        $receta->Dni = $paciente->Dni;
+        $receta->Estado = "Espera";
+        
+        if(request()->recetas != null)
+            $receta->Recetas = implode(", ", request()->recetas);
+        
+        $receta->save();
+        
+        $recetas = DB::table('recetas')
+        ->where('paciente_id', '=', $paciente->id)
+        ->where('IsDeleted', '=', 0)
+        ->paginate(10);
+
+        return view('receta.indexPaciente', compact('recetas'));
     }
 
     /**
@@ -49,9 +85,17 @@ class RecetaController extends Controller
      * @param  \App\Models\Receta  $receta
      * @return \Illuminate\Http\Response
      */
-    public function show(Receta $receta)
+    public function show($id)
     {
-        //
+        $receta = Receta::find($id);
+        $receta->Estado = "Aprobado";
+        $receta->save();
+
+        $recetas = DB::table('recetas')
+        ->where('IsDeleted', '=', 0)
+        ->paginate(10);
+
+        return redirect()->to('indexRecetaAdmin')->with('recetas', $recetas);
     }
 
     /**
@@ -74,7 +118,6 @@ class RecetaController extends Controller
      */
     public function update(Request $request, Receta $receta)
     {
-        //
     }
 
     /**
@@ -83,8 +126,16 @@ class RecetaController extends Controller
      * @param  \App\Models\Receta  $receta
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Receta $receta)
+    public function destroy($id)
     {
-        //
+        $receta = Receta::find($id);
+        $receta->IsDeleted = 1;
+        $receta->save();
+
+        $recetas = DB::table('recetas')
+        ->where('IsDeleted', '=', 0)
+        ->paginate(10);
+
+        return redirect()->to('indexRecetaAdmin')->with('recetas', $recetas);
     }
 }

@@ -34,25 +34,27 @@
                                       <th>ACCIONES</th>
                                     </thead>
                                     <tbody>
-                                   
+                                    @foreach($recetas as $receta)
                                       <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>{{$receta->ApellidoPaciente}}</td>
+                                        <td>{{$receta->NombrePaciente}}</td>
+                                        <td>{{$receta->created_at}}</td>
+                                        <td>{{$receta->Recetas}}</td>
+                                        <td>{{$receta->Estado}}</td>
                                         <td>
-                                        <div class="btn-group">
-                                          <a href="" class="btn btn-success btn-sm">Recetar</a><br>
-                                        </div>
-                                        <div class="btn-group">
-                                            <form method="POST" action="">
-                                          
-                                            <button type="submit" class="btn btn-xs btn-danger btn-delete btn-sm">Eliminar</button>
+                                          <div class="btn-group">
+                                            <a href="{{ url('receta/'.$receta->id) }}" class="btn btn-success btn-sm">Recetar</a><br>
+                                          </div>
+                                          <div class="btn-group">
+                                            <form method="POST" action="{{ url('receta/'.$receta->id) }}">
+                                            @csrf
+                                            @method('DELETE')
+                                              <button type="submit" class="btn btn-xs btn-danger btn-delete btn-sm">Eliminar</button>
                                             </form>
-                                        </div>
-                                      </td>
-                                    </tr>
+                                          </div>
+                                        </td>
+                                      </tr>
+                                    @endforeach
                                     </tbody>
                                   </table>
                               

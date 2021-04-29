@@ -16,8 +16,8 @@
     <hr style="height: 10px; background-color: #cccccc; border-color: #cccccc; width: 100%;">
     <p style="font-family: Verdana,Geneva,sans-serif;">Rp/</p>
     <div style="background-image: url('{{ public_path('img/back_receta.png')}}');background-repeat: no-repeat; background-position: center; min-height: 75% !important;">
-            @foreach($estudios as $estudio)
-        <p style="font-family: Verdana,Geneva,sans-serif; text-align: center; font-size: 10px;">{{ $estudio }}</p>
+            @foreach($recetas as $receta)
+        <p style="font-family: Verdana,Geneva,sans-serif; text-align: center; font-size: 10px;">{{ $receta }}</p>
         @endforeach
     
     <p style="font-family: Verdana,Geneva,sans-serif; text-align: right;"><img src="{{ public_path('img/firma.png') }}"></p>

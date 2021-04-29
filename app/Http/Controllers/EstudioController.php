@@ -154,7 +154,9 @@ class EstudioController extends Controller
         $estudio->IsDeleted = 1;
         $estudio->save();
 
-        $estudios = Estudio::where('IsDeleted', 0)->get();
+        $estudios = DB::table('estudios')
+        ->where('IsDeleted', '=', 0)
+        ->paginate(10);
 
         return redirect()->to('estudio.indexAdmin')->with('estudios', $estudios);
     }

@@ -37,4 +37,18 @@ class PdfController extends Controller
 
         return $pdf->download('itsolutionstuff.pdf');
     }
+
+    public function generateReceta(Request $request)
+    {
+        $data = [
+            'fecha' => date("Y-m-d H:i"),
+            'nombre' => request()->receta['NombrePaciente'],
+            'apellido' => request()->receta['ApellidoPaciente'],
+            'recetas' => explode(',', request()->receta['Recetas']),
+            'dni' => request()->receta['Dni'],
+        ];
+        $pdf = PDF::loadView('pdf.recetas', $data);
+
+        return $pdf->download('itsolutionstuff.pdf');
+    }
 }
