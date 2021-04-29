@@ -184,4 +184,9 @@ class PacienteController extends Controller
         else
             return redirect()->to('homePaciente')->with('paciente', $request->id);
     }
+
+    public function showHistorial($id)
+    {
+        return view('hclinica.indexAdmin');
+    }
 }
