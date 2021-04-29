@@ -105,8 +105,8 @@ class PacienteController extends Controller
     {
         $paciente = Paciente::find($id);
 
+        DB::table('users')->delete($paciente->user_id);
         DB::table('pacientes')->delete($id);
-        DB::table('users')->delete($paciente->UserId);
 
         return redirect('/paciente');
     }
