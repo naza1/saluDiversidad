@@ -52,6 +52,7 @@
         <thead>
             <th>ESTADO</th>
             <th>DESCARGAR</th>
+            <th>FECHA DE SOLICITUD</th>
         </thead>
         <tbody> 
             @foreach($estudios as $estudio)
@@ -63,6 +64,7 @@
                @else
                 <p><a href="{{ action('App\Http\Controllers\PdfController@generateOrden',['estudio' => $estudio]) }}">Descargar Orden</a></p></td>
                @endif
+               <td>{{$estudio->created_at}}</td>
             </tr>
             @endforeach
         </tbody>

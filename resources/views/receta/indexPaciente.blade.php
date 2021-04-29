@@ -100,6 +100,7 @@
                                         <thead>
                                             <th>ESTADO</th>
                                             <th>DESCARGAR</th>
+                                            <th>FECHA DE SOLICITUD</th>
                                         </thead>
                                         <tbody> 
                                         @foreach($recetas as $receta)
@@ -112,6 +113,7 @@
                                                     <p><a href="{{ action('App\Http\Controllers\PdfController@generateReceta',['receta' => $receta]) }}">Descargar Receta</a></p></td>
                                                 @endif
                                                 </td>
+                                                <td>{{$receta->created_at}}</td>
                                             </tr>
                                         @endforeach
                                         </tbody>
