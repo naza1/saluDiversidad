@@ -175,6 +175,7 @@ class PacienteController extends Controller
         $paciente->NivelEducativo = $request->nivelEducativo;
         $paciente->ImageUrl = $url ?? "";
         $paciente->telefono = $request->telefono;
+        $paciente->FechaNacimiento = $request->fechaNacimiento;
         $paciente->telefono_alternativo = $request->telefono_alternativo;
         $paciente->save();
 
