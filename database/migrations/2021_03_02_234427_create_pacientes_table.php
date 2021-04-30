@@ -39,7 +39,7 @@ class CreatePacientesTable extends Migration
             $table->string('telefono', 255)->nullable();
             $table->string('FechaNacimiento', 255)->nullable();
             $table->string('telefono_alternativo', 255)->nullable();
-
+            $table->string('tutor', 255)->nullable();
         });
     }
 

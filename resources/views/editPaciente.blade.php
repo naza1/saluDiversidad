@@ -68,6 +68,13 @@
                 </div>
 
                 <div class="form-group row">
+                    <label for="nacimiento" class="col-md-4 col-form-label text-md-right">Tutor</label>
+                    <div class="col-md-6">
+                        <input type="text" class="form-control" id="tutor" name="tutor" maxlength="250" placeholder="Tutor" value="{{$paciente->tutor}}" {{$paciente->tutor ? 'readonly':''}}>
+                    </div>
+                </div>
+
+                <div class="form-group row">
                     <label for="pronombre" class="col-md-4 col-form-label text-md-right">Pronombre</label>
                     <div class="col-md-6">
                     <select class="form-control" id="pronombre" name="pronombre">

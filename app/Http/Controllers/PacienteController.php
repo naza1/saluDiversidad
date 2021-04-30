@@ -177,6 +177,7 @@ class PacienteController extends Controller
         $paciente->telefono = $request->telefono;
         $paciente->FechaNacimiento = $request->fechaNacimiento;
         $paciente->telefono_alternativo = $request->telefono_alternativo;
+        $paciente->tutor = $request->tutor;
         $paciente->save();
 
         if(auth::user()->fullacces == 'yes')
