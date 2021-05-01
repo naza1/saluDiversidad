@@ -11,9 +11,147 @@
 <nav aria-label="breadcrumb" style="padding-top: -50px !important;">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ url('/dashboardAdmin') }}">Inicio</a></li>
+    <li class="breadcrumb-item" aria-current="page">Historia clínica</li>
     
   </ol>
 </nav>
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-white bg-success mb-3">Consultas realizadas</div>
+                <div class="card-body">
+                   <div class="form-group row">
+                     <div class="col-lg-12">
+                     <p class="text-right"><a class="btn btn-primary" href="{{ url('editConsulta') }}">Cargar nueva consulta</a></p>
+                                <!--INICIO DE TABLA-->
+                                    <table class="table table-responsive-lg table-hover">
+                                        <thead>
+                                            <th>DIA</th>
+                                            <th>OBSERVACIONES</th>
+                                        </thead>
+                                        <tbody> 
+                                          <tr>
+                                              <td></td>
+                                              <td></td>
+                                          </tr>
+                                       
+                                        </tbody>
+                                        </table>
+                                    
+                                <!--FIN DE TABLA-->               
+                          </div>
+                        </div>
+                    
+                </div>
+           </div>
+        
+      </div>
+  </div>
+</div>
+<br>
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-white bg-success mb-3">Estudios solicitados</div>
+                <div class="card-body">
+                   <div class="form-group row">
+                     <div class="col-lg-12">
+                                <!--INICIO DE TABLA-->
+                                    <table class="table table-responsive-lg table-hover">
+                                        <thead>
+                                            <th>DIA</th>
+                                            <th>OBSERVACIONES</th>
+                                        </thead>
+                                        <tbody> 
+                                          <tr>
+                                              <td></td>
+                                              <td></td>
+                                          </tr>
+                                       
+                                        </tbody>
+                                        </table>
+                                    
+                                <!--FIN DE TABLA-->               
+                          </div>
+                        </div>
+                    
+                </div>
+           </div>
+        
+      </div>
+  </div>
+</div>
+  <br>
+
+<div class="container"> 
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-white bg-success mb-3">Estudios realizados (Muestra los estudios subidos por los pacientes)</div>
+                <div class="card-body">
+                   <div class="form-group row">
+                     <div class="col-lg-12">
+                                <!--INICIO DE TABLA-->
+                                    <table class="table table-responsive-lg table-hover">
+                                        <thead>
+                                            <th>NOMBRE DEL ARCHIVO</th>
+                                            <th>DESCARGAR</th>
+                                        </thead>
+                                        <tbody> 
+                                          <tr>
+                                              <td></td>
+                                              <td></td>
+                                          </tr>
+                                        </tbody>
+                                        </table>
+                                    
+                                <!--FIN DE TABLA-->               
+                          </div>
+                        </div>
+                    
+                </div>
+           </div>
+        
+      </div>
+  </div>
+</div>
+  <br>
+
+  <div class="container"> 
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-white bg-success mb-3">Recetas</div>
+                <div class="card-body">
+                   <div class="form-group row">
+                     <div class="col-lg-12">
+                                <!--INICIO DE TABLA-->
+                                    <table class="table table-responsive-lg table-hover">
+                                        <thead>
+                                            <th>FECHA</th>
+                                            <th>MEDICACIÓN SOLICITADA</th>
+                                        </thead>
+                                        <tbody> 
+                                          <tr>
+                                              <td></td>
+                                              <td></td>
+                                          </tr>
+                                        </tbody>
+                                        </table>
+                                    
+                                <!--FIN DE TABLA-->               
+                          </div>
+                        </div>
+                    
+                </div>
+           </div>
+        
+      </div>
+  </div>
+</div>
+  <br>
 
 
      

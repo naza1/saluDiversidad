@@ -73,3 +73,7 @@ Route::get('/indexEstudioAdmin','App\Http\Controllers\EstudioController@indexEst
 Route::get('/indexRecetaAdmin','App\Http\Controllers\RecetaController@indexRecetaAdmin')->middleware('verified');
 
 Route::get('/showHistorial/{id}','App\Http\Controllers\PacienteController@showHistorial')->middleware('verified');
+
+Route::get('/editConsulta', function() {
+    return view('hclinica.editConsulta');
+});

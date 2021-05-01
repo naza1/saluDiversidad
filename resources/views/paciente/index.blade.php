@@ -85,7 +85,7 @@
                 <button type="submit" class="btn btn-xs btn-danger btn-delete btn-sm">Eliminar</button>
               </form>
               </div>
-                <a href="{{ url('showHistorial/'.$paciente->id) }}" class="btn btn-info btn-sm">Historial</a>
+                <a href="{{ url('showHistorial/'.$paciente->id) }}" class="btn btn-info btn-sm text-white">Historial</a>
               </div>
               </td>
             </tr>
