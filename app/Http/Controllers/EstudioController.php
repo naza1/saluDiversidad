@@ -158,6 +158,6 @@ class EstudioController extends Controller
         ->where('IsDeleted', '=', 0)
         ->paginate(10);
 
-        return redirect()->to('estudio.indexAdmin')->with('estudios', $estudios);
+        return redirect('/indexEstudioAdmin')->with('estudios', $estudios);
     }
 }
