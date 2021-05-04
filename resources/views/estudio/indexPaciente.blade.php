@@ -92,9 +92,14 @@
                     </ul>
                 </div>
                 <div class="form-group row">
-                  <form action="" method="POST">
+                  <form action="{{ url('estudio/uploadEstudio') }}" method="POST" enctype="multipart/form-data">
+                  @csrf
+                  <input name="id" value="{{$paciente->id}}" type="hidden">
                       <div class="col-md-6 offset-md-3">
-                        <input type="file" name="" id="" accept="" value="">  
+                        <input type="file" name="estudioFile" id="estudioFile" accept="application/pdf,image/*" value="" required>
+                        @error('estudioFile')
+                            <small class="text-danger">{{$message}}</small>
+                        @enderror
                     </div>
                 </div>
                 <div class="form-group row">

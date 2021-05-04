@@ -26,7 +26,7 @@ class EstudioController extends Controller
             ->where('IsDeleted', '=', 0)
             ->paginate(10);
 
-        return view('estudio.indexPaciente', compact('estudios'));
+        return view('estudio.indexPaciente', compact('estudios', 'paciente'));
     }
 
     public function indexEstudioAdmin()
@@ -86,7 +86,7 @@ class EstudioController extends Controller
         ->where('IsDeleted', '=', 0)
         ->paginate(10);
 
-        return view('estudio.indexPaciente', compact('estudios'));
+        return redirect('/estudio')->with('estudios', $estudios)->with('paciente', $paciente);
     }
 
     /**
@@ -159,5 +159,31 @@ class EstudioController extends Controller
         ->paginate(10);
 
         return redirect('/indexEstudioAdmin')->with('estudios', $estudios);
+    }
+
+    public function uploadEstudio(Request $request)
+    {
+        $request->validate([
+            'estudioFile' => 'required|max:2048'
+        ]);
+
+
+        if($request->estudioFile != null)
+        {
+            $estudio = $request->file('estudioFile');
+            $filename = $estudio->getClientOriginalName(date('m-d-Y-His A e')); 
+            $estudio->storeAs('public/estudios/'. $request->id, $filename);
+            //$url = Storage::url($estudio);
+        }
+
+        $estudios = DB::table('estudios')
+        ->where('IsDeleted', '=', 0)
+        ->paginate(10);
+
+        $paciente = DB::table('pacientes')
+        ->where('user_id', '=', auth::user()->id)
+        ->first();
+
+        return redirect('/estudio')->with('estudios', $estudios)->with('paciente', $paciente);
     }
 }

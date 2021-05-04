@@ -77,3 +77,5 @@ Route::get('/showHistorial/{id}','App\Http\Controllers\PacienteController@showHi
 Route::get('/editConsulta', function() {
     return view('hclinica.editConsulta');
 });
+
+Route::post('/estudio/uploadEstudio','App\Http\Controllers\EstudioController@uploadEstudio')->middleware('verified');
