@@ -104,7 +104,7 @@
                                         @foreach($estudioFiles as $estudioFile)
                                           <tr>
                                               <td>{{$estudioFile->name}}</td>
-                                              <td><a href="{{$estudioFile->path}}" target="_blank">Descargar</a></td>
+                                              <td><a href="{{url($estudioFile->path)}}" target="_blank">Descargar</a></td>
                                           </tr>
                                         @endforeach
                                         </tbody>
