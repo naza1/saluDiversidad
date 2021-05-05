@@ -34,7 +34,7 @@
                                 </div>
                                 
                                 <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Acetato de triptorelina - ampolla inyectable 3,75 mg-kit x 1 mensual<" id="Acetato2" name="recetas[]">
+                                <input class="form-check-input" type="checkbox" value="Acetato de triptorelina - ampolla inyectable 3,75 mg-kit x 1 mensual" id="Acetato2" name="recetas[]">
                                 <label class="form-check-label" for="Acetato de triptorelina - ampolla inyectable 3,75 mg-kit x 1 mensual<">Acetato de triptorelina - ampolla inyectable 3,75 mg-kit x 1 mensual</label>
                                 </div>
                                 

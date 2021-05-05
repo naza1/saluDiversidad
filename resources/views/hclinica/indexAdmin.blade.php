@@ -65,11 +65,12 @@
                                             <th>OBSERVACIONES</th>
                                         </thead>
                                         <tbody> 
+                                        @foreach($estudios as $estudio)
                                           <tr>
-                                              <td></td>
-                                              <td></td>
+                                              <td>{{$estudio->created_at}}</td>
+                                              <td>{{$estudio->Estudios}}</td>
                                           </tr>
-                                       
+                                        @endforeach
                                         </tbody>
                                         </table>
                                     
@@ -136,10 +137,12 @@
                                             <th>MEDICACIÓN SOLICITADA</th>
                                         </thead>
                                         <tbody> 
+                                        @foreach($recetas as $receta)
                                           <tr>
-                                              <td></td>
-                                              <td></td>
+                                              <td>{{$receta->created_at}}</td>
+                                              <td>{{$receta->Recetas}}</td>
                                           </tr>
+                                        @endforeach
                                         </tbody>
                                         </table>
                                     

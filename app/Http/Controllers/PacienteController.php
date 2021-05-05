@@ -192,6 +192,15 @@ class PacienteController extends Controller
         ->where('paciente_id', '=', $id)
         ->paginate(10);
 
-        return view('hclinica.indexAdmin', compact('estudioFiles'));
+        $recetas = DB::table('recetas')
+        ->where('paciente_id', '=', $id)
+        ->paginate(10);
+
+        $estudios = DB::table('estudios')
+        ->where('paciente_id', '=', $id)
+        ->where('Estado', '=', "Asignado")
+        ->paginate(10);
+
+        return view('hclinica.indexAdmin', compact('estudioFiles', 'recetas', 'estudios'));
     }
 }
