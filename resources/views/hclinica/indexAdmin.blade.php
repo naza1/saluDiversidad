@@ -99,11 +99,13 @@
                                             <th>NOMBRE DEL ARCHIVO</th>
                                             <th>DESCARGAR</th>
                                         </thead>
-                                        <tbody> 
+                                        <tbody>
+                                        @foreach($estudioFiles as $estudioFile)
                                           <tr>
-                                              <td></td>
-                                              <td></td>
+                                              <td>{{$estudioFile->name}}</td>
+                                              <td><a href="{{$estudioFile->path}}" target="_blank">Descargar</a></td>
                                           </tr>
+                                        @endforeach
                                         </tbody>
                                         </table>
                                     

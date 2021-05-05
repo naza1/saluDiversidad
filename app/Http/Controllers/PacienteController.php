@@ -188,6 +188,10 @@ class PacienteController extends Controller
 
     public function showHistorial($id)
     {
-        return view('hclinica.indexAdmin');
+        $estudioFiles = DB::table('estudio_files')
+        ->where('paciente_id', '=', $id)
+        ->paginate(10);
+
+        return view('hclinica.indexAdmin', compact('estudioFiles'));
     }
 }

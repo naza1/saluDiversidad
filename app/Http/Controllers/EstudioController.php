@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\Estudio;
+use App\Models\EstudioFile;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use DB;
 use PDF;
+use Illuminate\Support\Facades\Storage;
 
 class EstudioController extends Controller
 {
@@ -167,15 +169,6 @@ class EstudioController extends Controller
             'estudioFile' => 'required|max:2048'
         ]);
 
-
-        if($request->estudioFile != null)
-        {
-            $estudio = $request->file('estudioFile');
-            $filename = $estudio->getClientOriginalName(date('m-d-Y-His A e')); 
-            $estudio->storeAs('public/estudios/'. $request->id, $filename);
-            //$url = Storage::url($estudio);
-        }
-
         $estudios = DB::table('estudios')
         ->where('IsDeleted', '=', 0)
         ->paginate(10);
@@ -183,6 +176,19 @@ class EstudioController extends Controller
         $paciente = DB::table('pacientes')
         ->where('user_id', '=', auth::user()->id)
         ->first();
+
+        if($request->estudioFile != null)
+        {
+            $estudio = $request->file('estudioFile')->store('public/estudios/'. $request->id);
+            $filename = $request->file('estudioFile')->getClientOriginalName(); 
+            $url = Storage::url($estudio);
+
+            $estudioFile = new EstudioFile();
+            $estudioFile->paciente_id = $paciente->id;
+            $estudioFile->path = $url;
+            $estudioFile->name = $filename;
+            $estudioFile->save();
+        }
 
         return redirect('/estudio')->with('estudios', $estudios)->with('paciente', $paciente);
     }
