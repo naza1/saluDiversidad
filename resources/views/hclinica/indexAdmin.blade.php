@@ -19,6 +19,48 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
             <div class="card">
+                <div class="card-header text-white bg-success mb-3">Inicio de la hormonización</div>
+                <div class="card-body">
+                   <div class="form-group row">
+                     <div class="col-lg-12">
+                             <!--INICIO DE TABLA-->
+                                    <table class="table table-responsive-lg table-hover">
+                                        <thead>
+                                            <th>DIA DE INICIO</th>
+                                            <th>AÑOS DE HORMONIZACIÓN</th>
+                                            <th>ACCIONES</th>
+                                        </thead>
+                                        <tbody> 
+                                          <tr>
+                                              <td>
+                                                  <form>
+                                                    <input type="date" name="inicio_hormonizacion" class="form-control"> 
+                                              </td>
+                                              <td>
+                                                  Mostrar el resultado de la fecha actual menos la fecha de hormonización
+                                              </td>
+                                               <td>
+                                                  <button type="submit" class="btn btn-primary">Guardar/modificar hormonización</button>
+                                              </form>
+                                          </tr>
+                                        </tbody>
+                                        </table>
+                                    
+                                <!--FIN DE TABLA-->
+                          </div>
+                        </div>
+                    
+                </div>
+           </div>
+        
+      </div>
+  </div>
+</div>
+<br><br>
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+            <div class="card">
                 <div class="card-header text-white bg-success mb-3">Consultas realizadas</div>
                 <div class="card-body">
                    <div class="form-group row">
