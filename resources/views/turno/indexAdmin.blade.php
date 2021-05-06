@@ -77,7 +77,7 @@
                 <form method="POST" action="{{ url('turno/'.$turno->id) }}">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn btn-xs btn-danger btn-delete btn-sm">Eliminar</button>
+                <button type="submit" class="btn btn-xs btn-danger btn-delete btn-sm">Cancelar</button>
               </form>
                 </div>
               </td>
