@@ -40,7 +40,7 @@
                 <div class="form-group row">
                     <label for="apellido" class="col-md-4 col-form-label text-md-right">Apellido</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="apellido" value="{{old('apellido')}}" name="apellido" maxlength="250" placeholder="Apellido">
+                        <input type="text" class="form-control" id="apellido" value="{{old('apellido')}}" name="apellido" maxlength="250" placeholder="Apellido" required>
                     </div>
                 </div>
 
@@ -54,14 +54,14 @@
                 <div class="form-group row">
                     <label for="fechaNacimiento" class="col-md-4 col-form-label text-md-right">Fecha de Nacimiento</label>
                     <div class="col-md-6">
-                        <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" maxlength="250" placeholder="Fecha de Nacimiento" value="{{old('FechaNacimiento')}}">
+                        <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" maxlength="250" placeholder="Fecha de Nacimiento" value="{{old('FechaNacimiento')}}" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="pronombre" class="col-md-4 col-form-label text-md-right">Pronombre</label>
                     <div class="col-md-6">
-                    <select class="form-control" id="pronombre" name="pronombre" value="{{old('pronombre')}}">
+                    <select class="form-control" id="pronombre" name="pronombre" value="{{old('pronombre')}}" required>
                             <option value="">-- Escoja el Pronombre --</option>
                             @foreach($pronombres as $pronombre)
                                 <option value="{{ $pronombre['Nombre'] }}" required>{{$pronombre['Nombre']}}</option>
@@ -84,7 +84,7 @@
                 <div class="form-group row">
                     <label for="nationality" class="col-md-4 col-form-label text-md-right">Nacionalidad</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="nationality" name="nationality" value="{{old('nationality')}}" maxlength="250" placeholder="Nacionalidad">
+                        <input type="text" class="form-control" id="nationality" name="nationality" value="{{old('nationality')}}" maxlength="250" placeholder="Nacionalidad" required>
                     </div>
                 </div>
 
@@ -127,20 +127,20 @@
                 <div class="form-group row">
                     <label for="nroAfiliado" class="col-md-4 col-form-label text-md-right">Nro de Afiliado</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="nroAfiliado" name="nroAfiliado" value="{{old('nroAfiliado')}}" maxlength="250" placeholder="# Afiliado">
+                        <input type="text" class="form-control" id="nroAfiliado" name="nroAfiliado" value="{{old('nroAfiliado')}}" maxlength="250" placeholder="Nro de afiliado de la Obra Social">
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="nroHistorial" class="col-md-4 col-form-label text-md-right">Nro de historia clínica</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="nroHistorial" name="nroHistorial" value="{{old('nroHistorial')}}" maxlength="250" placeholder="# Historial">
+                        <input type="text" class="form-control" id="nroHistorial" name="nroHistorial" value="{{old('nroHistorial')}}" maxlength="250" placeholder="Historia clínica en CAPS">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="address" class="col-md-4 col-form-label text-md-right">Calle y número</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="address" name="address" value="{{old('address')}}" maxlength="250" placeholder="Dirección">
+                        <input type="text" class="form-control" id="address" name="address" value="{{old('address')}}" maxlength="250" placeholder="Dirección" required>
                     </div>
                 </div>
 
