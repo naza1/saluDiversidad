@@ -25,7 +25,8 @@
                    <p><a href="{{ action('App\Http\Controllers\PacienteController@showPaciente') }}" class="btn btn-success btn-md btn-block">Editar mis datos</a></p>
                    <p><a href="{{ action('App\Http\Controllers\TurnoController@index') }}" class="btn btn-success btn-md btn-block">Solicitar y ver turnos</a></p>
                    <p><a href="{{ action('App\Http\Controllers\RecetaController@index') }}" class="btn btn-success btn-md btn-block">Solicitar y ver recetas</a></p>
-                   <p><a href="{{ action('App\Http\Controllers\EstudioController@index') }}" class="btn btn-success btn-md btn-block">Solicitar y órdenes para la realización de estudios</a></p>
+                   <p><a href="{{ action('App\Http\Controllers\EstudioController@index') }}" class="btn btn-success btn-md btn-block">Solicitar órdenes para la realización de estudios</a></p>
+                   <p><a href="" class="btn btn-success btn-md btn-block">Subir estudios realizados</a></p>
                 </div>
             </div>
         </div>
