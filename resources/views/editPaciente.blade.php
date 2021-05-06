@@ -42,19 +42,19 @@
                 <div class="form-group row">
                     <label for="nombre" class="col-md-4 col-form-label text-md-right">Nombre</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="nombre" name="nombre" maxlength="250" placeholder="Nombre" value="{{$paciente->Nombre}}" >
+                        <input type="text" class="form-control" id="nombre" name="nombre" maxlength="250" placeholder="Nombre" value="{{$paciente->Nombre}}" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="apellido" class="col-md-4 col-form-label text-md-right">Apellido</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="apellido" name="apellido" maxlength="250" placeholder="Apellido" value="{{$paciente->Apellido}}" >
+                        <input type="text" class="form-control" id="apellido" name="apellido" maxlength="250" placeholder="Apellido" value="{{$paciente->Apellido}}" required>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="dni" class="col-md-4 col-form-label text-md-right">DNI</label>
+                    <label for="dni" class="col-md-4 col-form-label text-md-right">DNI o PASAPORTE</label>
                     <div class="col-md-6">
                         <input type="text" class="form-control" id="dni" name="dni" maxlength="250" placeholder="Dni" value="{{$paciente->Dni}}" {{$paciente->Dni ? 'readonly':''}}>
                     </div>
@@ -63,7 +63,7 @@
                 <div class="form-group row">
                     <label for="nacimiento" class="col-md-4 col-form-label text-md-right">Fecha de Nacimiento</label>
                     <div class="col-md-6">
-                        <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" maxlength="250" placeholder="Fecha de Nacimiento" value="{{$paciente->FechaNacimiento}}" {{$paciente->FechaNacimiento ? 'readonly':''}}>
+                        <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" maxlength="250" placeholder="Fecha de Nacimiento" value="{{$paciente->FechaNacimiento}}" {{$paciente->FechaNacimiento ? 'readonly':''}} required>
                     </div>
                 </div>
 
@@ -77,7 +77,7 @@
                 <div class="form-group row">
                     <label for="pronombre" class="col-md-4 col-form-label text-md-right">Pronombre</label>
                     <div class="col-md-6">
-                    <select class="form-control" id="pronombre" name="pronombre">
+                    <select class="form-control" id="pronombre" name="pronombre" required>
                             @if($paciente->Pronombre != null)
                                 <option value="{{$paciente->Pronombre}}">{{$paciente->Pronombre}}</option>
                             @else
@@ -150,7 +150,7 @@
                 <div class="form-group row">
                     <label for="telefono" class="col-md-4 col-form-label text-md-right">Telefóno</label>
                     <div class="col-md-6">
-                        <input type="tel" class="form-control" id="telefono" name="telefono" maxlength="250" placeholder="(Código de área) Número" value="{{$paciente->telefono}}">
+                        <input type="tel" class="form-control" id="telefono" name="telefono" maxlength="250" placeholder="(Código de área) Número" value="{{$paciente->telefono}}" required>
                     </div>
                 </div>
                 <div class="form-group row">
@@ -196,7 +196,7 @@
                 <div class="form-group row">
                     <label for="address" class="col-md-4 col-form-label text-md-right">Calle y número</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="address" name="address" maxlength="250" placeholder="Dirección" value="{{$paciente->Address}}" >
+                        <input type="text" class="form-control" id="address" name="address" maxlength="250" placeholder="Dirección" value="{{$paciente->Address}}" required >
                     </div>
                 </div>
 

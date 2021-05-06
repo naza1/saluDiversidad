@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="form-group row">
-                    <label for="dni" class="col-md-4 col-form-label text-md-right">DNI</label>
+                    <label for="dni" class="col-md-4 col-form-label text-md-right">DNI o PASAPORTE</label>
                     <div class="col-md-6">
                         <input type="text" class="form-control" id="dni" name="dni" maxlength="250" placeholder="Dni" value="{{$paciente->Dni}}">
                     </div>
