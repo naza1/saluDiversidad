@@ -26,12 +26,12 @@
                                 </ul>
                             </div>
                             
-                            <form action="" method="POST">
-                            
+                            <form action="{{url('receta')}}" method="POST">
+                            @csrf
                                 <div class="form-group row">
                                     <div class="col-md-6 offset-md-3">
                                         <br>
-                                        <button type="submit" class="btn btn-info btn-md btn-block text-white">Solicitar orden</button>
+                                        <button type="submit" class="btn btn-info btn-md btn-block text-white">Solicitar receta</button>
                                     </div>
                                 </div>
                             </form>
