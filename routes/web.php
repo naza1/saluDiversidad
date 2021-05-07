@@ -26,6 +26,7 @@ Route::resource('/receta', 'App\Http\Controllers\RecetaController');
 Route::resource('/noticia', 'App\Http\Controllers\NoticiaController');
 Route::resource('/turno', 'App\Http\Controllers\TurnoController');
 Route::resource('/estudio', 'App\Http\Controllers\EstudioController');
+Route::resource('/consulta', 'App\Http\Controllers\ConsultaController');
 
 Route::get('/changePassword', function() {
      return view('auth.passwords.email');
@@ -73,9 +74,5 @@ Route::get('/indexEstudioAdmin','App\Http\Controllers\EstudioController@indexEst
 Route::get('/indexRecetaAdmin','App\Http\Controllers\RecetaController@indexRecetaAdmin')->middleware('verified');
 
 Route::get('/showHistorial/{id}','App\Http\Controllers\PacienteController@showHistorial')->middleware('verified');
-
-Route::get('/editConsulta', function() {
-    return view('hclinica.editConsulta');
-});
 
 Route::post('/estudio/uploadEstudio','App\Http\Controllers\EstudioController@uploadEstudio')->middleware('verified');

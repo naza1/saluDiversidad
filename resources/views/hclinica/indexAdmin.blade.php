@@ -65,19 +65,20 @@
                 <div class="card-body">
                    <div class="form-group row">
                      <div class="col-lg-12">
-                     <p class="text-right"><a class="btn btn-primary" href="{{ url('editConsulta') }}">Cargar nueva consulta</a></p>
+                     <p class="text-right"><a class="btn btn-primary" href="{{ url('consulta/' .$paciente->id) }}">Cargar nueva consulta</a></p>
                                 <!--INICIO DE TABLA-->
                                     <table class="table table-responsive-lg table-hover">
                                         <thead>
                                             <th>DIA</th>
                                             <th>OBSERVACIONES</th>
                                         </thead>
-                                        <tbody> 
+                                        <tbody>
+                                        @foreach($consultas as $consulta)
                                           <tr>
-                                              <td></td>
-                                              <td></td>
+                                              <td>{{$consulta->fecha}}</td>
+                                              <td>{{$consulta->observaciones}}</td>
                                           </tr>
-                                       
+                                        @endforeach
                                         </tbody>
                                         </table>
                                     
