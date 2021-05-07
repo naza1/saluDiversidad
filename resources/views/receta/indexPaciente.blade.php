@@ -55,6 +55,7 @@
                                             <th>ESTADO</th>
                                             <th>DESCARGAR</th>
                                             <th>FECHA DE SOLICITUD</th>
+                                            <th>COMENTARIOS DEL MÉDICO</th>
                                         </thead>
                                         <tbody> 
                                         @foreach($recetas as $receta)
@@ -68,6 +69,7 @@
                                                 @endif
                                                 </td>
                                                 <td>{{$receta->created_at}}</td>
+                                                <td></td>
                                             </tr>
                                         @endforeach
                                         </tbody>

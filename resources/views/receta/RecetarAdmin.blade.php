@@ -34,7 +34,7 @@
            <form action="" method="POST">
             
             <tr>
-                <td><input type="checkbox" class="form-control" name="Acetato de triptorelina - ampolla inyectable 11.25 mg-kit"> Acetato de triptorelina - ampolla inyectable 11.25 mg-kit</td>
+                <td><input type="checkbox" class="form-check-input" name="Acetato de triptorelina - ampolla inyectable 11.25 mg-kit"> Acetato de triptorelina - ampolla inyectable 11.25 mg-kit</td>
                 <td><select class="form-control" id="frecuencia" name="frecuencia">
                   <option value="">-- Escoja Frecuencia --</option>
                   <option value="Diaria" required>Diaria</option>
@@ -43,12 +43,12 @@
                   <option value="Mensual" required>Mensual</option>
                   <option value="Semanal" required>Trimestral</option>
                   </select></td>
-                <td><input type="text" class="form-control" id="apellido" name="apellido" maxlength="250" placeholder="Ingrese cantidad" value="" required></td>
+                <td><input type="text" class="form-control" id="cantidad" name="cantidad" maxlength="250" placeholder="Ingrese cantidad" value="" required></td>
                 <td><textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Comentario para el paciente sobre la administración de la droga"></textarea></td>
             </tr>
 
             <tr>
-                <td><input type="checkbox" class="form-control" name="Acetato de triptorelina - ampolla inyectable 3,75 mg-kit">Acetato de triptorelina - ampolla inyectable 3,75 mg-kit</td>
+                <td><input type="checkbox" class="form-check-input" name="Acetato de triptorelina - ampolla inyectable 3,75 mg-kit">Acetato de triptorelina - ampolla inyectable 3,75 mg-kit</td>
                 <td><select class="form-control" id="frecuencia" name="frecuencia">
                   <option value="">-- Escoja Frecuencia --</option>
                   <option value="Diaria" required>Diaria</option>
@@ -63,7 +63,7 @@
 
             
             <tr>
-                <td><input type="checkbox" class="form-control" name="Finasteride - comprimidos 5 mg">Finasteride - comprimidos 5 mg</td>
+                <td><input type="checkbox" class="form-check-input" name="Finasteride - comprimidos 5 mg">Finasteride - comprimidos 5 mg</td>
                 <td><select class="form-control" id="frecuencia" name="frecuencia">
                   <option value="">-- Escoja Frecuencia --</option>
                   <option value="Diaria" required>Diaria</option>
@@ -77,7 +77,7 @@
             </tr>
 
             <tr>
-                <td><input type="checkbox" class="form-control" name="Acetato de ciproterona - comprimido 50 mg">Acetato de ciproterona - comprimido 50 mg</td>
+                <td><input type="checkbox" class="form-check-input" name="Acetato de ciproterona - comprimido 50 mg">Acetato de ciproterona - comprimido 50 mg</td>
                 <td><select class="form-control" id="frecuencia" name="frecuencia">
                   <option value="">-- Escoja Frecuencia --</option>
                   <option value="Diaria" required>Diaria</option>
@@ -91,7 +91,7 @@
             </tr>
 
             <tr>
-                <td><input type="checkbox" class="form-control" name="Estradiol cápsulas/comprimidos 2 mg">Estradiol cápsulas/comprimidos 2 mg</td>
+                <td><input type="checkbox" class="form-check-input" name="Estradiol cápsulas/comprimidos 2 mg">Estradiol cápsulas/comprimidos 2 mg</td>
                 <td><select class="form-control" id="frecuencia" name="frecuencia">
                   <option value="">-- Escoja Frecuencia --</option>
                   <option value="Diaria" required>Diaria</option>
@@ -105,7 +105,7 @@
             </tr>
             
             <tr>
-                <td><input type="checkbox" class="form-control" name="Estradiol gel 0,06% - envase x 80 grs">Estradiol gel 0,06% - envase x 80 grs</td>
+                <td><input type="checkbox" class="form-check-input" name="Estradiol gel 0,06% - envase x 80 grs">Estradiol gel 0,06% - envase x 80 grs</td>
                 <td><select class="form-control" id="frecuencia" name="frecuencia">
                   <option value="">-- Escoja Frecuencia --</option>
                   <option value="Diaria" required>Diaria</option>
@@ -119,7 +119,7 @@
             </tr>
 
             <tr>
-                <td><input type="checkbox" class="form-control" name="Testosterona gel 1% - envase por 150 grs">Testosterona gel 1% - envase por 150 grs</td>
+                <td><input type="checkbox" class="form-check-input" name="Testosterona gel 1% - envase por 150 grs">Testosterona gel 1% - envase por 150 grs</td>
                 <td><select class="form-control" id="frecuencia" name="frecuencia">
                   <option value="">-- Escoja Frecuencia --</option>
                   <option value="Diaria" required>Diaria</option>
@@ -133,7 +133,7 @@
             </tr>
 
             <tr>
-                <td><input type="checkbox" class="form-control" name="Undecanoato de testosterona - ampolla 1000 mg/4ml">Undecanoato de testosterona - ampolla 1000 mg/4ml</td>
+                <td><input type="checkbox" class="form-check-input" name="Undecanoato de testosterona - ampolla 1000 mg/4ml">Undecanoato de testosterona - ampolla 1000 mg/4ml</td>
                 <td><select class="form-control" id="frecuencia" name="frecuencia">
                   <option value="">-- Escoja Frecuencia --</option>
                   <option value="Diaria" required>Diaria</option>
@@ -147,7 +147,7 @@
             </tr>
 
             <tr>
-                <td><input type="checkbox" class="form-control" name="Espironolactona - comprimidos 100 mg">Espironolactona - comprimidos 100 mg</td>
+                <td><input type="checkbox" class="form-check-input" name="Espironolactona - comprimidos 100 mg">Espironolactona - comprimidos 100 mg</td>
                 <td><select class="form-control" id="frecuencia" name="frecuencia">
                   <option value="">-- Escoja Frecuencia --</option>
                   <option value="Diaria" required>Diaria</option>
@@ -164,7 +164,10 @@
             </tr>
 
             <tr>
-            <td colspan="4"><button type="submit" class="btn btn-info btn-md btn-block text-white">Recetar</button>
+            <td colspan="4">
+              <div class="col-md-6 offset-md-3">
+                <button type="submit" class="btn btn-info btn-md btn-block text-white">Recetar</button>
+              </div>
             </tr>
             </tbody>
           </table>
