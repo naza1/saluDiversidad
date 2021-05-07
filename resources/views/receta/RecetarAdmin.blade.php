@@ -11,14 +11,17 @@
 <nav aria-label="breadcrumb" style="padding-top: -50px !important;">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ url('/dashboardAdmin') }}">Inicio</a></li>
+    <li class="breadcrumb-item"><a href="{{ url('/indexRecetaAdmin') }}">Opciones para recetas</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Recetar</li>
   </ol>
 </nav>
+
 <div class="container">
 
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header text-white bg-success mb-3">TURNOS SOLICITADOS</div>
+                <div class="card-header text-white bg-success mb-3">RECETAR</div>
                 <div class="card-body">
                    <div class="form-group row">
                      <div class="col-lg-12">

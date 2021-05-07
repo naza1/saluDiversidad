@@ -25,6 +25,11 @@
                                     <p>Desde esta opción podrá solicitar recetas de medicamentos. <br>Una vez aprobada la órden podrá descargarla en la tabla inferior.</p>
                                 </ul>
                             </div>
+                            <div class="alert alert-success">
+                                <ul>
+                                    <p>Recuerde que si está afiliado a una obra social, deberá completar el nombre y el nro de afiliado en la edición de su perfil.</p>
+                                </ul>
+                            </div>
                             
                             <form action="{{url('receta')}}" method="POST">
                             @csrf
@@ -55,6 +60,7 @@
                                             <th>ESTADO</th>
                                             <th>DESCARGAR</th>
                                             <th>FECHA DE SOLICITUD</th>
+                                            <th>FRECUENCIA</th>
                                             <th>COMENTARIOS DEL MÉDICO</th>
                                         </thead>
                                         <tbody> 
@@ -69,6 +75,7 @@
                                                 @endif
                                                 </td>
                                                 <td>{{$receta->created_at}}</td>
+                                                <td></td>
                                                 <td></td>
                                             </tr>
                                         @endforeach

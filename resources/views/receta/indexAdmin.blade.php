@@ -15,7 +15,30 @@
   </ol>
 </nav>
 <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header text-white bg-success mb-3">BÚSQUEDA POR PACIENTE</div>
 
+                <div class="card-body">
+                    <form class="row g-2" action="" method="get">
+                        @csrf
+
+                        <div class="form-group row">
+                            <label for="termino" class="col-md-4 col-form-label text-md-right">Ingrese apellido nombre o DNI...</label>
+
+                            <div class="col-md-8">
+                                  <input type="text" name="texto" value="" class="form-control" autofocus>  
+                            </div>
+               </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<br>
+
+<div class="container">
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
@@ -30,6 +53,8 @@
                                       <th>NOMBRE</th>
                                       <th>FECHA DE SOLICITUD</th>
                                       <th>DROGAS SOLICITADAS</th>
+                                      <th>FRECUENCIA</th>
+                                      <th>CANTIDAD</th>
                                       <th>ESTADO</th>
                                       <th>ACCIONES</th>
                                     </thead>
@@ -40,10 +65,15 @@
                                         <td>{{$receta->NombrePaciente}}</td>
                                         <td>{{$receta->created_at}}</td>
                                         <td><!--{{$receta->Recetas}} las drogas bene aparecer una vez que el medico las aprueba--></td>
+                                        <td></td>
+                                        <td></td>
                                         <td>{{$receta->Estado}}</td>
                                         <td>
                                           <div class="btn-group">
                                             <a href="{{ url('receta/'.$receta->id) }}" class="btn btn-success btn-sm">Recetar</a><br>
+                                          </div>
+                                          <div class="btn-group">
+                                            <a href="{{ url('receta/'.$receta->id) }}" class="btn btn-success btn-sm">Repetir receta</a><br>
                                           </div>
                                           <div class="btn-group">
                                             <form method="POST" action="{{ url('receta/'.$receta->id) }}">
