@@ -25,55 +25,9 @@
                                     <p>Desde esta opción podrá solicitar recetas de medicamentos. <br>Una vez aprobada la órden podrá descargarla en la tabla inferior.</p>
                                 </ul>
                             </div>
-                            <form action="{{url('receta')}}" method="POST">
-                            @csrf
-                            <div class="col-md-10">
-                                <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Acetato de ciproterona - comprimido 50 mg" id="acetato3" name="recetas[]">
-                                <label class="form-check-label" for="Acetato de ciproterona - comprimido 50 mg">Acetato de ciproterona - comprimido 50 mg</label>
-                                </div>
-                                
-                                <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Acetato de triptorelina - ampolla inyectable 3,75 mg-kit x 1 mensual" id="Acetato2" name="recetas[]">
-                                <label class="form-check-label" for="Acetato de triptorelina - ampolla inyectable 3,75 mg-kit x 1 mensual<">Acetato de triptorelina - ampolla inyectable 3,75 mg-kit x 1 mensual</label>
-                                </div>
-                                
-                                <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Acetato de triptorelina - ampolla inyectable 11.25 mg-kit x 1 trimestral" id="acetato" name="recetas[]">
-                                <label class="form-check-label" for="Acetato de triptorelina - ampolla inyectable 11.25 mg-kit x 1 trimestral">Acetato de triptorelina - ampolla inyectable 11.25 mg-kit x 1 trimestral</label>
-                                </div>
                             
-                                <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Espironolactona - comprimidos 100 mg" id="espironolactona" name="recetas[]">
-                                <label class="form-check-label" for="Espironolactona - comprimidos 100 mg">Espironolactona - comprimidos 100 mg</label>
-                                </div>
-                                
-                                <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Estradiol gel 0,06% - envase x 80 grs" id="estradiol" name="recetas[]">
-                                <label class="form-check-label" for="Estradiol gel 0,06% - envase x 80 grs">Estradiol gel 0,06% - envase x 80 grs</label>
-                                </div>
-                                
-                                <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Estradiol cápsulas/comprimidos 2 mg" id="estradiol" name="recetas[]">
-                                <label class="form-check-label" for="Estradiol cápsulas/comprimidos 2 mg">Estradiol cápsulas/comprimidos 2 mg</label>
-                                </div>
-                                
-                                <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Finasteride - comprimidos 5 mg" id="finasteride" name="recetas[]">
-                                <label class="form-check-label" for="Finasteride - comprimidos 5 mg">Finasteride - comprimidos 5 mg</label>
-                                </div>
-                                
-                                <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Testosterona gel 1% - envase por 150 grs" id="testosterona" name="recetas[]">
-                                <label class="form-check-label" for="Testosterona gel 1% - envase por 150 grs">Testosterona gel 1% - envase por 150 grs</label>
-                                </div>
-                                
-                                <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="Undecanoato de testosterona - ampolla 1000 mg/4ml" id="undecanoato" name="recetas[]">
-                                <label class="form-check-label" for="Undecanoato de testosterona - ampolla 1000 mg/4ml">Undecanoato de testosterona - ampolla 1000 mg/4ml</label>
-                                </div>
-                            </div>
-                        </div>
+                            <form action="" method="POST">
+                            
                                 <div class="form-group row">
                                     <div class="col-md-6 offset-md-3">
                                         <br>

@@ -39,7 +39,7 @@
                                         <td>{{$receta->ApellidoPaciente}}</td>
                                         <td>{{$receta->NombrePaciente}}</td>
                                         <td>{{$receta->created_at}}</td>
-                                        <td>{{$receta->Recetas}}</td>
+                                        <td><!--{{$receta->Recetas}} las drogas bene aparecer una vez que el medico las aprueba--></td>
                                         <td>{{$receta->Estado}}</td>
                                         <td>
                                           <div class="btn-group">
