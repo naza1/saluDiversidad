@@ -34,7 +34,7 @@ class RecetaController extends Controller
         ->where('IsDeleted', '=', 0)
         ->paginate(10);
 
-        return view('receta.indexAdmin', compact('recetas'));
+        return view('receta.RecetarAdmin', compact('recetas'));
     }
 
     /**
