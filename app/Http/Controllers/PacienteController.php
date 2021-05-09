@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
+use DateTime;
 
 class PacienteController extends Controller
 {
@@ -50,13 +51,8 @@ class PacienteController extends Controller
         try
         {
             $data = $request->validate([
-                'email' =>['Required', 'email', 'unique:users,Email'],
-                'dni' => 'required|unique:users|max:255',
-            ]);
-
-            $data = $request->validate([
                 'email' =>['Required', 'email', 'unique:pacientes,Email'],
-                'dni' => 'required|unique:pacientes|max:255',
+                'dni' => 'required|unique:pacientes',
             ]);
 
             $user = User::create([
@@ -142,12 +138,13 @@ class PacienteController extends Controller
 
     public function update(PacienteCreateRequest $request)
     {
-        // $data = $request->validate([
-        //     'email' =>['Required', 'email', 'unique:users,Email'],
-        //     'dni' => 'required|unique:users|max:255',
-        //     'perfilFoto' => 'image|max:2048',
-        // ]);
         $paciente = Paciente::find($request->id);
+
+        $data = $request->validate([
+            'email' =>['Required', 'email', Rule::unique('pacientes')->ignore($paciente->user_id, 'paciente_id')],
+            'dni' => 'required', Rule::unique('pacientes')->ignore($paciente->dni, 'dni'),
+            'perfilFoto' => 'image|max:2048',
+        ]);
 
         if($request->perfilFoto != null)
         {
@@ -209,6 +206,20 @@ class PacienteController extends Controller
         ->where('paciente_id', '=', $id)
         ->paginate(10);
 
-        return view('hclinica.indexAdmin', compact('estudioFiles', 'recetas', 'estudios', 'paciente', 'consultas'));
+        $date = new DateTime($paciente->FechaInicioHormonizacion);
+        $date2 = new DateTime("now");
+        $diff = $date2->diff($date);
+        $diff2 = $diff->format('%y años %m meses %d días');
+
+        return view('hclinica.indexAdmin', compact('estudioFiles', 'recetas', 'estudios', 'paciente', 'consultas', 'diff2'));
+    }
+
+    public function saveHormonizacion(Request $request){
+
+        $paciente = Paciente::find($request->id);
+        $paciente->FechaInicioHormonizacion = $request->get('inicio_hormonizacion');
+        $paciente->save();
+
+        return redirect('/paciente');
     }
 }
