@@ -78,6 +78,7 @@
               <td>
               <div class="btn-group">
               <a href="{{ url('paciente/'.$paciente->id) }}" class="btn btn-success btn-sm">Ver+</a><br></div>
+              <a href="{{ url('showHistorial/'.$paciente->id) }}" class="btn btn-info btn-sm text-white">Historial</a>
               <div class="btn-group">
               <form method="POST" action="{{ url('paciente/'.$paciente->id) }}">
                 @csrf
@@ -85,7 +86,7 @@
                 <button type="submit" class="btn btn-xs btn-danger btn-delete btn-sm">Eliminar</button>
               </form>
               </div>
-                <a href="{{ url('showHistorial/'.$paciente->id) }}" class="btn btn-info btn-sm text-white">Historial</a>
+                
               </div>
               </td>
             </tr>

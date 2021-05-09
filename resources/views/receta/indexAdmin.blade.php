@@ -30,13 +30,24 @@
                             <div class="col-md-8">
                                   <input type="text" name="texto" value="" class="form-control" autofocus>  
                             </div>
-               </div>
+                        </div>
+
+                       
+                        <div class="form-group row mb-0">
+                            <div class="col-md-6 offset-md-4">
+                            <button type="submit" class="btn btn-success">Buscar</button>
+                                                                  
+                                
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
+   
 </div>
-</div>
-<br>
+<BR>
 
 <div class="container">
     <div class="row justify-content-center">

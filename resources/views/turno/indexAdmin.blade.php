@@ -46,14 +46,14 @@
                 <td>{{$turno->NombrePaciente}}</td>
                 <td>{{$turno->Dia == null ? 'PENDIENTE' : 'APROBADO'}}</td>
                 <td>
-                  <select class="form-control" id="medico" name="medico">
+                  <select class="form-control" id="medico" name="medico" required>
                     @if($turno->Medico != null)
                       <option value="{{$turno->Medico}}">{{$turno->Medico}}</option>
                     @else
                       <option value="">-- Escoja el Medico --</option>
                     @endif
-                    <option value="Nicolás Zanier" required>Nicolás Zanier</option>
-                    <option value="Virginia Barreneche" required>Virginia Barreneche</option>
+                    <option value="Nicolás Zanier">Nicolás Zanier</option>
+                    <option value="Virginia Barreneche">Virginia Barreneche</option>
                   </select>
                 </td>
                 <td>

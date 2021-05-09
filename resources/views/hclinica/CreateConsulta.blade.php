@@ -11,6 +11,7 @@
 <nav aria-label="breadcrumb" style="padding-top: -50px !important;">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ url('/dashboardAdmin') }}">Inicio</a></li>
+    <li class="breadcrumb-item active"><a href="{{ url('/paciente') }}">Opciones para pacientes</a></li>
     <li class="breadcrumb-item"><a href="{{ url()->previous() }}">Historia clínica</a></li>
     <li class="breadcrumb-item" aria-current="page">Crear consulta</li>
   </ol>

@@ -11,40 +11,50 @@
 <nav aria-label="breadcrumb" style="padding-top: -50px !important;">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ url('/dashboardAdmin') }}">Inicio</a></li>
+    <li class="breadcrumb-item active"><a href="{{ url('/paciente') }}">Opciones para pacientes</a></li>
     <li class="breadcrumb-item" aria-current="page">Historia clínica</li>
     
   </ol>
 </nav>
+
 <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-            <div class="card">
-                <div class="card-header text-white bg-success mb-3">Inicio de la hormonización</div>
-                <div class="card-body">
-                   <div class="form-group row">
-                     <div class="col-lg-12">
-                             <!--INICIO DE TABLA-->
-                                    <table class="table table-responsive-lg table-hover">
-                                        <thead>
-                                            <th>DIA DE INICIO</th>
-                                            <th>AÑOS DE HORMONIZACIÓN</th>
-                                            <th>ACCIONES</th>
-                                        </thead>
-                                        <tbody> 
-                                          <tr>
-                                              <td>
-                                                  <form>
-                                                    <input type="date" name="inicio_hormonizacion" class="form-control"> 
-                                              </td>
-                                              <td>
-                                                  Mostrar el resultado de la fecha actual menos la fecha de hormonización
-                                              </td>
-                                               <td>
-                                                  <button type="submit" class="btn btn-primary">Guardar/modificar hormonización</button>
-                                              </form>
-                                          </tr>
-                                        </tbody>
-                                        </table>
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+    <p style="text-align: right;"><b>Paciente: </b>{{$paciente->Nombre}} {{$paciente->Apellido}}</p>
+      <div class="card">
+        <div class="card-header text-white bg-success mb-3">Inicio de la hormonización</div>
+          <div class="card-body">
+            <div class="form-group row">
+              <div class="col-lg-12">
+              <!--INICIO DE TABLA-->
+                <table class="table table-responsive-lg table-hover">
+                  <thead>
+                    <th>DIA DE INICIO</th>
+                    <th>AÑOS DE HORMONIZACIÓN</th>
+                    <th>ACCIONES</th>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <form action="{{url('saveHormonizacion')}}" method="POST">
+                          @csrf
+                          <input name="id" value="{{$paciente->id}}" type="hidden">
+                          <input type="date" name="inicio_hormonizacion" id="inicio_hormonizacion" class="form-control" value="{{$paciente->FechaInicioHormonizacion}}"required>
+                          </td>
+                          <td>
+                          @if($paciente->FechaInicioHormonizacion != null)
+                            {{$diff2}}
+                          @else
+                            <p>Complete Fecha</p>
+                          @endif
+                          </td>
+                          <td>
+                            <button type="submit" class="btn btn-primary">Guardar/modificar hormonización</button>
+                        </form>
+                          </td>
+                    </tr>
+                  </tbody>
+                </table>
                                     
                                 <!--FIN DE TABLA-->
                           </div>
@@ -81,7 +91,7 @@
                                         @endforeach
                                         </tbody>
                                         </table>
-                                    
+                                        {{$consultas->links()}}
                                 <!--FIN DE TABLA-->
                           </div>
                         </div>
@@ -116,7 +126,7 @@
                                         @endforeach
                                         </tbody>
                                         </table>
-                                    
+                                        {{$estudios->links()}}
                                 <!--FIN DE TABLA-->               
                           </div>
                         </div>
@@ -152,7 +162,7 @@
                                         @endforeach
                                         </tbody>
                                         </table>
-                                    
+                                        {{$estudioFiles->links()}}
                                 <!--FIN DE TABLA-->               
                           </div>
                         </div>
@@ -188,7 +198,7 @@
                                         @endforeach
                                         </tbody>
                                         </table>
-                                    
+                                        {{$recetas->links()}}
                                 <!--FIN DE TABLA-->               
                           </div>
                         </div>

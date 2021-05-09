@@ -40,28 +40,28 @@
                 <td><input type="checkbox" class="form-check-input" value="" name="Acetato de triptorelina - ampolla inyectable 11.25 mg-kit"> Acetato de triptorelina - ampolla inyectable 11.25 mg-kit</td>
                 <td><select class="form-control" id="frecuencia" name="frecuencia">
                   <option value="">-- Escoja Frecuencia --</option>
-                  <option value="Diaria" required>Diaria</option>
-                  <option value="Semanal" required>Semanal</option>
-                  <option value="Mensual" required>Quincenal</option>
-                  <option value="Mensual" required>Mensual</option>
-                  <option value="Semanal" required>Trimestral</option>
+                  <option value="Diaria" >Diaria</option>
+                  <option value="Semanal" >Semanal</option>
+                  <option value="Quincenal" >Quincenal</option>
+                  <option value="Mensual" >Mensual</option>
+                  <option value="Semanal" >Trimestral</option>
                   </select></td>
-                <td><input type="text" class="form-control" id="cantidad" name="cantidad" maxlength="250" placeholder="Ingrese cantidad" value="" required></td>
-                <td><textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Comentario para el paciente sobre la administración de la droga"></textarea></td>
+                <td><input type="text" class="form-control" id="cantidad" name="cantidad" maxlength="250" placeholder="Ingrese cantidad" value="" ></td>
+                <td><textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Comentario para paciente"></textarea></td>
             </tr>
 
             <tr>
                 <td><input type="checkbox" class="form-check-input" value="" name="Acetato de triptorelina - ampolla inyectable 3,75 mg-kit">Acetato de triptorelina - ampolla inyectable 3,75 mg-kit</td>
                 <td><select class="form-control" id="frecuencia" name="frecuencia">
                   <option value="">-- Escoja Frecuencia --</option>
-                  <option value="Diaria" required>Diaria</option>
-                  <option value="Semanal" required>Semanal</option>
-                  <option value="Mensual" required>Quincenal</option>
-                  <option value="Mensual" required>Mensual</option>
-                  <option value="Semanal" required>Trimestral</option>
+                  <option value="Diaria" >Diaria</option>
+                  <option value="Semanal" >Semanal</option>
+                  <option value="Quincenal" >Quincenal</option>
+                  <option value="Mensual" >Mensual</option>
+                  <option value="Semanal" >Trimestral</option>
                   </select></td>
-                <td><input type="text" class="form-control" id="apellido" name="apellido" maxlength="250" placeholder="Ingrese cantidad" value="" required></td>
-                <td><textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Comentario para el paciente sobre la administración de la droga"></textarea></td>
+                <td><input type="text" class="form-control" id="apellido" name="apellido" maxlength="250" placeholder="Ingrese cantidad" value="" ></td>
+                <td><textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Comentario para paciente"></textarea></td>
             </tr>
 
             
@@ -69,101 +69,114 @@
                 <td><input type="checkbox" class="form-check-input" value="" name="Finasteride - comprimidos 5 mg">Finasteride - comprimidos 5 mg</td>
                 <td><select class="form-control" id="frecuencia" name="frecuencia">
                   <option value="">-- Escoja Frecuencia --</option>
-                  <option value="Diaria" required>Diaria</option>
-                  <option value="Semanal" required>Semanal</option>
-                  <option value="Mensual" required>Quincenal</option>
-                  <option value="Mensual" required>Mensual</option>
-                  <option value="Semanal" required>Trimestral</option>
+                  <option value="Diaria" >Diaria</option>
+                  <option value="Semanal" >Semanal</option>
+                  <option value="Quincenal" >Quincenal</option>
+                  <option value="Mensual" >Mensual</option>
+                  <option value="Semanal" >Trimestral</option>
                   </select></td>
-                <td><input type="text" class="form-control" id="apellido" name="apellido" maxlength="250" placeholder="Ingrese cantidad" value="" required></td>
-                <td><textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Comentario para el paciente sobre la administración de la droga"></textarea></td>
+                <td><input type="text" class="form-control" id="apellido" name="apellido" maxlength="250" placeholder="Ingrese cantidad" value="" ></td>
+                <td><textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Comentario para paciente"></textarea></td>
             </tr>
 
             <tr>
                 <td><input type="checkbox" class="form-check-input" value="" name="Acetato de ciproterona - comprimido 50 mg">Acetato de ciproterona - comprimido 50 mg</td>
                 <td><select class="form-control" id="frecuencia" name="frecuencia">
                   <option value="">-- Escoja Frecuencia --</option>
-                  <option value="Diaria" required>Diaria</option>
-                  <option value="Semanal" required>Semanal</option>
-                  <option value="Mensual" required>Quincenal</option>
-                  <option value="Mensual" required>Mensual</option>
-                  <option value="Semanal" required>Trimestral</option>
+                  <option value="Diaria" >Diaria</option>
+                  <option value="Semanal" >Semanal</option>
+                  <option value="Quincenal" >Quincenal</option>
+                  <option value="Mensual" >Mensual</option>
+                  <option value="Semanal" >Trimestral</option>
                   </select></td>
-                <td><input type="text" class="form-control" id="apellido" name="apellido" maxlength="250" placeholder="Ingrese cantidad" value="" required></td>
-                <td><textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Comentario para el paciente sobre la administración de la droga"></textarea></td>
+                <td><input type="text" class="form-control" id="apellido" name="apellido" maxlength="250" placeholder="Ingrese cantidad" value="" ></td>
+                <td><textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Comentario para paciente"></textarea></td>
             </tr>
 
             <tr>
                 <td><input type="checkbox" class="form-check-input"  value="" name="Estradiol cápsulas/comprimidos 2 mg">Estradiol cápsulas/comprimidos 2 mg</td>
                 <td><select class="form-control" id="frecuencia" name="frecuencia">
                   <option value="">-- Escoja Frecuencia --</option>
-                  <option value="Diaria" required>Diaria</option>
-                  <option value="Semanal" required>Semanal</option>
-                  <option value="Mensual" required>Quincenal</option>
-                  <option value="Mensual" required>Mensual</option>
-                  <option value="Semanal" required>Trimestral</option>
+                  <option value="Diaria" >Diaria</option>
+                  <option value="Semanal" >Semanal</option>
+                  <option value="Quincenal" >Quincenal</option>
+                  <option value="Mensual" >Mensual</option>
+                  <option value="Semanal" >Trimestral</option>
                   </select></td>
-                <td><input type="text" class="form-control" id="apellido" name="apellido" maxlength="250" placeholder="Ingrese cantidad" value="" required></td>
-                <td><textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Comentario para el paciente sobre la administración de la droga"></textarea></td>
+                <td><input type="text" class="form-control" id="apellido" name="apellido" maxlength="250" placeholder="Ingrese cantidad" value="" ></td>
+                <td><textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Comentario para paciente"></textarea></td>
             </tr>
             
             <tr>
                 <td><input type="checkbox" class="form-check-input"  value="" name="Estradiol gel 0,06% - envase x 80 grs">Estradiol gel 0,06% - envase x 80 grs</td>
                 <td><select class="form-control" id="frecuencia" name="frecuencia">
                   <option value="">-- Escoja Frecuencia --</option>
-                  <option value="Diaria" required>Diaria</option>
-                  <option value="Semanal" required>Semanal</option>
-                  <option value="Mensual" required>Quincenal</option>
-                  <option value="Mensual" required>Mensual</option>
-                  <option value="Semanal" required>Trimestral</option>
+                  <option value="Diaria" >Diaria</option>
+                  <option value="Semanal" >Semanal</option>
+                  <option value="Quincenal" >Quincenal</option>
+                  <option value="Mensual" >Mensual</option>
+                  <option value="Semanal" >Trimestral</option>
                   </select></td>
-                <td><input type="text" class="form-control" id="apellido" name="apellido" maxlength="250" placeholder="Ingrese cantidad" value="" required></td>
-                <td><textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Comentario para el paciente sobre la administración de la droga"></textarea></td>
+                <td><input type="text" class="form-control" id="apellido" name="apellido" maxlength="250" placeholder="Ingrese cantidad" value="" ></td>
+                <td><textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Comentario para paciente"></textarea></td>
             </tr>
 
             <tr>
                 <td><input type="checkbox" class="form-check-input" value="" name="Testosterona gel 1% - envase por 150 grs">Testosterona gel 1% - envase por 150 grs</td>
                 <td><select class="form-control" id="frecuencia" name="frecuencia">
                   <option value="">-- Escoja Frecuencia --</option>
-                  <option value="Diaria" required>Diaria</option>
-                  <option value="Semanal" required>Semanal</option>
-                  <option value="Mensual" required>Quincenal</option>
-                  <option value="Mensual" required>Mensual</option>
-                  <option value="Semanal" required>Trimestral</option>
+                  <option value="Diaria" >Diaria</option>
+                  <option value="Semanal" >Semanal</option>
+                  <option value="Quincenal" >Quincenal</option>
+                  <option value="Mensual" >Mensual</option>
+                  <option value="Semanal" >Trimestral</option>
                   </select></td>
-                <td><input type="text" class="form-control" id="apellido" name="apellido" maxlength="250" placeholder="Ingrese cantidad" value="" required></td>
-                <td><textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Comentario para el paciente sobre la administración de la droga"></textarea></td>
+                <td><input type="text" class="form-control" id="apellido" name="apellido" maxlength="250" placeholder="Ingrese cantidad" value="" ></td>
+                <td><textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Comentario para paciente"></textarea></td>
             </tr>
 
             <tr>
                 <td><input type="checkbox" class="form-check-input" value="" name="Undecanoato de testosterona - ampolla 1000 mg/4ml">Undecanoato de testosterona - ampolla 1000 mg/4ml</td>
                 <td><select class="form-control" id="frecuencia" name="frecuencia">
                   <option value="">-- Escoja Frecuencia --</option>
-                  <option value="Diaria" required>Diaria</option>
-                  <option value="Semanal" required>Semanal</option>
-                  <option value="Mensual" required>Quincenal</option>
-                  <option value="Mensual" required>Mensual</option>
-                  <option value="Semanal" required>Trimestral</option>
+                  <option value="Diaria" >Diaria</option>
+                  <option value="Semanal" >Semanal</option>
+                  <option value="Quincenal" >Quincenal</option>
+                  <option value="Mensual" >Mensual</option>
+                  <option value="Semanal" >Trimestral</option>
                   </select></td>
-                <td><input type="text" class="form-control" id="apellido" name="apellido" maxlength="250" placeholder="Ingrese cantidad" value="" required></td>
-                <td><textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Comentario para el paciente sobre la administración de la droga"></textarea></td>
+                <td><input type="text" class="form-control" id="apellido" name="apellido" maxlength="250" placeholder="Ingrese cantidad" value="" ></td>
+                <td><textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Comentario para paciente"></textarea></td>
             </tr>
 
             <tr>
                 <td><input type="checkbox" class="form-check-input" value="" name="Espironolactona - comprimidos 100 mg">Espironolactona - comprimidos 100 mg</td>
                 <td><select class="form-control" id="frecuencia" name="frecuencia">
                   <option value="">-- Escoja Frecuencia --</option>
-                  <option value="Diaria" required>Diaria</option>
-                  <option value="Semanal" required>Semanal</option>
-                  <option value="Mensual" required>Quincenal</option>
-                  <option value="Mensual" required>Mensual</option>
-                  <option value="Semanal" required>Trimestral</option>
+                  <option value="Diaria" >Diaria</option>
+                  <option value="Semanal" >Semanal</option>
+                  <option value="Quincenal" >Quincenal</option>
+                  <option value="Mensual" >Mensual</option>
+                  <option value="Semanal" >Trimestral</option>
                   </select></td>
-                <td><input type="text" class="form-control" id="apellido" name="apellido" maxlength="250" placeholder="Ingrese cantidad" value="" required></td>
-                <td><textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Comentario para el paciente sobre la administración de la droga"></textarea></td>
+                <td><input type="text" class="form-control" id="apellido" name="apellido" maxlength="250" placeholder="Ingrese cantidad" value="" ></td>
+                <td><textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Comentario para paciente"></textarea></td>
             </tr>
             <tr>
-            <td colspan="4"><textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Añadir más medicación manualmente"></textarea>
+            
+            <td colspan="4"><p><b>MEDICACION ADICIONAL</b></p><textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Añadir más medicación manualmente"></textarea></td>
+            </tr>
+            <tr>
+            
+            <td colspan="4"><p><b>SELECCIONE FIRMA DEL PROFESIONAL</b></p>
+            <select class="form-control" id="medico" name="medico" required>
+                   
+                      <option value="">-- Escoja el Medico --</option>
+                    
+                    <option value="Nicolás Zanier">Nicolás Zanier</option>
+                    <option value="Virginia Barreneche">Virginia Barreneche</option>
+                  </select>
+            </td>
             </tr>
 
             <tr>

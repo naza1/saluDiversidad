@@ -70,28 +70,28 @@
                 <div class="form-group row">
                     <label for="nacimiento" class="col-md-4 col-form-label text-md-right">Fecha de Nacimiento</label>
                     <div class="col-md-6">
-                        <input type="date" class="form-control" id="nacimiento" name="nacimiento" maxlength="250" placeholder="Fecha de Nacimiento" value="{{$paciente->FechaNacimiento}}" required>
+                        <input type="date" class="form-control" id="nacimiento" name="nacimiento" maxlength="250" placeholder="Fecha de Nacimiento" value="{{$paciente->FechaNacimiento}}">
                     </div>
                 </div>
 
-                <div class="form-group row">
+                <!-- <div class="form-group row">
                     <label for="tutor" class="col-md-4 col-form-label text-md-right">Tutor</label>
                     <div class="col-md-6">
                         <input type="text" class="form-control" id="tutor" name="tutor" maxlength="250" placeholder="Tutor" value="{{$paciente->tutor}}">
                     </div>
-                </div>
+                </div> -->
 
                 <div class="form-group row">
                     <label for="pronombre" class="col-md-4 col-form-label text-md-right">Pronombre</label>
                     <div class="col-md-6">
-                        <select class="form-control" id="pronombre" name="pronombre" required>
+                        <select class="form-control" id="pronombre" name="pronombre">
                             @if($paciente->Pronombre != null)
                                 <option value="{{$paciente->Pronombre}}">{{$paciente->Pronombre}}</option>
                             @else
                                 <option value="">-- Escoja el Pronombre --</option>
                             @endif
                             @foreach($pronombres as $pronombre)
-                                <option value="{{ $pronombre['Nombre'] }}" required>{{$pronombre['Nombre']}}</option>
+                                <option value="{{ $pronombre['Nombre'] }}">{{$pronombre['Nombre']}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -107,7 +107,7 @@
                             <option value="">-- Escoja el Genero --</option>
                         @endif
                         @foreach($generos as $genero)
-                            <option value="{{ $genero['Nombre'] }}" required>{{$genero['Nombre']}}</option>
+                            <option value="{{ $genero['Nombre'] }}">{{$genero['Nombre']}}</option>
                         @endforeach
                         </select>
                         </div>
@@ -116,7 +116,7 @@
                 <div class="form-group row">
                     <label for="nationality" class="col-md-4 col-form-label text-md-right">Nacionalidad</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="nationality" name="nationality" maxlength="250" placeholder="Nacionalidad" value="{{$paciente->Nationality}}" required>
+                        <input type="text" class="form-control" id="nationality" name="nationality" maxlength="250" placeholder="Nacionalidad" value="{{$paciente->Nationality}}">
                     </div>
                 </div>
                 <div class="form-group row">
@@ -129,7 +129,7 @@
                                 <option value="">-- Escoja el Nivel Educativo --</option>
                             @endif
                             @foreach($educaciones as $educacion)
-                                <option value="{{ $educacion['Nombre'] }}" required>{{$educacion['Nombre']}}</option>
+                                <option value="{{ $educacion['Nombre'] }}">{{$educacion['Nombre']}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -151,19 +151,19 @@
                   <div class="form-group row">
                     <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="email" name="email" maxlength="250" placeholder="email" value="{{$paciente->Email}}">
+                        <input type="text" class="form-control" id="email" name="email" maxlength="250" placeholder="email" value="{{$paciente->Email}}" {{$paciente->Email ? 'readonly':''}}>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="email" class="col-md-4 col-form-label text-md-right">Telefóno</label>
                     <div class="col-md-6">
-                        <input type="tel" class="form-control" id="telefono" name="telefono" value="{{$paciente->telefono}}" maxlength="250" placeholder="(Código de área) Número" required>
+                        <input type="tel" class="form-control" id="telefono" name="telefono" value="{{$paciente->telefono}}" maxlength="250" placeholder="(Código de área) Número">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="email" class="col-md-4 col-form-label text-md-right">Telefóno alternativo</label>
                     <div class="col-md-6">
-                        <input type="tel" class="form-control" id="telefono_alternativo" name="telefono_alternativo" value="{{$paciente->telefono_alternativo}}" maxlength="250" placeholder="(Código de área) Número" required>
+                        <input type="tel" class="form-control" id="telefono_alternativo" name="telefono_alternativo" value="{{$paciente->telefono_alternativo}}" maxlength="250" placeholder="(Código de área) Número">
                     </div>
                 </div>           
                 <div class="form-group row">
@@ -202,7 +202,7 @@
                 <div class="form-group row">
                     <label for="address" class="col-md-4 col-form-label text-md-right">Calle y número</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="address" name="address" maxlength="250" placeholder="Dirección" value="{{$paciente->Address}}" required>
+                        <input type="text" class="form-control" id="address" name="address" maxlength="250" placeholder="Dirección" value="{{$paciente->Address}}">
                     </div>
                 </div>
                 <div class="form-group row">
