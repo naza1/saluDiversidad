@@ -19,7 +19,8 @@ class CreateTurnosTable extends Migration
             $table->dateTime('Dia')->nullable();
             $table->string('Hora', 255)->nullable();
             $table->string('Medico', 255)->nullable();
-            $table->string('PacienteId', 255)->nullable();
+            $table->unsignedInteger('paciente_id')->nullable()
+            ->foreign('paciente_id')->references('id')->on('pacientes');
             $table->string('NombrePaciente', 255)->nullable();
             $table->string('ApellidoPaciente', 255)->nullable();
             $table->string('Lugar', 255)->nullable();

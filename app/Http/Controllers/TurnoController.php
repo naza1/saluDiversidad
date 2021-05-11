@@ -9,6 +9,7 @@ use DB;
 use Illuminate\Support\Facades\Auth;
 use Mail;
 use App\Mail\TurnoEmail;
+use App\Mail\TurnoCancelEmail;
 use Carbon\Carbon;
 
 class TurnoController extends Controller
@@ -25,7 +26,7 @@ class TurnoController extends Controller
         ->first();
 
         $turnos = DB::table('turnos')
-        ->where('PacienteId', '=', $paciente->id ?? null)
+        ->where('paciente_id', '=', $paciente->id ?? null)
         ->orderBy('created_at', 'desc')
         ->paginate(10);
 
@@ -39,7 +40,7 @@ class TurnoController extends Controller
         foreach($turnos as $turno)
         {
             $paciente = DB::table('pacientes')
-                ->where('id', '=', $turno->PacienteId)
+                ->where('id', '=', $turno->paciente_id)
                 ->first();
 
             $turno->NombrePaciente = $paciente->Nombre;
@@ -74,7 +75,7 @@ class TurnoController extends Controller
         ->first();
 
         $turno = new Turno();
-        $turno->PacienteId = $paciente->id;
+        $turno->paciente_id = $paciente->id;
         $turno->Medico = $request->get('medico');
         $turno->NombrePaciente = $paciente->Nombre;
         $turno->ApellidoPaciente = $paciente->Apellido;
@@ -122,7 +123,7 @@ class TurnoController extends Controller
         $turno->Hora = $request->hora;
         $turno->save();
 
-        $paciente = Paciente::find($turno->PacienteId);
+        $paciente = Paciente::find($turno->paciente_id);
 
         Mail::to($paciente->Email)->send(new TurnoEmail($turno));
 
@@ -139,7 +140,17 @@ class TurnoController extends Controller
      */
     public function destroy($id)
     {
+        $turno = DB::table('turnos')
+        ->where('id', '=', $id)
+        ->first();
+
+        $paciente = DB::table('pacientes')
+        ->where('id', '=', $turno->paciente_id)
+        ->first();
+
         DB::table('turnos')->delete($id);
+
+        Mail::to($paciente->Email)->send(new TurnoCancelEmail($turno));
 
         $turnos = DB::table('turnos')->paginate(10);
 
