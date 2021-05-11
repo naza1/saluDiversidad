@@ -21,23 +21,19 @@
                 <div class="card-header text-white bg-success mb-3">BÚSQUEDA POR PACIENTE</div>
 
                 <div class="card-body">
-                    <form class="row g-2" action="" method="get">
+                    <form class="row g-2" action="{{url('indexRecetaAdmin')}}" method="get">
                         @csrf
 
                         <div class="form-group row">
                             <label for="termino" class="col-md-4 col-form-label text-md-right">Ingrese apellido nombre o DNI...</label>
-
                             <div class="col-md-8">
-                                  <input type="text" name="texto" value="" class="form-control" autofocus>  
+                                  <input type="text" name="texto" value="{{$texto}}" class="form-control" autofocus>  
                             </div>
                         </div>
-
                        
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                            <button type="submit" class="btn btn-success">Buscar</button>
-                                                                  
-                                
+                              <button type="submit" class="btn btn-success">Buscar</button>
                             </div>
                         </div>
                     </form>

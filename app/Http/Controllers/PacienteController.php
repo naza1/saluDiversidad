@@ -28,6 +28,7 @@ class PacienteController extends Controller
 
     public function index(Request $request)
     {
+        dd($request->get('texto'));
         $texto = trim($request->get('texto'));
         $pacientes = DB::table('pacientes')
         ->where('Nombre', 'LIKE','%'.$texto.'%')

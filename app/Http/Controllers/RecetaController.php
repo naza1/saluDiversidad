@@ -28,13 +28,31 @@ class RecetaController extends Controller
         return view('receta.indexPaciente', compact('recetas'));
     }
 
-    public function indexRecetaAdmin()
+    public function indexRecetaAdmin(Request $request)
     {
-        $recetas = DB::table('recetas')
-        ->where('IsDeleted', '=', 0)
-        ->paginate(10);
+        $texto = trim($request->get('texto'));
+        $pacientes = DB::table('pacientes')
+        ->select('id')
+        ->where('Nombre', 'LIKE','%'.$texto.'%')
+        ->orwhere('Apellido', 'LIKE','%'.$texto.'%')
+        ->orwhere('Dni', 'LIKE','%'.$texto.'%')
+        ->orderBy('created_at', 'desc');
 
-        return view('receta.indexAdmin', compact('recetas'));
+        if($texto != null)
+        {
+            $recetas = DB::table('recetas')
+            ->where('IsDeleted', '=', 0)
+            ->whereIn('paciente_id', $pacientes)
+            ->paginate(10);
+        }
+        else
+        {
+            $recetas = DB::table('recetas')
+            ->where('IsDeleted', '=', 0)
+            ->paginate(10);
+        }
+
+        return view('receta.indexAdmin', compact('recetas', 'texto'));
     }
 
     /**
