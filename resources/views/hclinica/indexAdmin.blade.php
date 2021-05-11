@@ -139,41 +139,7 @@
 </div>
   <br>
 
-<div class="container"> 
-    <div class="row justify-content-center">
-      <div class="col-md-8">
-            <div class="card">
-                <div class="card-header text-white bg-success mb-3">Estudios realizados (Muestra los estudios subidos por los pacientes)</div>
-                <div class="card-body">
-                   <div class="form-group row">
-                     <div class="col-lg-12">
-                                <!--INICIO DE TABLA-->
-                                    <table class="table table-responsive-lg table-hover">
-                                        <thead>
-                                            <th>NOMBRE DEL ARCHIVO</th>
-                                            <th>DESCARGAR</th>
-                                        </thead>
-                                        <tbody>
-                                        @foreach($estudioFiles as $estudioFile)
-                                          <tr>
-                                              <td>{{$estudioFile->name}}</td>
-                                              <td><a href="{{url($estudioFile->path)}}" target="_blank">Descargar</a></td>
-                                          </tr>
-                                        @endforeach
-                                        </tbody>
-                                        </table>
-                                        {{$estudioFiles->links()}}
-                                <!--FIN DE TABLA-->               
-                          </div>
-                        </div>
-                    
-                </div>
-           </div>
-        
-      </div>
-  </div>
-</div>
-  <br>
+
 
   <div class="container"> 
     <div class="row justify-content-center">
@@ -210,7 +176,70 @@
   </div>
 </div>
   <br>
-
+  <div class="container"> 
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-white bg-success mb-3">Estudios realizados (Muestra los estudios subidos por los pacientes y por el médico)</div>
+                <div class="card-body">
+                   <div class="form-group row">
+                     <div class="col-lg-12">
+                                <!--INICIO DE TABLA-->
+                                    <table class="table table-responsive-lg table-hover">
+                                        <thead>
+                                            <th>NOMBRE DEL ARCHIVO</th>
+                                            <th>DESCARGAR</th>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($estudioFiles as $estudioFile)
+                                          <tr>
+                                              <td>{{$estudioFile->name}}</td>
+                                              <td><a href="{{url($estudioFile->path)}}" target="_blank">Descargar</a></td>
+                                          </tr>
+                                        @endforeach
+                                        </tbody>
+                                        </table>
+                                        {{$estudioFiles->links()}}
+                                <!--FIN DE TABLA-->               
+                          </div>
+                        </div>
+                    
+                </div>
+           </div>
+        
+      </div>
+  </div>
+</div>
+  <br>
+  <div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+              <div class="card-header text-white bg-success mb-3">SUBIR ESTUDIO/LABORATORIO</div>
+                <div class="body">    
+                
+                <div class="form-group row">
+                  <form action="{{ url('estudio/uploadEstudio') }}" method="POST" enctype="multipart/form-data">
+                  @csrf
+                  <input name="id" value="{{$paciente->id}}" type="hidden">
+                      <div class="col-md-6 offset-md-3">
+                        <input type="file" name="estudioFile" id="estudioFile" accept="application/pdf,image/*" value="" required>
+                        @error('estudioFile')
+                            <small class="text-danger">{{$message}}</small>
+                        @enderror
+                    </div>
+                </div>
+                <div class="form-group row">
+                      <div class="col-md-6 offset-md-3">
+                        <button type="submit" class="btn btn-primary btn-md btn-block text-white">Subir archivo</button>
+                    </div>
+                </div>
+            </form> 
+ </div>
+</div>
+</div>
+</div>
+</div>
 
      
 
