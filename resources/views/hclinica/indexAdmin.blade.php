@@ -39,7 +39,7 @@
                         <form action="{{url('saveHormonizacion')}}" method="POST">
                           @csrf
                           <input name="id" value="{{$paciente->id}}" type="hidden">
-                          <input type="date" name="inicio_hormonizacion" id="inicio_hormonizacion" class="form-control" value="{{$paciente->FechaInicioHormonizacion}}"required>
+                          <input type="date" name="inicio_hormonizacion" id="inicio_hormonizacion" class="form-control" value="{{Carbon\Carbon::parse($paciente->FechaInicioHormonizacion)->format('Y-m-d')}}"required>
                           </td>
                           <td>
                           @if($paciente->FechaInicioHormonizacion != null)

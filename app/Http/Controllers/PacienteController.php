@@ -16,6 +16,7 @@ use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Storage;
 use DateTime;
+use Carbon\Carbon;
 
 class PacienteController extends Controller
 {
@@ -217,9 +218,11 @@ class PacienteController extends Controller
     public function saveHormonizacion(Request $request){
 
         $paciente = Paciente::find($request->id);
-        $paciente->FechaInicioHormonizacion = $request->get('inicio_hormonizacion');
+        
+        $fecha = new Carbon($request->get('inicio_hormonizacion'));
+        $paciente->FechaInicioHormonizacion = $fecha->toDateString();
         $paciente->save();
 
-        return redirect('/paciente');
+        return redirect()->to('showHistorial/'.$paciente->id)->with('paciente', $request->id);
     }
 }
