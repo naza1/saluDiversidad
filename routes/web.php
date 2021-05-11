@@ -78,3 +78,5 @@ Route::get('/showHistorial/{id}','App\Http\Controllers\PacienteController@showHi
 Route::post('/estudio/uploadEstudio','App\Http\Controllers\EstudioController@uploadEstudio')->middleware('verified');
 
 Route::post('/saveHormonizacion','App\Http\Controllers\PacienteController@saveHormonizacion')->middleware('verified');
+
+Route::get('/subirEstudioPaciente','App\Http\Controllers\EstudioController@subirEstudioPaciente')->middleware('verified');

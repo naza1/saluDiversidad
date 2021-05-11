@@ -31,6 +31,15 @@ class EstudioController extends Controller
         return view('estudio.indexPaciente', compact('estudios', 'paciente'));
     }
 
+    public function subirEstudioPaciente()
+    {
+        $paciente = DB::table('pacientes')
+            ->where('user_id', '=', auth::user()->id)
+            ->first();
+
+        return view('estudio.SubirEstudioPaciente', compact('paciente', $paciente));
+    }
+
     public function indexEstudioAdmin()
     {
         $estudios = Estudio::where('IsDeleted', 0)->get();
@@ -190,6 +199,6 @@ class EstudioController extends Controller
             $estudioFile->save();
         }
 
-        return redirect('/estudio')->with('estudios', $estudios)->with('paciente', $paciente);
+        return redirect('/paciente')->with('estudios', $estudios)->with('paciente', $paciente);
     }
 }
