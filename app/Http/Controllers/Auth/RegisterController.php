@@ -83,7 +83,7 @@ class RegisterController extends Controller
             'apellido' => $data['apellido'],
             'email' => $data['email'],
             'dni' => $data['dni'],
-            'tutor' => $data['tutor'],
+            //'tutor' => $data['tutor'],
             'isActive' => 1,
         ]);
 

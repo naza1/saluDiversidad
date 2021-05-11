@@ -74,7 +74,7 @@
                                       <tr>
                                         <td>{{$receta->ApellidoPaciente}}</td>
                                         <td>{{$receta->NombrePaciente}}</td>
-                                        <td>{{$receta->created_at}}</td>
+                                        <td>{{Carbon\Carbon::parse($receta->created_at)->toFormattedDateString('d-m-Y')}}</td>
                                         <td><!--{{$receta->Recetas}} las drogas bene aparecer una vez que el medico las aprueba--></td>
                                         <td></td>
                                         <td></td>

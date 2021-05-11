@@ -74,7 +74,7 @@
                                                     <p><a href="{{ action('App\Http\Controllers\PdfController@generateReceta',['receta' => $receta]) }}">Descargar Receta</a></p></td>
                                                 @endif
                                                 </td>
-                                                <td>{{$receta->created_at}}</td>
+                                                <td>{{Carbon\Carbon::parse($receta->created_at)->toFormattedDateString('d-m-Y')}}</td>
                                                 <td></td>
                                                 <td></td>
                                             </tr>

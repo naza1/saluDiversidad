@@ -64,7 +64,7 @@
                @else
                 <p><a href="{{ action('App\Http\Controllers\PdfController@generateOrden',['estudio' => $estudio]) }}">Descargar Orden</a></p></td>
                @endif
-               <td>{{$estudio->created_at}}</td>
+               <td>{{Carbon\Carbon::parse($estudio->created_at)->toFormattedDateString('d-m-Y')}}</td>
             </tr>
             @endforeach
         </tbody>

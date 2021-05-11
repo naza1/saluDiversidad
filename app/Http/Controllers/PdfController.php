@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use PDF;
 use DB;
+use Carbon\Carbon;
   
 class PdfController extends Controller
 {
@@ -31,8 +32,9 @@ class PdfController extends Controller
         ->where('id', '=', request()->estudio['paciente_id'])
         ->first();
 
+        $date = new Carbon(request()->estudio['created_at']);
         $data = [
-            'fecha' => date("Y-m-d H:i"),
+            'fecha' => $date->toFormattedDateString('d-m-Y'),
             'nombre' => request()->estudio['NombrePaciente'],
             'apellido' => request()->estudio['ApellidoPaciente'],
             'estudios' => explode(',', request()->estudio['Estudios']),
@@ -42,7 +44,8 @@ class PdfController extends Controller
         ];
         $pdf = PDF::loadView('pdf.estudios', $data);
 
-        return $pdf->download('itsolutionstuff.pdf');
+        $fileName = "orden".request()->estudio['NombrePaciente'].request()->estudio['ApellidoPaciente'].date(NOW()).".pdf";
+        return $pdf->download($fileName);
     }
 
     public function generateReceta(Request $request)
@@ -51,9 +54,10 @@ class PdfController extends Controller
         ->where('id', '=', request()->estudio['paciente_id'])
         ->first();
         
+        $date = new Carbon(request()->estudio['created_at']);
         $data = [
-            'fecha' => date("Y-m-d H:i"),
-            'nombre' => request()->receta['NombrePaciente'],
+            'fecha' => date("Y-m-d"),
+            'nombre' => $date->toFormattedDateString('d-m-Y'),
             'apellido' => request()->receta['ApellidoPaciente'],
             'recetas' => explode(',', request()->receta['Recetas']),
             'dni' => request()->receta['Dni'],
@@ -62,6 +66,7 @@ class PdfController extends Controller
         ];
         $pdf = PDF::loadView('pdf.recetas', $data);
 
-        return $pdf->download('itsolutionstuff.pdf');
+        $fileName = "receta".request()->estudio['NombrePaciente'].request()->estudio['ApellidoPaciente'].date(NOW()).".pdf";
+        return $pdf->download($fileName);
     }
 }

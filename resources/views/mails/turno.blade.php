@@ -7,7 +7,7 @@
 </head>
 <body><img src="{{ url('http://c2170987.ferozo.com/wp-content/uploads/2021/03/logo.png') }}" alt="Logo Salud y Diversidad" class="logo" width="30%">
     <p>Estimadx: {{$turnoDato->NombrePaciente}} {{$turnoDato->ApellidoPaciente}} <br><br>
-    Se ha confirmado su turno para el día {{$turnoDato->Dia}} a las {{$turnoDato->Hora}}
+    Se ha confirmado su turno para el día {{Carbon\Carbon::parse($turnoDato->Dia)->toFormattedDateString('d-m-Y')}} a las {{$turnoDato->Hora}}
     con el medico {{$turnoDato->Medico}} en el Centro de Salud {{$turnoDato->Lugar}}.</p>
     <br>
     ----------------------------------------<br>

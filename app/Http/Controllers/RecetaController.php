@@ -34,7 +34,6 @@ class RecetaController extends Controller
         ->where('IsDeleted', '=', 0)
         ->paginate(10);
 
-        //return view('receta.RecetarAdmin', compact('recetas'));
         return view('receta.indexAdmin', compact('recetas'));
     }
 
@@ -77,7 +76,7 @@ class RecetaController extends Controller
         ->where('IsDeleted', '=', 0)
         ->paginate(10);
 
-        return view('receta.indexPaciente', compact('recetas'));
+        return redirect()->to('receta')->with('recetas', $recetas);
     }
 
     /**
@@ -88,16 +87,10 @@ class RecetaController extends Controller
      */
     public function show($id)
     {
-        // dd("");
-        // $receta = Receta::find($id);
-        // $receta->Estado = "Aprobado";
-        // $receta->save();
-
         $recetas = DB::table('recetas')
         ->where('IsDeleted', '=', 0)
         ->paginate(10);
 
-        //return redirect()->to('indexRecetaAdmin')->with('recetas', $recetas);
         return view('receta.RecetarAdmin', compact('recetas'));
     }
 

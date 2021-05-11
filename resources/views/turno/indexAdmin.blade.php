@@ -57,7 +57,7 @@
                   </select>
                 </td>
                 <td>
-                  <input type="date" class="form-control" id="fecha" maxlength="250" name="fecha" placeholder="Día" value="{{$turno->Dia}}" required>
+                  <input type="date" class="form-control" id="fecha" maxlength="250" name="fecha" placeholder="Día" value="{{ Carbon\Carbon::parse($turno->Dia)->format('Y-m-d') }}" required>
                 </td>
                 <td>
                   <input type="time" class="form-control" id="hora" maxlength="250" name="hora" placeholder="Hora" value="{{$turno->Hora}}" required>

@@ -16,7 +16,7 @@ class CreateTurnosTable extends Migration
         Schema::create('turnos', function (Blueprint $table) {
             $table->mediumIncrements('id');
             $table->timestamps();
-            $table->string('Dia', 255)->nullable();
+            $table->dateTime('Dia')->nullable();
             $table->string('Hora', 255)->nullable();
             $table->string('Medico', 255)->nullable();
             $table->string('PacienteId', 255)->nullable();

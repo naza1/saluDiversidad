@@ -141,7 +141,7 @@ class PacienteController extends Controller
         $paciente = Paciente::find($request->id);
 
         $data = $request->validate([
-            'email' =>['Required', 'email', Rule::unique('pacientes')->ignore($paciente->user_id, 'paciente_id')],
+            'email' =>['Required', 'email', Rule::unique('pacientes')->ignore($paciente->user_id, 'user_id')],
             'dni' => 'required', Rule::unique('pacientes')->ignore($paciente->dni, 'dni'),
             'perfilFoto' => 'image|max:2048',
         ]);

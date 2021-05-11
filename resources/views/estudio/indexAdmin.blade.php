@@ -37,7 +37,7 @@
               <tr>
                 <td>{{$estudio->NombrePaciente}}</td>
                 <td>{{$estudio->ApellidoPaciente}}</td>
-                <td>{{$estudio->created_at}}</td>
+                <td>{{Carbon\Carbon::parse($estudio->created_at)->toFormattedDateString('d-m-Y')}}</td>
                 <td>{{$estudio->Estado}}</td>
                 <td>
                 <div class="btn-group">

@@ -9,6 +9,7 @@ use DB;
 use Illuminate\Support\Facades\Auth;
 use Mail;
 use App\Mail\TurnoEmail;
+use Carbon\Carbon;
 
 class TurnoController extends Controller
 {
@@ -116,7 +117,8 @@ class TurnoController extends Controller
     {
         $turno = Turno::find($request->id);
 
-        $turno->Dia = $request->fecha;
+        $dia = new Carbon($request->fecha);
+        $turno->Dia = $dia->toDateString();
         $turno->Hora = $request->hora;
         $turno->save();
 
