@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Receta;
+use App\Models\Medicamento;
+use App\Models\Medicamento_Receta;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Auth;
@@ -109,7 +111,8 @@ class RecetaController extends Controller
         ->where('IsDeleted', '=', 0)
         ->paginate(10);
 
-        return view('receta.RecetarAdmin', compact('recetas'));
+        $medicamentos = Medicamento::all();
+        return view('receta.RecetarAdmin', compact('recetas', 'medicamentos', 'id'));
     }
 
     /**
@@ -120,7 +123,6 @@ class RecetaController extends Controller
      */
     public function edit(Receta $receta)
     {
-        //
     }
 
     /**
@@ -132,6 +134,30 @@ class RecetaController extends Controller
      */
     public function update(Request $request, Receta $receta)
     {
+        dd(request()->all());
+        if(request()->drogas != null)
+        {
+            foreach(request()->drogas as $droga)
+            {
+                $medicamentoxReceta = new Medicamento_Receta();
+                $medicamentoxReceta->receta_id = request()->get('id');
+
+                $medicamento = db::table('medicamentos')
+                ->where('nombre', '=', $droga)->first();
+
+                $medicamentoxReceta->medicamento_id = $medicamento->id;
+                $medicamentoxReceta->frecuencia = request()->get('frec_'.str_replace(' ', '_', $droga));
+                $medicamentoxReceta->cantidad = request()->get('cant_'.str_replace(' ', '_', $droga));
+                $medicamentoxReceta->comentario = request()->get('com_'.str_replace(' ', '_', $droga));
+                $medicamentoxReceta->save();
+            }
+        }
+
+        $recetas = DB::table('recetas')
+        ->where('IsDeleted', '=', 0)
+        ->paginate(10);
+
+        return redirect()->to('indexRecetaAdmin')->with('recetas', $recetas);
     }
 
     /**
