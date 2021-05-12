@@ -54,7 +54,13 @@ class RecetaController extends Controller
             ->paginate(10);
         }
 
-        return view('receta.indexAdmin', compact('recetas', 'texto'));
+        $recetasMedicamentos = DB::table('recetas')
+        ->join('medicamento__recetas', 'recetas.id', '=', 'medicamento__recetas.receta_id')
+        ->join('medicamentos', 'medicamento__recetas.medicamento_id', '=', 'medicamentos.id')
+        ->where('IsDeleted', '=', 0)
+        ->get();
+
+        return view('receta.indexAdmin', compact('recetas', 'texto', 'recetasMedicamentos'));
     }
 
     /**
@@ -134,30 +140,46 @@ class RecetaController extends Controller
      */
     public function update(Request $request, Receta $receta)
     {
-        dd(request()->all());
         if(request()->drogas != null)
         {
             foreach(request()->drogas as $droga)
             {
+                $medicamentos_receta = DB::table('medicamento_recetas')
+                ->where('receta-id', '=', request()->get('id'));
+
                 $medicamentoxReceta = new Medicamento_Receta();
                 $medicamentoxReceta->receta_id = request()->get('id');
-
+    
                 $medicamento = db::table('medicamentos')
                 ->where('nombre', '=', $droga)->first();
-
+    
                 $medicamentoxReceta->medicamento_id = $medicamento->id;
-                $medicamentoxReceta->frecuencia = request()->get('frec_'.str_replace(' ', '_', $droga));
-                $medicamentoxReceta->cantidad = request()->get('cant_'.str_replace(' ', '_', $droga));
-                $medicamentoxReceta->comentario = request()->get('com_'.str_replace(' ', '_', $droga));
+                $medicamentoxReceta->frecuencia = $request->get("frec_".$medicamento->id);
+                $medicamentoxReceta->cantidad = request()->get("cant_".$medicamento->id);
+                $medicamentoxReceta->comentario = request()->get("com_".$medicamento->id);
                 $medicamentoxReceta->save();
             }
+
+            $receta = Receta::find(request()->get('id'));
+            $receta->Estado = "Aprobado";
+            $receta->save();
         }
 
         $recetas = DB::table('recetas')
         ->where('IsDeleted', '=', 0)
         ->paginate(10);
 
-        return redirect()->to('indexRecetaAdmin')->with('recetas', $recetas);
+        $medicamentosxRecetas = DB::table('medicamento__recetas')
+        ->whereIn('receta_id', $recetas);
+
+        $recetasMedicamentos = DB::table('recetas')
+        ->join('medicamento__recetas', 'recetas.id', '=', 'medicamento__recetas.receta_id')
+        ->join('medicamentos', 'medicamento__recetas.medicamento_id', '=', 'medicamentos.id')
+        ->get();
+
+        return redirect()->to('indexRecetaAdmin')
+        ->with('recetas', $recetas)
+        ->with('recetasMedicamentos', $recetasMedicamentos);
     }
 
     /**

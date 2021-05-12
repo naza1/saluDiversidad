@@ -44,7 +44,7 @@
                   <input type="checkbox" class="form-check-input" name="drogas[]" value="{{$medicamento->nombre}}"> {{$medicamento->nombre}}
                 </td>
                 <td>
-                  <select class="form-control" id="frec_{{$medicamento->nombre}}" name="frec_{{$medicamento->nombre}}">
+                  <select class="form-control" id="frec_{{$medicamento->id}}" name="frec_{{$medicamento->id}}">
                     <option value="">-- Escoja Frecuencia --</option>
                     <option value="Diaria">Diaria</option>
                     <option value="Semanal">Semanal</option>
@@ -54,10 +54,10 @@
                   </select>
                 </td>
                 <td>
-                  <input type="number" class="form-control" id="cant_{{$medicamento->nombre}}" name="cant_{{$medicamento->nombre}}" maxlength="250" placeholder="Ingrese cantidad" value="">
+                  <input type="number" class="form-control" id="cant_{{$medicamento->id}}" name="cant_{{$medicamento->id}}" maxlength="250" placeholder="Ingrese cantidad" value="">
                 </td>
                 <td>
-                  <textarea class="form-control" id="com_{{$medicamento->nombre}}" value="" name="com_{{$medicamento->nombre}}" maxlength="250" placeholder="Comentario para paciente"></textarea>
+                  <textarea class="form-control" id="com_{{$medicamento->id}}" value="" name="com_{{$medicamento->id}}" maxlength="250" placeholder="Comentario para paciente"></textarea>
                 </td>
               </tr>
               @endforeach

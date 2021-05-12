@@ -71,14 +71,34 @@
                                         <td>{{$receta->ApellidoPaciente}}</td>
                                         <td>{{$receta->NombrePaciente}}</td>
                                         <td>{{Carbon\Carbon::parse($receta->created_at)->toFormattedDateString('d-m-Y')}}</td>
-                                        <td><!--{{$receta->Recetas}} las drogas bene aparecer una vez que el medico las aprueba--></td>
-                                        <td></td>
-                                        <td></td>
+                                        <td>
+                                          @foreach($recetasMedicamentos as $recetasMedicamento)
+                                            @if($receta->id == $recetasMedicamento->receta_id)
+                                              {{$recetasMedicamento->nombre}}
+                                            @endif
+                                          @endforeach
+                                        </td>
+                                        <td>
+                                          @foreach($recetasMedicamentos as $recetasMedicamento)
+                                            @if($receta->id == $recetasMedicamento->receta_id)
+                                              {{$recetasMedicamento->frecuencia}}
+                                            @endif
+                                          @endforeach
+                                        </td>
+                                        <td>
+                                        @foreach($recetasMedicamentos as $recetasMedicamento)
+                                          @if($receta->id == $recetasMedicamento->receta_id)
+                                            {{$recetasMedicamento->cantidad}}
+                                          @endif
+                                        @endforeach
+                                        </td>
                                         <td>{{$receta->Estado}}</td>
                                         <td>
+                                        @if($receta->Estado == "Espera")
                                           <div class="btn-group">
                                             <a href="{{ url('receta/'.$receta->id) }}" class="btn btn-success btn-sm">Recetar</a><br>
                                           </div>
+                                        @endif
                                           <div class="btn-group">
                                             <a href="{{ url('receta/'.$receta->id) }}" class="btn btn-success btn-sm">Repetir receta</a><br>
                                           </div>
