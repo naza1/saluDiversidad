@@ -85,7 +85,7 @@
                                         <tbody>
                                         @foreach($consultas as $consulta)
                                           <tr>
-                                              <td>{{$consulta->fecha}}</td>
+                                              <td>{{Carbon\Carbon::parse($consulta->fecha)->toFormattedDateString('d-m-Y')}}</td>
                                               <td>{{$consulta->observaciones}}</td>
                                           </tr>
                                         @endforeach
@@ -120,7 +120,7 @@
                                         <tbody> 
                                         @foreach($estudios as $estudio)
                                           <tr>
-                                              <td>{{$estudio->created_at}}</td>
+                                              <td>{{Carbon\Carbon::parse($estudio->created_at)->toFormattedDateString('d-m-Y')}}</td>
                                               <td>{{$estudio->Estudios}}</td>
                                           </tr>
                                         @endforeach
@@ -158,7 +158,7 @@
                                         <tbody> 
                                         @foreach($recetas as $receta)
                                           <tr>
-                                              <td>{{$receta->created_at}}</td>
+                                              <td>{{Carbon\Carbon::parse($receta->created_at)->toFormattedDateString('d-m-Y')}}</td>
                                               <td>{{$receta->Recetas}}</td>
                                           </tr>
                                         @endforeach

@@ -99,9 +99,11 @@
                                             <a href="{{ url('receta/'.$receta->id) }}" class="btn btn-success btn-sm">Recetar</a><br>
                                           </div>
                                         @endif
+                                        @if($receta->Estado == "Aprobado")
                                           <div class="btn-group">
                                             <a href="{{ url('receta/'.$receta->id) }}" class="btn btn-success btn-sm">Repetir receta</a><br>
                                           </div>
+                                         @endif
                                           <div class="btn-group">
                                             <form method="POST" action="{{ url('receta/'.$receta->id) }}">
                                             @csrf
