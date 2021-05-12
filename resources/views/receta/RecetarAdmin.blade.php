@@ -54,7 +54,7 @@
                   </select>
                 </td>
                 <td>
-                  <input type="number" class="form-control" id="cant_{{$medicamento->id}}" name="cant_{{$medicamento->id}}" maxlength="250" placeholder="Ingrese cantidad" value="">
+                  <input type="text" class="form-control" id="cant_{{$medicamento->id}}" name="cant_{{$medicamento->id}}" maxlength="250" placeholder="Ingrese cantidad" value="">
                 </td>
                 <td>
                   <textarea class="form-control" id="com_{{$medicamento->id}}" value="" name="com_{{$medicamento->id}}" maxlength="250" placeholder="Comentario para paciente"></textarea>
