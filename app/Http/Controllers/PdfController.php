@@ -51,22 +51,35 @@ class PdfController extends Controller
     public function generateReceta(Request $request)
     {
         $paciente = DB::table('pacientes')
-        ->where('id', '=', request()->estudio['paciente_id'])
+        ->where('id', '=', request()->receta['paciente_id'])
         ->first();
         
-        $date = new Carbon(request()->estudio['created_at']);
+        $recetasMedicamentos = DB::table('recetas')
+        ->join('medicamento__recetas', 'recetas.id', '=', 'medicamento__recetas.receta_id')
+        ->join('medicamentos', 'medicamento__recetas.medicamento_id', '=', 'medicamentos.id')
+        ->where('paciente_id', '=', $paciente->id)
+        ->where('receta_id', '=', request()->receta['id'])
+        ->get();
+       
+        $result = null;
+        foreach($recetasMedicamentos as $recetaMdicamento)
+        {
+            $result = $result.$recetaMdicamento->nombre." cantidad: ".$recetaMdicamento->cantidad.", ";
+        }
+
+        $date = new Carbon(request()->receta['created_at']);
         $data = [
-            'fecha' => date("Y-m-d"),
-            'nombre' => $date->toFormattedDateString('d-m-Y'),
+            'fecha' => $date->toFormattedDateString('d-m-Y'),
+            'nombre' => request()->receta['NombrePaciente'],
             'apellido' => request()->receta['ApellidoPaciente'],
-            'recetas' => explode(',', request()->receta['Recetas']),
+            'recetas' => explode(',', $result),
             'dni' => request()->receta['Dni'],
             'SocialWork' => $paciente->SocialWork,
             'NroAfiliado' => $paciente->NroAfiliado,
         ];
         $pdf = PDF::loadView('pdf.recetas', $data);
 
-        $fileName = "receta".request()->estudio['NombrePaciente'].request()->estudio['ApellidoPaciente'].date(NOW()).".pdf";
+        $fileName = "receta".request()->receta['NombrePaciente'].request()->receta['ApellidoPaciente'].date(NOW()).".pdf";
         return $pdf->download($fileName);
     }
 }
