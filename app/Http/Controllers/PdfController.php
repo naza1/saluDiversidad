@@ -60,6 +60,9 @@ class PdfController extends Controller
         ->where('paciente_id', '=', $paciente->id)
         ->where('receta_id', '=', request()->receta['id'])
         ->get();
+
+        $receta = DB::table('recetas')
+        ->where('id', '=', request()->receta['id'])->first();
        
         $result = null;
         foreach($recetasMedicamentos as $recetaMdicamento)
@@ -76,6 +79,8 @@ class PdfController extends Controller
             'dni' => request()->receta['Dni'],
             'SocialWork' => $paciente->SocialWork,
             'NroAfiliado' => $paciente->NroAfiliado,
+            'adicional' => $receta->Adicional,
+            'medico' => $receta->Medico,
         ];
         $pdf = PDF::loadView('pdf.recetas', $data);
 

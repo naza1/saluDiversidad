@@ -19,11 +19,15 @@
     <p style="font-family: Verdana,Geneva,sans-serif;">Rp/</p>
     <div style="background-image: url('{{ public_path('img/back_receta.png')}}');background-repeat: no-repeat; background-position: center; min-height: 75% !important;">
             @foreach($recetas as $receta)
-            <p style="font-family: Verdana,Geneva,sans-serif; text-align: left; font-size: 14px; line-height:2px;">{{ $receta }}</p>
+            <p style="font-family: Verdana,Geneva,sans-serif; text-align: left; font-size: 14px; line-height:15px;">{{ $receta }}</p>
         @endforeach
-    
+    <p style="font-family: Verdana,Geneva,sans-serif; text-align: left; font-size: 14px; line-height:15px;">{{$adicional}}</p>
         <p style="font-family: Verdana,Geneva,sans-serif; text-align: left; font-size: 14px;"><i>Diagnóstico: Proceso hormonal de modificación</i></p>
-    <p style="font-family: Verdana,Geneva,sans-serif; text-align: right;"><img src="{{ public_path('img/firma.png') }}"></p>
+    @if($medico == "Nicolás Zanier")
+        <p style="font-family: Verdana,Geneva,sans-serif; text-align: right;"><img src="{{ public_path('img/firma.png') }}"></p>
+    @else
+        <p style="font-family: Verdana,Geneva,sans-serif; text-align: right;"><img src="{{ public_path('img/firma_virginia.png') }}"></p>
+    @endif
     <p style="font-family: Verdana,Geneva,sans-serif; text-align: right;">Mar del Plata {{ $fecha }}</p>
 </div>
     <hr style="height: 10px; background-color: black; width: 100%; ">

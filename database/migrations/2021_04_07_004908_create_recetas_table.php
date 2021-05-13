@@ -22,8 +22,9 @@ class CreateRecetasTable extends Migration
             $table->string('Estado', 255)->default('Espera');
             $table->unsignedInteger('paciente_id')->nullable()
                 ->foreign('paciente_id')->references('id')->on('pacientes');
-            $table->string('Recetas', 500)->nullable();
+            $table->string('Adicional', 500)->nullable();
             $table->string('IsDeleted')->default(0);
+            $table->string('Medico', 255)->nullable();
         });
     }
 

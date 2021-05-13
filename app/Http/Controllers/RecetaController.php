@@ -169,6 +169,8 @@ class RecetaController extends Controller
 
             $receta = Receta::find(request()->get('id'));
             $receta->Estado = "Aprobado";
+            $receta->Medico = request()->get('medico');
+            $receta->Adicional = request()->get('adicional');
             $receta->save();
         }
 
@@ -182,6 +184,7 @@ class RecetaController extends Controller
         $recetasMedicamentos = DB::table('recetas')
         ->join('medicamento__recetas', 'recetas.id', '=', 'medicamento__recetas.receta_id')
         ->join('medicamentos', 'medicamento__recetas.medicamento_id', '=', 'medicamentos.id')
+        ->where('IsDeleted', '=', 0)
         ->get();
 
         return redirect()->to('indexRecetaAdmin')

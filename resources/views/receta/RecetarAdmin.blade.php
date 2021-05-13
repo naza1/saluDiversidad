@@ -64,7 +64,7 @@
             
               <tr>
                 <td colspan="4"><p><b>MEDICACION ADICIONAL</b></p>
-                  <textarea class="form-control" id="comentario" value="" name="comentario" maxlength="250" placeholder="Añadir más medicación manualmente"></textarea>
+                  <textarea class="form-control" id="adicional" value="" name="adicional" maxlength="250" placeholder="Añadir más medicación manualmente"></textarea>
                 </td>
               </tr>
             
