@@ -106,6 +106,16 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="medico" class="col-md-4 col-form-label text-md-right">Seleccione médico</label>
+                        <div class="col-md-6">
+                            <select class="form-control" id="medico" name="medico" required>
+                                <option value="">-- Escoja el Medico --</option>
+                                <option value="Nicolás Zanier">Nicolás Zanier</option>
+                                <option value="Virginia Barreneche">Virginia Barreneche</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <div class="col-md-6 offset-md-4">
                             <button type="submit" class="btn btn-primary">Asignar orden</button>
                         </div>
