@@ -219,7 +219,7 @@
                 <div class="body">    
                 
                 <div class="form-group row">
-                  <form action="{{ url('estudio/uploadEstudio') }}" method="POST" enctype="multipart/form-data">
+                  <form action="{{ url('estudio/uploadAdminEstudio') }}" method="POST" enctype="multipart/form-data">
                   @csrf
                   <input name="id" value="{{$paciente->id}}" type="hidden">
                       <div class="col-md-6 offset-md-3">

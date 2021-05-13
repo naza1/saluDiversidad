@@ -6,6 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Paciente;
 use App\Models\Genero;
 use App\Models\User;
+use App\Models\Turno;
+use App\Models\Receta;
 use App\Models\Pronombre;
 use App\Models\Educacion;
 use Illuminate\Support\Facades\Hash;
@@ -104,6 +106,9 @@ class PacienteController extends Controller
 
         DB::table('users')->delete($paciente->user_id);
         DB::table('pacientes')->delete($id);
+        Turno::where('paciente_id', $paciente->id)->delete();
+        Receta::where('paciente_id', $paciente->id)->delete();
+        //Medicamento_Receta::where('receta')
 
         return redirect('/paciente');
     }
@@ -192,6 +197,7 @@ class PacienteController extends Controller
 
         $recetas = DB::table('recetas')
         ->where('paciente_id', '=', $id)
+        ->where('IsDeleted', '=', 0)
         ->paginate(10);
 
         $estudios = DB::table('estudios')

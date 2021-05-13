@@ -75,7 +75,8 @@ Route::get('/indexRecetaAdmin','App\Http\Controllers\RecetaController@indexRecet
 
 Route::get('/showHistorial/{id}','App\Http\Controllers\PacienteController@showHistorial')->middleware('verified');
 
-Route::post('/estudio/uploadEstudio','App\Http\Controllers\EstudioController@uploadEstudio')->middleware('verified');
+Route::post('/estudio/uploadAdminEstudio','App\Http\Controllers\EstudioController@uploadAdminEstudio')->middleware('verified');
+Route::post('/estudio/uploadPacienteEstudio','App\Http\Controllers\EstudioController@uploadPacienteEstudio')->middleware('verified');
 
 Route::post('/saveHormonizacion','App\Http\Controllers\PacienteController@saveHormonizacion')->middleware('verified');
 

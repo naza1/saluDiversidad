@@ -64,7 +64,7 @@ class PdfController extends Controller
         $result = null;
         foreach($recetasMedicamentos as $recetaMdicamento)
         {
-            $result = $result.$recetaMdicamento->nombre." cantidad: ".$recetaMdicamento->cantidad.", ";
+            $result = $result.$recetaMdicamento->nombre." x ".$recetaMdicamento->cantidad.", ";
         }
 
         $date = new Carbon(request()->receta['created_at']);

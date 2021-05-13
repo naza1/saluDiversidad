@@ -172,7 +172,33 @@ class EstudioController extends Controller
         return redirect('/indexEstudioAdmin')->with('estudios', $estudios);
     }
 
-    public function uploadEstudio(Request $request)
+    public function uploadPacienteEstudio(Request $request)
+    {
+        $request->validate([
+            'estudioFile' => 'required|max:2048'
+        ]);
+
+        $paciente = DB::table('pacientes')
+        ->where('id', '=', request()->get('id'))
+        ->first();
+
+        if($request->estudioFile != null)
+        {
+            $estudio = $request->file('estudioFile')->store('public/estudios/'. $request->id);
+            $filename = $request->file('estudioFile')->getClientOriginalName(); 
+            $url = Storage::url($estudio);
+
+            $estudioFile = new EstudioFile();
+            $estudioFile->paciente_id = $paciente->id;
+            $estudioFile->path = $url;
+            $estudioFile->name = $filename;
+            $estudioFile->save();
+        }
+        
+        return redirect('homePaciente');
+    }
+
+    public function uploadAdminEstudio(Request $request)
     {
         $request->validate([
             'estudioFile' => 'required|max:2048'
@@ -183,7 +209,7 @@ class EstudioController extends Controller
         ->paginate(10);
 
         $paciente = DB::table('pacientes')
-        ->where('user_id', '=', auth::user()->id)
+        ->where('id', '=', request()->get('id'))
         ->first();
 
         if($request->estudioFile != null)
