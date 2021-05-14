@@ -20,7 +20,7 @@
             @foreach($estudios as $estudio)
         <p style="font-family: Verdana,Geneva,sans-serif; text-align: left; font-size: 14px; line-height:1px;">{{ $estudio }}</p>
         @endforeach
-        <p style="font-family: Verdana,Geneva,sans-serif; text-align: left; font-size: 14px;"><i>Diagnóstico: Proceso hormonal de modificación</i></p>
+        <p style="font-family: Verdana,Geneva,sans-serif; text-align: left; font-size: 14px;"><i>Diagnóstico: Proceso hormonal de modificación corporal</i></p>
         @if($medico == "Nicolás Zanier")
             <p style="font-family: Verdana,Geneva,sans-serif; text-align: right;"><img src="{{ public_path('img/firma.png') }}"></p>
         @else
