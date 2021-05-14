@@ -47,6 +47,43 @@
 </div>
 </div>
 
+<br>
+  <div class="container"> 
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+            <div class="card">
+                <div class="card-header text-white bg-success mb-3">Estudios realizados (Muestra los estudios subidos por los paciente)</div>
+                <div class="card-body">
+                   <div class="form-group row">
+                     <div class="col-lg-12">
+                                <!--INICIO DE TABLA-->
+                                    <table class="table table-responsive-lg table-hover">
+                                        <thead>
+                                            <th>NOMBRE DEL ARCHIVO</th>
+                                            <th>ESTADO</th>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($estudioFiles as $estudioFile)
+                                          <tr>
+                                              <td>{{$estudioFile->name}}</td>
+                                              <td>Su archivo ha sido subido y es visible por el médico</td>
+                                          </tr>
+                                        @endforeach
+                                        </tbody>
+                                        </table>
+                                        {{$estudioFiles->links()}}
+                                <!--FIN DE TABLA-->               
+                          </div>
+                        </div>
+                    
+                </div>
+           </div>
+        
+      </div>
+  </div>
+</div>
+  <br>
+
 @include('layouts.footer')
 </body>
 </html>
