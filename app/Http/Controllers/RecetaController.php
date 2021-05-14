@@ -134,8 +134,55 @@ class RecetaController extends Controller
      * @param  \App\Models\Receta  $receta
      * @return \Illuminate\Http\Response
      */
-    public function edit(Receta $receta)
+    public function edit($id)
     {
+        $recetaOld = DB::table('recetas')
+        ->where('id', '=', $id)->first();
+
+        $paciente = DB::table('pacientes')
+        ->where('id', '=', $recetaOld->paciente_id)
+        ->first();
+
+        $receta = new Receta();
+        $receta->paciente_id = $paciente->id;
+        $receta->NombrePaciente = $paciente->Nombre;
+        $receta->ApellidoPaciente = $paciente->Apellido;
+        $receta->Dni = $paciente->Dni;
+        $receta->Estado = "Aprobado";
+        $receta->Medico = $recetaOld->Medico;
+        $receta->Adicional = $recetaOld->Adicional;
+        $receta->save();
+
+        $medicamentos = DB::table('medicamento__recetas')
+        ->where('receta_id', '=', $id)->get();
+
+        foreach($medicamentos as $medicamento)
+        {
+            $medicamentoxReceta = new Medicamento_Receta();
+            $medicamentoxReceta->receta_id = $receta->id;
+            $medicamentoxReceta->medicamento_id = $medicamento->medicamento_id;
+            $medicamentoxReceta->frecuencia = $medicamento->frecuencia;
+            $medicamentoxReceta->cantidad = $medicamento->cantidad;
+            $medicamentoxReceta->comentario = $medicamento->comentario;
+            $medicamentoxReceta->save();
+        }
+
+        $recetas = DB::table('recetas')
+        ->where('IsDeleted', '=', 0)
+        ->paginate(10);
+
+        $medicamentosxRecetas = DB::table('medicamento__recetas')
+        ->whereIn('receta_id', $recetas);
+
+        $recetasMedicamentos = DB::table('recetas')
+        ->join('medicamento__recetas', 'recetas.id', '=', 'medicamento__recetas.receta_id')
+        ->join('medicamentos', 'medicamento__recetas.medicamento_id', '=', 'medicamentos.id')
+        ->where('IsDeleted', '=', 0)
+        ->get();
+
+        return redirect()->to('indexRecetaAdmin')
+        ->with('recetas', $recetas)
+        ->with('recetasMedicamentos', $recetasMedicamentos);
     }
 
     /**
