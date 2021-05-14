@@ -24,6 +24,7 @@ class CreateEstudiosTable extends Migration
             $table->unsignedInteger('paciente_id')->nullable()
                 ->foreign('paciente_id')->references('id')->on('pacientes');
             $table->string('Estudios', 500)->nullable();
+            $table->string('Medico', 250)->nullable();
         });
     }
 

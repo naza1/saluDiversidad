@@ -21,7 +21,11 @@
         <p style="font-family: Verdana,Geneva,sans-serif; text-align: left; font-size: 14px; line-height:1px;">{{ $estudio }}</p>
         @endforeach
         <p style="font-family: Verdana,Geneva,sans-serif; text-align: left; font-size: 14px;"><i>Diagnóstico: Proceso hormonal de modificación</i></p>
-    <p style="font-family: Verdana,Geneva,sans-serif; text-align: right;"><img src="{{ public_path('img/firma.png') }}"></p>
+        @if($medico == "Nicolás Zanier")
+            <p style="font-family: Verdana,Geneva,sans-serif; text-align: right;"><img src="{{ public_path('img/firma.png') }}"></p>
+        @else
+            <p style="font-family: Verdana,Geneva,sans-serif; text-align: right;"><img src="{{ public_path('img/firma_virginia.png') }}"></p>
+        @endif
     <p style="font-family: Verdana,Geneva,sans-serif; text-align: right;">Mar del Plata {{ $fecha }}</p>
 </div>
     <hr style="height: 10px; background-color: black; width: 100%; ">

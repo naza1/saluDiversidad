@@ -144,6 +144,7 @@ class EstudioController extends Controller
             $estudio->Estudios = implode(", ", request()->estudios);
         
         $estudio->Estado = "Asignado";
+        $estudio->Medico = request()->get('medico');
         $estudio->save();
         
         $estudios = DB::table('estudios')

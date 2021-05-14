@@ -159,7 +159,13 @@
                                         @foreach($recetas as $receta)
                                           <tr>
                                               <td>{{Carbon\Carbon::parse($receta->created_at)->toFormattedDateString('d-m-Y')}}</td>
-                                              <td>{{$receta->Recetas}}</td>
+                                              <td>
+                                                @foreach($recetasMedicamentos as $recetasMedicamento)
+                                                  @if($recetasMedicamento->receta_id == $receta->id)
+                                                    {{$recetasMedicamento->nombre}}
+                                                  @endif
+                                                @endforeach
+                                              </td>
                                           </tr>
                                         @endforeach
                                         </tbody>

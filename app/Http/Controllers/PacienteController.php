@@ -200,6 +200,17 @@ class PacienteController extends Controller
         ->where('IsDeleted', '=', 0)
         ->paginate(10);
 
+        $recetaIds = DB::table('recetas')
+        ->select('id')
+        ->where('paciente_id', '=', $id)
+        ->where('IsDeleted', '=', 0);
+
+        $recetasMedicamentos = DB::table('medicamentos')
+        ->join('medicamento__recetas', 'medicamentos.id', '=', 'medicamento__recetas.medicamento_id')
+        ->select('medicamentos.nombre', 'medicamento__recetas.receta_id')
+        ->whereIn('receta_id', $recetaIds)
+        ->get();
+
         $estudios = DB::table('estudios')
         ->where('paciente_id', '=', $id)
         ->where('Estado', '=', "Asignado")
@@ -218,7 +229,7 @@ class PacienteController extends Controller
         $diff = $date2->diff($date);
         $diff2 = $diff->format('%y años %m meses %d días');
 
-        return view('hclinica.indexAdmin', compact('estudioFiles', 'recetas', 'estudios', 'paciente', 'consultas', 'diff2'));
+        return view('hclinica.indexAdmin', compact('estudioFiles', 'recetas', 'estudios', 'paciente', 'consultas', 'diff2', 'recetasMedicamentos'));
     }
 
     public function saveHormonizacion(Request $request){
