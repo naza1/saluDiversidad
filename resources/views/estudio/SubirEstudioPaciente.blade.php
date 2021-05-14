@@ -37,7 +37,7 @@
                 </div>
                 <div class="form-group row">
                       <div class="col-md-6 offset-md-3">
-                        <button type="submit" class="btn btn-primary btn-md btn-block text-white">Subir archivo</button>
+                        <button type="submit" class="btn btn-primary btn-md btn-block text-white">Subir estudio</button>
                     </div>
                 </div>
             </form> 

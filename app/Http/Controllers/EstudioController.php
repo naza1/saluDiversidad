@@ -200,7 +200,7 @@ class EstudioController extends Controller
             $estudioFile->save();
         }
         
-        return redirect('homePaciente');
+        return redirect('subirEstudioPaciente');
     }
 
     public function uploadAdminEstudio(Request $request)
