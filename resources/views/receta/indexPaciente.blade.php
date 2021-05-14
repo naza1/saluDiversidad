@@ -93,7 +93,7 @@
                                         @endforeach
                                         </tbody>
                                         </table>
-                                    
+                                    {{$recetas->links()}}
                                 <!--FIN DE TABLA-->               
                           </div>
                         </div>

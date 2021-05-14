@@ -63,7 +63,7 @@
                 <div class="form-group row">
                     <label for="nacimiento" class="col-md-4 col-form-label text-md-right">Fecha de Nacimiento</label>
                     <div class="col-md-6">
-                        <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" maxlength="250" placeholder="Fecha de Nacimiento" value="{{$paciente->FechaNacimiento}}" {{$paciente->FechaNacimiento ? 'readonly':''}} required>
+                        <input type="date" class="form-control" id="fechaNacimiento" name="fechaNacimiento" maxlength="250" placeholder="Fecha de Nacimiento" value="{{$paciente->FechaNacimiento ?? old('fechaNacimiento')}}" {{$paciente->FechaNacimiento ? 'readonly':''}} required>
                     </div>
                 </div>
 
@@ -109,7 +109,7 @@
                 <div class="form-group row">
                     <label for="nationality" class="col-md-4 col-form-label text-md-right">Nacionalidad</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="nationality" name="nationality" maxlength="250" placeholder="Nacionalidad" value="{{$paciente->Nationality}}" >
+                        <input type="text" class="form-control" id="nationality" name="nationality" maxlength="250" placeholder="Nacionalidad" value="{{$paciente->Nationality ?? old('nationality')}}" >
                     </div>
                 </div>
 
@@ -118,12 +118,12 @@
                     <div class="col-md-6">
                         <select class="form-control" id="nivelEducativo" name="nivelEducativo">
                             @if($paciente->NivelEducativo != null)
-                                <option value="{{$paciente->NivelEducativo}}">{{$paciente->NivelEducativo}}</option>
+                                <option value="{{$paciente->NivelEducativo ?? old('nivelEducativo')}}">{{$paciente->NivelEducativo ?? old('nivelEducativo')}}</option>
                             @else
                                 <option value="">-- Escoja el Nivel Educativo --</option>
                             @endif
                             @foreach($educaciones as $educacion)
-                                <option value="{{ $educacion['Nombre'] }}" required>{{$educacion['Nombre']}}</option>
+                                <option value="{{ $educacion['Nombre'] ?? old('nivelEducativo')}}" required>{{$educacion['Nombre'] ?? old('nivelEducativo')}}</option>
                             @endforeach
                         </select>
                     </div>
@@ -144,39 +144,39 @@
                 <div class="form-group row">
                     <label for="email" class="col-md-4 col-form-label text-md-right">Email</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="email" name="email" maxlength="250" placeholder="email" value="{{$paciente->Email}}" {{$paciente->Email ? 'readonly':''}}>
+                        <input type="text" class="form-control" id="email" name="email" maxlength="250" placeholder="email" value="{{$paciente->Email ?? old('email')}}" {{$paciente->Email ? 'readonly':''}}>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="telefono" class="col-md-4 col-form-label text-md-right">Telefóno</label>
                     <div class="col-md-6">
-                        <input type="tel" class="form-control" id="telefono" name="telefono" maxlength="250" placeholder="(Código de área) Número" value="{{$paciente->telefono}}" required>
+                        <input type="tel" class="form-control" id="telefono" name="telefono" maxlength="250" placeholder="(Código de área) Número" value="{{$paciente->telefono ?? old('telefono')}}" required>
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="telefono" class="col-md-4 col-form-label text-md-right">Telefóno alternativo</label>
                     <div class="col-md-6">
-                        <input type="tel" class="form-control" id="telefono_alternativo" name="telefono_alternativo" maxlength="250" placeholder="(Código de área) Número" value="{{$paciente->telefono_alternativo}}">
+                        <input type="tel" class="form-control" id="telefono_alternativo" name="telefono_alternativo" maxlength="250" placeholder="(Código de área) Número" value="{{$paciente->telefono_alternativo ?? old('telefono_alternativo')}}">
                     </div>
                 </div>
                 
                 <div class="form-group row">
                     <label for="socialWork" class="col-md-4 col-form-label text-md-right">Obra social</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="socialWork" maxlength="250" name="socialWork" placeholder="Obra social" value="{{$paciente->SocialWork}}" >
+                        <input type="text" class="form-control" id="socialWork" maxlength="250" name="socialWork" placeholder="Obra social" value="{{$paciente->SocialWork ?? old('socialWork')}}" >
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="nroAfiliado" class="col-md-4 col-form-label text-md-right">Nro de Afiliado</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="nroAfiliado" maxlength="250" name="nroAfiliado" placeholder="Nro de afiliado de la Obra social" value="{{$paciente->NroAfiliado}}" >
+                        <input type="text" class="form-control" id="nroAfiliado" maxlength="250" name="nroAfiliado" placeholder="Nro de afiliado de la Obra social" value="{{$paciente->NroAfiliado ?? old('nroAfiliado')}}" >
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="nroHistorial" class="col-md-4 col-form-label text-md-right">Nro de historia clínica</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="nroHistorial" maxlength="250" name="nroHistorial" placeholder="Historia clínica en CAPS" value="{{$paciente->NroHistorial}}" {{$paciente->NroHistorial ? 'readonly':''}}>
+                        <input type="text" class="form-control" id="nroHistorial" maxlength="250" name="nroHistorial" placeholder="Historia clínica en CAPS" value="{{$paciente->NroHistorial ?? old('nroHistorial')}}" {{$paciente->NroHistorial ? 'readonly':''}}>
                     </div>
                 </div>
                 </div>
@@ -196,34 +196,34 @@
                 <div class="form-group row">
                     <label for="address" class="col-md-4 col-form-label text-md-right">Calle y número</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="address" name="address" maxlength="250" placeholder="Dirección" value="{{$paciente->Address}}" required >
+                        <input type="text" class="form-control" id="address" name="address" maxlength="250" placeholder="Dirección" value="{{$paciente->Address ?? old('address')}}" required >
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="city" class="col-md-4 col-form-label text-md-right">Ciudad</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="city" name="city" maxlength="250" placeholder="Ciudad" value="{{$paciente->City}}" >
+                        <input type="text" class="form-control" id="city" name="city" maxlength="250" placeholder="Ciudad" value="{{$paciente->City ?? old('city')}}" >
                     </div>
                 </div>
                 <div class="form-group row">
                     <label for="postalCode" class="col-md-4 col-form-label text-md-right">Código postal</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="postalCode" maxlength="250" name="postalCode" placeholder="Codigo postal" value="{{$paciente->PostalCode}}" >
+                        <input type="text" class="form-control" id="postalCode" maxlength="250" name="postalCode" placeholder="Codigo postal" value="{{$paciente->PostalCode ?? old('postalCode')}}" >
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="state" class="col-md-4 col-form-label text-md-right">Provincia</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="state" name="state" maxlength="250" placeholder="Estado" value="{{$paciente->State}}" >
+                        <input type="text" class="form-control" id="state" name="state" maxlength="250" placeholder="Estado" value="{{$paciente->State ?? old('state')}}" >
                     </div>
                 </div>
 
                 <div class="form-group row">
                     <label for="country" class="col-md-4 col-form-label text-md-right">País</label>
                     <div class="col-md-6">
-                        <input type="text" class="form-control" id="country" name="country" maxlength="250" placeholder="País" value="{{$paciente->Country}}">
+                        <input type="text" class="form-control" id="country" name="country" maxlength="250" placeholder="País" value="{{$paciente->Country ?? old('country')}}">
                     </div>
                 </div>
            
