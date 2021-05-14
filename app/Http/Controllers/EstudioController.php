@@ -37,7 +37,11 @@ class EstudioController extends Controller
             ->where('user_id', '=', auth::user()->id)
             ->first();
 
-        return view('estudio.SubirEstudioPaciente', compact('paciente', $paciente));
+        $estudioFiles = DB::table('estudio_files')
+        ->where('paciente_id', '=', $paciente->id)
+        ->paginate(10);
+
+        return view('estudio.SubirEstudioPaciente', compact('paciente', 'estudioFiles'));
     }
 
     public function indexEstudioAdmin()
