@@ -128,6 +128,34 @@ class RecetaController extends Controller
         return view('receta.RecetarAdmin', compact('recetas', 'medicamentos', 'id'));
     }
 
+    public function showDuplicadoAdmin($id)
+    {
+        $receta = DB::table('recetas')
+        ->where('IsDeleted', '=', 0)
+        ->where('id', '=', $id)
+        ->first();
+
+        $paciente = DB::table('pacientes')
+        ->where('id', '=', $receta->paciente_id)
+        ->first();
+
+        $recetaNew = new Receta();
+        $recetaNew->paciente_id = $receta->paciente_id;
+        $recetaNew->NombrePaciente = $paciente->Nombre;
+        $recetaNew->ApellidoPaciente = $paciente->Apellido;
+        $recetaNew->Dni = $paciente->Dni;
+        $recetaNew->Estado = "Espera";
+        $recetaNew->save();
+
+        $newId = $recetaNew->id;
+
+        $medicamentoChecks = DB::table('medicamento__recetas')
+        ->where('receta_id', '=', $receta->id)->get();
+
+        $medicamentos = Medicamento::all();
+        return view('receta.RecetarDuplicadoAdmin', compact('receta', 'medicamentos', 'id', 'medicamentoChecks', 'newId'));
+    }
+
     /**
      * Show the form for editing the specified resource.
      *

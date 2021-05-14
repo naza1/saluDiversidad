@@ -81,3 +81,5 @@ Route::post('/estudio/uploadPacienteEstudio','App\Http\Controllers\EstudioContro
 Route::post('/saveHormonizacion','App\Http\Controllers\PacienteController@saveHormonizacion')->middleware('verified');
 
 Route::get('/subirEstudioPaciente','App\Http\Controllers\EstudioController@subirEstudioPaciente')->middleware('verified');
+
+Route::get('/showDuplicado/{id}', 'App\Http\Controllers\RecetaController@showDuplicadoAdmin')->middleware('verified');
