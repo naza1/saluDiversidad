@@ -180,7 +180,7 @@ class EstudioController extends Controller
     public function uploadPacienteEstudio(Request $request)
     {
         $request->validate([
-            'estudioFile' => 'required|max:2048'
+            'estudioFile' => 'required|max:5000'
         ]);
 
         $paciente = DB::table('pacientes')
@@ -206,7 +206,7 @@ class EstudioController extends Controller
     public function uploadAdminEstudio(Request $request)
     {
         $request->validate([
-            'estudioFile' => 'required|max:2048'
+            'estudioFile' => 'required|max:5000'
         ]);
 
         $estudios = DB::table('estudios')
