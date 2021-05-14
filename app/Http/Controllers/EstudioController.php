@@ -230,6 +230,6 @@ class EstudioController extends Controller
             $estudioFile->save();
         }
 
-        return redirect('/paciente')->with('estudios', $estudios)->with('paciente', $paciente);
+        return redirect()->to('showHistorial/'.$paciente->id)->with('paciente', $request->id);
     }
 }
