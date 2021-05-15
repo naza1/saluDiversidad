@@ -28,6 +28,6 @@ class TurnoCancelEmail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Cancelación de turno')->view('mails.CancelTurno');
+        return $this->subject('Cancelación de turno')->view('mails.cancelTurno');
     }
 }

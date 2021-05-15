@@ -125,7 +125,7 @@ class RecetaController extends Controller
         ->paginate(10);
 
         $medicamentos = Medicamento::all();
-        return view('receta.RecetarAdmin', compact('recetas', 'medicamentos', 'id'));
+        return view('receta.recetarAdmin', compact('recetas', 'medicamentos', 'id'));
     }
 
     public function showDuplicadoAdmin($id)
@@ -153,7 +153,7 @@ class RecetaController extends Controller
         ->where('receta_id', '=', $receta->id)->get();
 
         $medicamentos = Medicamento::all();
-        return view('receta.RecetarDuplicadoAdmin', compact('receta', 'medicamentos', 'id', 'medicamentoChecks', 'newId'));
+        return view('receta.recetarDuplicadoAdmin', compact('receta', 'medicamentos', 'id', 'medicamentoChecks', 'newId'));
     }
 
     /**

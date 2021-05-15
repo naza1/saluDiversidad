@@ -41,7 +41,7 @@ class EstudioController extends Controller
         ->where('paciente_id', '=', $paciente->id)
         ->paginate(10);
 
-        return view('estudio.SubirEstudioPaciente', compact('paciente', 'estudioFiles'));
+        return view('estudio.subirEstudioPaciente', compact('paciente', 'estudioFiles'));
     }
 
     public function indexEstudioAdmin()
@@ -84,6 +84,8 @@ class EstudioController extends Controller
      */
     public function store(Request $request)
     {
+        \Log::info('Guardando estudio para el user:'.auth::user()->id);
+
         $paciente = DB::table('pacientes')
         ->where('user_id', '=', auth::user()->id)
         ->first();
@@ -142,6 +144,8 @@ class EstudioController extends Controller
      */
     public function update(Request $request, Estudio $estudio)
     {
+        \Log::info('Actualizando estudio para el estudio:'.$estudio->id);
+
         if(request()->estudioManual != null)
             $estudio->Estudios = implode(", ", request()->estudios).", ".request()->estudioManual;
         else
@@ -179,6 +183,8 @@ class EstudioController extends Controller
 
     public function uploadPacienteEstudio(Request $request)
     {
+        \Log::info('Subiendo estudio para el user:'.$request->id);
+
         $request->validate([
             'estudioFile' => 'required|max:5000'
         ]);
@@ -205,6 +211,8 @@ class EstudioController extends Controller
 
     public function uploadAdminEstudio(Request $request)
     {
+        \Log::info('Subiendo estudio desde el admin para el user:'.$request->id);
+
         $request->validate([
             'estudioFile' => 'required|max:5000'
         ]);

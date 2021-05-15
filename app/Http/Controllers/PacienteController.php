@@ -102,13 +102,15 @@ class PacienteController extends Controller
 
     public function destroy($id)
     {
+        \Log::info('Eliminando estudio para el paciente: '.$id);
+
         $paciente = Paciente::find($id);
 
-        DB::table('users')->delete($paciente->user_id);
-        DB::table('pacientes')->delete($id);
         Turno::where('paciente_id', $paciente->id)->delete();
-        Receta::where('paciente_id', $paciente->id)->delete();
         //Medicamento_Receta::where('receta')
+        Receta::where('paciente_id', $paciente->id)->delete();
+        DB::table('pacientes')->delete($id);
+        DB::table('users')->delete($paciente->user_id);
 
         return redirect('/paciente');
     }
