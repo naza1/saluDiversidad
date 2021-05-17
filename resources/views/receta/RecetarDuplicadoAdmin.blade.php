@@ -23,6 +23,12 @@
             <div class="card">
                 <div class="card-header text-white bg-success mb-3">RECETAR</div>
                 <div class="card-body">
+                <div class="alert alert-info">
+                                <ul>
+                                    <p><b>Fecha de inicio de hormonización: </b>{{$paciente->FechaInicioHormonizacion}}
+                                    <br><b>Medicación actual: </b>{{$paciente->Medicacion}}</p>
+                                </ul>
+                            </div>
                    <div class="form-group row">
                      <div class="col-lg-12">
 <!--INICIO DE TABLA-->

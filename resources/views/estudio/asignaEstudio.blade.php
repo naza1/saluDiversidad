@@ -35,8 +35,7 @@ $('document').ready(function()
     <li class="breadcrumb-item active" aria-current="page">Crear orden de exámenes</li>
   </ol>
 </nav>
-Fecha de inicio de hormonización: {{$paciente->FechaInicioHormonizacion}}
-Medicación actual: {{$paciente->Medicacion}}
+
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -49,7 +48,13 @@ Medicación actual: {{$paciente->Medicacion}}
                     <div class="row d-flex justify-content-center">
                     
                         <div class="card-body">
-                      
+                        <div class="alert alert-info">
+                                <ul>
+                                    <p><b>Fecha de inicio de hormonización: </b>{{$paciente->FechaInicioHormonizacion}}
+                                    <br><b>Medicación actual: </b>{{$paciente->Medicacion}}</p>
+                                </ul>
+                            </div>
+                        
                             <div class="form-group row">
                                 <label for="laboratorio-inicio" class="col-md-4 col-form-label text-md-right">Seleccionar laboratorios de inicio/seguimiento</label>
                                 <div class="col-md-6">
