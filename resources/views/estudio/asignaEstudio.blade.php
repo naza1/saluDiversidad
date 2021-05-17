@@ -4,6 +4,28 @@
         <meta charset="utf-8">
         <title>Estudio</title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript">
+$('document').ready(function()
+{
+ $(".select-all").click(function () 
+ {
+  $('.form-check-input1').attr('checked', this.checked)
+ });
+  
+ $(".form-check-input1").click(function()
+ {
+  if($(".form-check-input1").length == $(".form-check-input1:checked").length) 
+  {
+   $(".select-all").attr("checked", "checked");
+  } 
+  else 
+  {
+   $(".select-all").removeAttr("checked");
+  }
+ });
+});
+</script>
     </head>
 <body>
 <nav aria-label="breadcrumb" style="padding-top: -50px !important;">
@@ -13,6 +35,8 @@
     <li class="breadcrumb-item active" aria-current="page">Crear orden de exámenes</li>
   </ol>
 </nav>
+Fecha de inicio de hormonización: {{//$paciente->FechaInicioHormonizacion}}
+Medicación actual: 
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
@@ -23,56 +47,55 @@
                 {{ method_field('PUT') }}
                 {{ csrf_field() }}
                     <div class="row d-flex justify-content-center">
+                    
                         <div class="card-body">
+                      
                             <div class="form-group row">
                                 <label for="laboratorio-inicio" class="col-md-4 col-form-label text-md-right">Seleccionar laboratorios de inicio/seguimiento</label>
                                 <div class="col-md-6">
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="hemograma" id="hemograma" name="estudios[]">
+                                        <input class="select-all form-check-input1" type="checkbox" >
+                                        <label class="form-check-label" for="SelectAll"><b>---Seleccionar todos---</b></label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input1" type="checkbox" value="Hemograma" id="hemograma" name="estudios[]">
                                         <label class="form-check-label" for="hemograma">Hemograma</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="glucemia" id="glucemia" name="estudios[]">
+                                        <input class="form-check-input1" type="checkbox" value="Glucemia" id="glucemia" name="estudios[]">
                                         <label class="form-check-label" for="glucemia">Glucemia</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="urea" id="urea" name="estudios[]">
+                                        <input class="form-check-input1" type="checkbox" value="Urea" id="urea" name="estudios[]">
                                         <label class="form-check-label" for="urea">Urea</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="creatinina" id="creatinina" name="estudios[]">
+                                        <input class="form-check-input1" type="checkbox" value="Creatinina" id="creatinina" name="estudios[]">
                                         <label class="form-check-label" for="creatinina">Creatinina</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Colesterol total/HDL/LDL/Triglicéridos" id="colesterol" name="estudios[]">
+                                        <input class="form-check-input1" type="checkbox" value="Colesterol total/HDL/LDL/Triglicéridos" id="colesterol" name="estudios[]">
                                         <label class="form-check-label" for="colesterol">Colesterol total/HDL/LDL/Triglicéridos</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="hepatograma" id="hepatograma" name="estudios[]">
+                                        <input class="form-check-input1" type="checkbox" value="Hepatograma" id="hepatograma" name="estudios[]">
                                         <label class="form-check-label" for="hepatograma">Hepatograma</label>
                                     </div> 
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="TSH" id="tsh" name="estudios[]">
+                                        <input class="form-check-input1" type="checkbox" value="TSH" id="tsh" name="estudios[]">
                                         <label class="form-check-label" for="tsh">TSH</label>
-                                    </div>
+                                    </div>   
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="LH" id="lh" name="estudios[]">
-                                        <label class="form-check-label" for="lh">LH</label>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="FSH" id="fsh" name="estudios[]">
-                                        <label class="form-check-label" for="fsh">FSH</label>
-                                    </div> 
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Estradiol" id="estradiol" name="estudios[]">
+                                        <input class="form-check-input1" type="checkbox" value="Estradiol" id="estradiol" name="estudios[]">
                                         <label class="form-check-label" for="estradiol">Estradiol</label>
                                     </div>
                                     <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="Testosterona libre y total" id="testosterona" name="estudios[]">
+                                        <input class="form-check-input1" type="checkbox" value="Testosterona libre y total" id="testosterona" name="estudios[]">
                                         <label class="form-check-label" for="testosterona">Testosterona libre y total</label>
                                     </div>
                                 </div>
                             </div>
+                            
                         <div class="form-group row">
                         <label for="otros-laboratorio" class="col-md-4 col-form-label text-md-right">Otros estudios de laboratorio</label>
                         <div class="col-md-6">
@@ -95,7 +118,19 @@
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="Hepatitis C" id="Hepatitisc" name="estudios[]">
                                 <label class="form-check-label" for="hepatitisc">Hepatitis C</label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="VDRL" id="VDRL" name="estudios[]">
+                                <label class="form-check-label" for="VDRL">VDRL</label>
                             </div> 
+                            <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="LH" id="lh" name="estudios[]">
+                                        <label class="form-check-label" for="lh">LH</label>
+                                    </div>
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" value="FSH" id="fsh" name="estudios[]">
+                                        <label class="form-check-label" for="fsh">FSH</label>
+                                    </div> 
                         </div>  
                     </div>
 

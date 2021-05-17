@@ -34,7 +34,7 @@ class PdfController extends Controller
 
         $date = new Carbon(request()->estudio['created_at']);
         $data = [
-            'fecha' => $date->toFormattedDateString('d-m-Y'),
+            'fecha' => $date->format('d/m/Y'),
             'nombre' => request()->estudio['NombrePaciente'],
             'apellido' => request()->estudio['ApellidoPaciente'],
             'estudios' => explode(',', request()->estudio['Estudios']),
@@ -73,7 +73,7 @@ class PdfController extends Controller
 
         $date = new Carbon(request()->receta['created_at']);
         $data = [
-            'fecha' => $date->toFormattedDateString('d-m-Y'),
+            'fecha' => $date->format('d/m/Y'),
             'nombre' => request()->receta['NombrePaciente'],
             'apellido' => request()->receta['ApellidoPaciente'],
             'recetas' => explode(',', $result),

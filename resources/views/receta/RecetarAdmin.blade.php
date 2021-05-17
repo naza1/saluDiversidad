@@ -15,7 +15,8 @@
     <li class="breadcrumb-item active" aria-current="page">Recetar</li>
   </ol>
 </nav>
-
+Fecha de inicio de hormonización: {{--$paciente->FechaInicioHormonizacion--}}
+Medicación actual: 
 <div class="container">
 
     <div class="row justify-content-center">
