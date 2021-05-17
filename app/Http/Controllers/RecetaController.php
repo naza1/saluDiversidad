@@ -158,7 +158,7 @@ class RecetaController extends Controller
         ->where('receta_id', '=', $receta->id)->get();
 
         $medicamentos = Medicamento::all();
-        return view('receta.recetarDuplicadoAdmin', compact('receta', 'medicamentos', 'id', 'medicamentoChecks', 'newId'));
+        return view('receta.recetarDuplicadoAdmin', compact('receta', 'medicamentos', 'id', 'medicamentoChecks', 'newId', 'paciente'));
     }
 
     /**

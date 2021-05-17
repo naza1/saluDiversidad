@@ -69,7 +69,7 @@
                 </td>
                 <td>
                   <div class="btn-group">
-                    <button type="submit" class="btn btn-success btn-sm">Asignar</button><br>
+                    <button type="submit" class="btn btn-success btn-sm">{{$turno->Dia == null ? 'Asignar' : 'Reprogramar'}}</button><br>
                 </td>
               </form>
               <td>

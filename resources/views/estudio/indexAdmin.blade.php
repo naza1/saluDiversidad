@@ -41,7 +41,7 @@
                 <td>{{$estudio->Estado}}</td>
                 <td>
                 <div class="btn-group">
-                  <a href="{{ url('estudio/'.$estudio->id) }}" class="btn btn-success btn-sm">Asignar</a><br>
+                  <a href="{{ url('estudio/'.$estudio->id) }}" class="btn btn-success btn-sm">{{$estudio->Estado == "Asignado" ? "Editar" : "Asignar"}}</a><br>
                 </div>
                  <div class="btn-group">
                     <form method="POST" action="{{ url('estudio/'.$estudio->id) }}">
