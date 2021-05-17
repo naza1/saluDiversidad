@@ -66,6 +66,7 @@
               <th>HORA</th>
               <th>PROFESIONAL</th>
               <th>LUGAR</th>
+              <th>ACCIONES</th>
             </thead>
             <tbody>
             @foreach($turnos as $turno)
@@ -74,6 +75,7 @@
                 <td>{{$turno->Hora}}</td>
                 <td>{{$turno->Medico}}</td>
                 <td>{{$turno->Lugar}}</td>
+                <td><button type="submit" class="btn btn-xs btn-danger btn-delete btn-sm">Cancelar Turno</button></td>
             </tr>
             @endforeach
             </tbody>
