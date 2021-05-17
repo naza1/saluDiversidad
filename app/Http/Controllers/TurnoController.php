@@ -27,6 +27,7 @@ class TurnoController extends Controller
 
         $turnos = DB::table('turnos')
         ->where('paciente_id', '=', $paciente->id ?? null)
+        ->where('IsActive', '=', 1)
         ->orderBy('created_at', 'desc')
         ->paginate(10);
 
@@ -142,6 +143,7 @@ class TurnoController extends Controller
     {
         $turno = DB::table('turnos')
         ->where('id', '=', $id)
+        ->where('IsActive', '=', 1) 
         ->first();
 
         $paciente = DB::table('pacientes')
@@ -153,6 +155,17 @@ class TurnoController extends Controller
         Mail::to($paciente->Email)->send(new TurnoCancelEmail($turno));
 
         $turnos = DB::table('turnos')->paginate(10);
+
+        if(auth::user()->id == $paciente->user_id)
+        {
+            $turnos = DB::table('turnos')
+            ->where('paciente_id', '=', $paciente->id)
+            ->where('IsActive', '=', 1)
+            ->orderBy('created_at', 'desc') 
+            ->paginate(10);
+
+           return redirect()->to('/turno')->with('turnos', $turnos);
+        }
 
         return view('turno.indexAdmin', compact('turnos'));
     }
