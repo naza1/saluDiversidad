@@ -75,7 +75,12 @@
                 <td>{{$turno->Hora}}</td>
                 <td>{{$turno->Medico}}</td>
                 <td>{{$turno->Lugar}}</td>
-                <td><button type="submit" class="btn btn-xs btn-danger btn-delete btn-sm">Cancelar Turno</button></td>
+                <td>
+                <form method="POST" action="{{ url('turno/'.$turno->id) }}">
+                @csrf
+                @method('DELETE')
+                    <button type="submit" class="btn btn-xs btn-danger btn-delete btn-sm">Cancelar Turno</button></td>
+                </form>
             </tr>
             @endforeach
             </tbody>
