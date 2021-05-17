@@ -149,7 +149,7 @@
                 <div class="form-group row">
                         <label for="medicacion-actual" class="col-md-4 col-form-label text-md-right">Medicación actual</label>
                           <div class="col-md-8">
-                            <textarea class="form-control" id="medicacion-actual" name="medicacion-actual" rows="5" maxlength="450"></textarea>
+                            <textarea class="form-control" id="medicacion" name="medicacion" rows="5" maxlength="450"></textarea>
                         </div>
                     </div>
                 </div>

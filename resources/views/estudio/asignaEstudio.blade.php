@@ -35,8 +35,8 @@ $('document').ready(function()
     <li class="breadcrumb-item active" aria-current="page">Crear orden de exámenes</li>
   </ol>
 </nav>
-Fecha de inicio de hormonización: {{--$paciente->FechaInicioHormonizacion--}}
-Medicación actual: 
+Fecha de inicio de hormonización: {{$paciente->FechaInicioHormonizacion}}
+Medicación actual: {{$paciente->Medicacion}}
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">

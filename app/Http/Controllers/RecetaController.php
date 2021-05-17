@@ -124,8 +124,13 @@ class RecetaController extends Controller
         ->where('IsDeleted', '=', 0)
         ->paginate(10);
 
+        $receta = DB::table('recetas')
+        ->where('id', '=', $id)->first();
+
+        $paciente = DB::table('pacientes', '=', $receta->paciente_id)->first(); 
+
         $medicamentos = Medicamento::all();
-        return view('receta.recetarAdmin', compact('recetas', 'medicamentos', 'id'));
+        return view('receta.recetarAdmin', compact('recetas', 'medicamentos', 'id', 'paciente'));
     }
 
     public function showDuplicadoAdmin($id)

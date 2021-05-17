@@ -115,13 +115,11 @@ class EstudioController extends Controller
     public function show($id)
     {
          $estudio = Estudio::find($id);
-        // $estudio->Estado = "Aprobado";
-        // $estudio->save();
+         
+         $paciente = DB::table('pacientes')
+         ->where('id', '=', $estudio->paciente_id)->first();
 
-        // $estudios = Estudio::where('IsDeleted', 0)->get();
-
-        // return redirect()->to('indexEstudioAdmin')->with('estudios', $estudios);
-        return view('estudio.asignaEstudio', compact('estudio'));
+        return view('estudio.asignaEstudio', compact('estudio', 'paciente'));
     }
 
     /**

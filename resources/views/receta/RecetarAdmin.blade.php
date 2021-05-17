@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>Opciones para paciente</title>
+        <title>Opciones para recetas</title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="{{ asset('js/laravel.js') }}"></script>
@@ -15,8 +15,8 @@
     <li class="breadcrumb-item active" aria-current="page">Recetar</li>
   </ol>
 </nav>
-Fecha de inicio de hormonización: {{--$paciente->FechaInicioHormonizacion--}}
-Medicación actual: 
+Fecha de inicio de hormonización: {{$paciente->FechaInicioHormonizacion}}
+Medicación actual: {{$paciente->Medicacion}}
 <div class="container">
 
     <div class="row justify-content-center">
