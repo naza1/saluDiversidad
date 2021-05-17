@@ -144,6 +144,25 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+               <div class="card-header text-white bg-info mb-3">Medicación actual</div>
+                <div class="card-body">
+                <div class="form-group row">
+                        <label for="medicacion-actual" class="col-md-4 col-form-label text-md-right">Medicación actual</label>
+                          <div class="col-md-8">
+                            <textarea class="form-control" id="medicacion-actual" name="medicacion-actual" rows="5" maxlength="450"></textarea>
+                        </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div><br>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
                 <div class="card-header text-white bg-info mb-3">Datos de contacto</div>
                
                 <div class="card-body">
