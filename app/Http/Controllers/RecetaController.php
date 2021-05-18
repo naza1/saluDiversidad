@@ -8,6 +8,8 @@ use App\Models\Medicamento_Receta;
 use Illuminate\Http\Request;
 use DB;
 use Illuminate\Support\Facades\Auth;
+use DateTime;
+use Carbon\Carbon;
 
 class RecetaController extends Controller
 {
@@ -129,8 +131,13 @@ class RecetaController extends Controller
 
         $paciente = DB::table('pacientes', '=', $receta->paciente_id)->first(); 
 
+        $date = new DateTime($paciente->FechaInicioHormonizacion);
+        $date2 = new DateTime("now");
+        $diff = $date2->diff($date);
+        $diff2 = $diff->format('%y años %m meses %d días');
+
         $medicamentos = Medicamento::all();
-        return view('receta.recetarAdmin', compact('recetas', 'medicamentos', 'id', 'paciente'));
+        return view('receta.recetarAdmin', compact('recetas', 'medicamentos', 'id', 'paciente', 'diff2'));
     }
 
     public function showDuplicadoAdmin($id)

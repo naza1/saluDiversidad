@@ -9,6 +9,8 @@ use Illuminate\Support\Facades\Auth;
 use DB;
 use PDF;
 use Illuminate\Support\Facades\Storage;
+use DateTime;
+use Carbon\Carbon;
 
 class EstudioController extends Controller
 {
@@ -119,7 +121,12 @@ class EstudioController extends Controller
          $paciente = DB::table('pacientes')
          ->where('id', '=', $estudio->paciente_id)->first();
 
-        return view('estudio.asignaEstudio', compact('estudio', 'paciente'));
+        $date = new DateTime($paciente->FechaInicioHormonizacion);
+        $date2 = new DateTime("now");
+        $diff = $date2->diff($date);
+        $diff2 = $diff->format('%y años %m meses %d días');
+
+        return view('estudio.asignaEstudio', compact('estudio', 'paciente', 'diff2'));
     }
 
     /**
