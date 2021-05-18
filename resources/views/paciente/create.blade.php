@@ -9,15 +9,15 @@
 <nav aria-label="breadcrumb" style="padding-top: -50px !important;">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ url('/dashboardAdmin') }}">Inicio</a></li>
-    <li class="breadcrumb-item active"><a href="{{ url('/paciente') }}">Opciones para pacientes</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Crear paciente</li>
+    <li class="breadcrumb-item active"><a href="{{ url('/paciente') }}">Opciones para usuaries</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Crear usuarie</li>
   </ol>
 </nav>
     <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-white bg-info mb-3">Crear Paciente</div>
+                <div class="card-header text-white bg-info mb-3">Crear usuarie</div>
             @if($errors->any())
                 <div class="alert alert-danger">
                     <ul>

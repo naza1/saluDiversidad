@@ -38,7 +38,13 @@
                 <option value="Virginia Barreneche" required>Virginia Barreneche</option>
             </select>
         </div>
-</div> 
+</div>
+<div class="form-group row">
+                    <label for="dia_horario_pref" class="col-md-4 col-form-label text-md-right">Días y horarios de preferencia</label>
+                    <div class="col-md-6">
+                        <textarea class="form-control" id="dia_horario_pref" value="dia_horario_pref" name="dia_horario_pref" maxlength="250" placeholder="Por ejemplo: Lunes y viernes de 14 a 17" required></textarea>
+                    </div>
+                </div>
                 <div class="form-group row">
                     <div class="col-md-6 offset-md-4">
                         <button type="submit" class="btn btn-primary">Solicitar turno</button>

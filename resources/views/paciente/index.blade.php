@@ -11,14 +11,14 @@
 <nav aria-label="breadcrumb" style="padding-top: -50px !important;">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ url('/dashboardAdmin') }}">Inicio</a></li>
-    <li class="breadcrumb-item active" aria-current="page">Opciones para pacientes</li>
+    <li class="breadcrumb-item active" aria-current="page">Opciones para usuaries</li>
   </ol>
 </nav>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-white bg-success mb-3">BÚSQUEDA POR PACIENTE</div>
+                <div class="card-header text-white bg-success mb-3">BÚSQUEDA POR USUARIE</div>
 
                 <div class="card-body">
                     <form class="row g-2" action="{{route('paciente.index')}}" method="get">
@@ -52,12 +52,12 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-white bg-info mb-3">PACIENTES</div>
+                <div class="card-header text-white bg-info mb-3">USUARIES</div>
 
                 <div class="card-body">
                 <div class="form-group row">
                 <div class="col-lg-12">
-                <p class="text-right"><a class="btn btn-primary" href="{{ url('paciente/create') }}">Crear paciente</a></p>
+                <p class="text-right"><a class="btn btn-primary" href="{{ url('paciente/create') }}">Crear usuarie</a></p>
                 </div>
                 </div>
                        <div class="form-group row">

@@ -52,7 +52,7 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-white bg-success mb-3">Estudios realizados (Muestra los estudios subidos por los paciente)</div>
+                <div class="card-header text-white bg-success mb-3">Estudios realizados (Muestra los estudios subidos por los usuaries)</div>
                 <div class="card-body">
                    <div class="form-group row">
                      <div class="col-lg-12">

@@ -18,7 +18,7 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header text-white bg-success mb-3">BÚSQUEDA POR PACIENTE</div>
+                <div class="card-header text-white bg-success mb-3">BÚSQUEDA POR USUARIE</div>
 
                 <div class="card-body">
                     <form class="row g-2" action="{{url('indexRecetaAdmin')}}" method="get">

@@ -20,10 +20,10 @@
                         </div>
                     @endif
                    <p>Seleccione la opción a realizar...</p>
-                   <p><a href="{{ action('App\Http\Controllers\PacienteController@index') }}" class="btn btn-success btn-md btn-block">Buscar y editar paciente</a></p>
-                   <p><a href="{{ action('App\Http\Controllers\TurnoController@indexAdmin') }}" class="btn btn-success btn-md btn-block">Procesar turnos</a><span class="circulo">{{$amountTurnos}}</span></p>
-                   <p><a href="{{ action('App\Http\Controllers\RecetaController@indexRecetaAdmin') }}" class="btn btn-success btn-md btn-block">Procesar solicitudes de recetas </a><span class="circulo">{{$amountRecetas}}</span></p>
-                   <p><a href="{{ action('App\Http\Controllers\EstudioController@indexEstudioAdmin') }}" class="btn btn-success btn-md btn-block">Procesar órdenes para la realización de estudios</a><span class="circulo">{{$amountEstudios}}</span></p>
+                   <p><a href="{{ action('App\Http\Controllers\PacienteController@index') }}" class="btn btn-success btn-md btn-block">Buscar y editar usuarie</a></p>
+                   <p><a href="{{ action('App\Http\Controllers\TurnoController@indexAdmin') }}" class="btn btn-success btn-md btn-block">Procesar turnos @if($amountTurnos!=0)<i class="circulo">{{$amountTurnos}}</i>@endif</a></p>
+                   <p><a href="{{ action('App\Http\Controllers\RecetaController@indexRecetaAdmin') }}" class="btn btn-success btn-md btn-block">Procesar solicitudes de recetas @if($amountRecetas!=0)<i class="circulo">{{$amountRecetas}}</i>@endif</a></p>
+                   <p><a href="{{ action('App\Http\Controllers\EstudioController@indexEstudioAdmin') }}" class="btn btn-success btn-md btn-block">Procesar órdenes para la realización de estudios @if($amountEstudios!=0)<i class="circulo">{{$amountEstudios}}</i>@endif</a></p>
                    <p><a href="{{ action('App\Http\Controllers\NoticiaController@index') }}" class="btn btn-success btn-md btn-block">Gestionar noticias</a></p>
                 </div>
             </div>

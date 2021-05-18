@@ -37,7 +37,7 @@
               <th>DROGA</th>
               <th>FRECUENCIA</th>
               <th>CANTIDAD</th>
-              <th>COMENTARIOS PARA EL PACIENTE <!--SOLO VISIBLES PARA EL PACIENTE, ESTA COLUMNA NO VA A LA RECETA--></th>
+              <th>COMENTARIOS PARA EL USUARIE <!--SOLO VISIBLES PARA EL PACIENTE, ESTA COLUMNA NO VA A LA RECETA--></th>
             </thead>
             <tbody>
               <form action="{{url('receta/'.$id)}}" method="post">

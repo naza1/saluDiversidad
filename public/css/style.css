@@ -55,11 +55,11 @@ color: #fff;
     margin-left: -1.25rem;
 }
 .circulo { 
-    border: 2px solid  #d9534f;; 
-    padding: 10px 40px; 
+    padding: 2px 6px; 
     background:  #d9534f;; 
-    width: 1px; 
-    height: 60px; 
-    border-radius: 100px; 
-    transform: scale(0.5, 0.5); 
+    width: 10px; 
+    height: 10px; 
+    border-radius: 150px;
+    font-style: normal;
+    
 } 
