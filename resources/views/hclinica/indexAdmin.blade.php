@@ -11,7 +11,7 @@
 <nav aria-label="breadcrumb" style="padding-top: -50px !important;">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a href="{{ url('/dashboardAdmin') }}">Inicio</a></li>
-    <li class="breadcrumb-item active"><a href="{{ url('/paciente') }}">Opciones para pacientes</a></li>
+    <li class="breadcrumb-item active"><a href="{{ url('/paciente') }}">Opciones para usuaries</a></li>
     <li class="breadcrumb-item" aria-current="page">Historia clínica</li>
     
   </ol>
@@ -186,7 +186,7 @@
     <div class="row justify-content-center">
       <div class="col-md-8">
             <div class="card">
-                <div class="card-header text-white bg-success mb-3">Estudios realizados (Muestra los estudios subidos por los paciente)</div>
+                <div class="card-header text-white bg-success mb-3">Estudios realizados (Muestra los estudios subidos por les usuaries)</div>
                 <div class="card-body">
                    <div class="form-group row">
                      <div class="col-lg-12">
