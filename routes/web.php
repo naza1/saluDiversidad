@@ -39,8 +39,23 @@ Route::get('/dashboardAdmin', function() {
 
     if(auth::user()->fullacces == 'yes')
     {
+        $amountTurnos = DB::table('turnos')
+        ->where('IsActive', '=', 1)
+        ->whereNull("Dia")
+        ->get()->count();
+
+        $amountRecetas = DB::table('recetas')
+        ->where('IsDeleted', '=', 0)
+        ->where('Estado', '=', 'Espera')
+        ->get()->count();
+
+        $amountEstudios = DB::table('estudios')
+        ->where('IsDeleted', '=', 0)
+        ->where('Estado', '=', 'Espera')
+        ->get()->count();
+
         $noticias = DB::table('noticias')->paginate(10);
-        return view('dashboardAdmin', compact('noticias'));
+        return view('dashboardAdmin', compact('noticias', 'amountTurnos', 'amountRecetas', 'amountEstudios'));
     }
         
     return view('paciente');
