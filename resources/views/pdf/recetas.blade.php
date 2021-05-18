@@ -18,7 +18,7 @@
     <p style="font-family: Verdana,Geneva,sans-serif; line-height:1.5px; font-size: 12px;">Rp/</p>
     <div style="background-image: url('{{ public_path('img/back_receta.png')}}');background-repeat: no-repeat; background-position: center; height: 300px !important;">
     @foreach($recetas as $receta)
-        <p style="font-family: Verdana,Geneva,sans-serif; text-align: left; font-size: 13px; line-height:15px;">{{ $receta }}</p>
+        <p style="font-family: Verdana,Geneva,sans-serif; text-align: left; font-size: 13px; line-height:15px;">- {{ $receta }}</p>
         
         @endforeach
         <p style="font-family: Verdana,Geneva,sans-serif; text-align: left; font-size: 13px; line-height:1px;">{{$adicional}}</p>

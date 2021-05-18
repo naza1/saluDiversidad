@@ -59,10 +59,10 @@
                 </td>
                 <td>{{$turno->dia_horario_pref}}</td>
                 <td>
-                  <input type="date" class="form-control" id="fecha" maxlength="250" name="fecha" placeholder="Día" value="{{ Carbon\Carbon::parse($turno->Dia)->format('Y-m-d') }}" required>
+                  <input type="date" class="form-control" id="fecha"  name="fecha" placeholder="Día" value="{{ Carbon\Carbon::parse($turno->Dia)->format('Y-m-d') }}" required>
                 </td>
                 <td>
-                  <input type="time" class="form-control" id="hora" maxlength="250" name="hora" placeholder="Hora" value="{{$turno->Hora}}" required>
+                  <input type="time" class="form-control" id="hora"  name="hora" placeholder="Hora" value="{{$turno->Hora}}" required>
                 </td>
                 <td>
                   <select class="form-control" id="lugar" name="lugar" value="CAPS1 - Colón y Salta" required>
@@ -70,18 +70,16 @@
                   </select>
                 </td>
                 <td>
-                  <div class="btn-group">
-                    <button type="submit" class="btn btn-success btn-sm">{{$turno->Dia == null ? 'Asignar' : 'Reprogramar'}}</button><br>
-                </td>
-              </form>
-              <td>
-                <div class="btn-group">
+                  
+                    <button type="submit" class="btn btn-success btn-sm">{{$turno->Dia == null ? 'Asignar' : 'Reprogramar'}}</button>
+                  </form>
+                           
                 <form method="POST" action="{{ url('turno/'.$turno->id) }}">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="btn btn-xs btn-danger btn-delete btn-sm">Cancelar</button>
               </form>
-                </div>
+                
               </td>
             </tr>
             @endforeach
