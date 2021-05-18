@@ -30,6 +30,7 @@
               <th>NOMBRE</th>
               <th>ESTADO</th>
               <th>PROFESIONAL</th>
+              <th>PREFERENCIA</th>
               <th>FECHA</th>
               <th>HORA</th>
               <th>LUGAR</th>
@@ -56,6 +57,7 @@
                     <option value="Virginia Barreneche">Virginia Barreneche</option>
                   </select>
                 </td>
+                <td>Imprimir campo de dia y horario de preferencia</td>
                 <td>
                   <input type="date" class="form-control" id="fecha" maxlength="250" name="fecha" placeholder="Día" value="{{ Carbon\Carbon::parse($turno->Dia)->format('Y-m-d') }}" required>
                 </td>
