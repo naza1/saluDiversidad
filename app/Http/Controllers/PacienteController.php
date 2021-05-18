@@ -109,6 +109,7 @@ class PacienteController extends Controller
         Turno::where('paciente_id', $paciente->id)->delete();
         //Medicamento_Receta::where('receta')
         Receta::where('paciente_id', $paciente->id)->delete();
+        Estudio::where('paciente_id', $paciente->id)->delete();
         DB::table('pacientes')->delete($id);
         DB::table('users')->delete($paciente->user_id);
 
