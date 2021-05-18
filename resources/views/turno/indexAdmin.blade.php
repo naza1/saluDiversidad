@@ -57,7 +57,7 @@
                     <option value="Virginia Barreneche">Virginia Barreneche</option>
                   </select>
                 </td>
-                <td>{{$turno->dia_horario_pref}}</td>
+                <td>{{$turno->DiaHorarioPref}}</td>
                 <td>
                   <input type="date" class="form-control" id="fecha"  name="fecha" placeholder="Día" value="{{ Carbon\Carbon::parse($turno->Dia)->format('Y-m-d') }}" required>
                 </td>

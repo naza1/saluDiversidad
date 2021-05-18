@@ -25,7 +25,7 @@ class CreateTurnosTable extends Migration
             $table->string('ApellidoPaciente', 255)->nullable();
             $table->string('Lugar', 255)->nullable();
             $table->string('IsActive', 255)->default('1');
-            $table->string('dia_horario_pref', 500)->nullable();
+            $table->string('DiaHorarioPref', 500)->nullable();
             $table->string('Estado', 250)->nullable();
         });
     }
