@@ -151,11 +151,7 @@ class TurnoController extends Controller
         ->where('id', '=', $turno->paciente_id)
         ->first();
 
-        DB::table('turnos')->delete($id);
-
         Mail::to($paciente->Email)->send(new TurnoCancelEmail($turno));
-
-        $turnos = DB::table('turnos')->paginate(10);
 
         if(auth::user()->id == $paciente->user_id)
         {
@@ -165,8 +161,16 @@ class TurnoController extends Controller
             ->orderBy('created_at', 'desc') 
             ->paginate(10);
 
+            $turno->Dia = null;
+            $turno->Hora = null;
+            $turno->save();
+
            return redirect()->to('/turno')->with('turnos', $turnos);
         }
+
+        DB::table('turnos')->delete($id);
+
+        $turnos = DB::table('turnos')->paginate(10);
 
         return view('turno.indexAdmin', compact('turnos'));
     }
