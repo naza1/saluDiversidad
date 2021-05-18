@@ -40,7 +40,7 @@
         </div>
 </div>
 <div class="form-group row">
-                    <label for="dia_horario_pref" class="col-md-4 col-form-label text-md-right">Días y horarios de preferencia</label>
+                    <label for="dia_horario_pref" class="col-md-4 col-form-label text-md-right">Días y horarios de preferencia (Recuerde que sólo se atiende los días miércoles)</label>
                     <div class="col-md-6">
                         <textarea class="form-control" id="dia_horario_pref" value="dia_horario_pref" name="dia_horario_pref" maxlength="250" placeholder="Por ejemplo: Lunes y viernes de 14 a 17" required></textarea>
                     </div>

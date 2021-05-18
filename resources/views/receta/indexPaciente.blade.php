@@ -22,7 +22,7 @@
                         <div class="body">
                             <div class="alert alert-info">
                                 <ul>
-                                    <p>Desde esta opción podrá solicitar recetas de medicamentos. <br>Una vez aprobada la órden podrá descargarla en la tabla inferior.</p>
+                                    <p>Desde esta opción podés solicitar recetas de los medicamentos para tu hormonización.<br>Una vez aprobada la órden podrá descargarla en la tabla inferior.</p>
                                 </ul>
                             </div>
                             <div class="alert alert-success">
