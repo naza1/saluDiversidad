@@ -82,6 +82,7 @@ class TurnoController extends Controller
         $turno->ApellidoPaciente = $paciente->Apellido;
         $turno->Lugar = "CAPS1 - Colón y Salta";
         $turno->dia_horario_pref = $request->get('dia_horario_pref');
+        $turno->Estado = "Espera";
         $turno->save();
 
         return redirect('/turno');
@@ -123,6 +124,7 @@ class TurnoController extends Controller
         $dia = new Carbon($request->fecha);
         $turno->Dia = $dia->toDateString();
         $turno->Hora = $request->hora;
+        $turno->Estado = "Aprobado";
         $turno->save();
 
         $paciente = Paciente::find($turno->paciente_id);
@@ -164,6 +166,7 @@ class TurnoController extends Controller
             $turno = Turno::find($id);
             $turno->Dia = null;
             $turno->Hora = null;
+            $turno->Estado = "Cancelado";
             $turno->save();
 
            return redirect()->to('/turno')->with('turnos', $turnos);

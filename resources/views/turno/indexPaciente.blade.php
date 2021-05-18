@@ -77,7 +77,7 @@
             <tbody>
             @foreach($turnos as $turno)
             <tr>
-                <td>{{$turno->Dia != null ? Carbon\Carbon::parse($turno->Dia)->toFormattedDateString('d-m-Y') : 'Turno en espera de aprobación'}}</td>
+                <td>{{$turno->Estado == 'Aprobado' ? Carbon\Carbon::parse($turno->Dia)->toFormattedDateString('d-m-Y') : $turno->Estado == 'Espera' ?'Turno en espera de aprobación' : 'Turno Cancelado'}}</td>
                 <td>{{$turno->Hora}}</td>
                 <td>{{$turno->Medico}}</td>
                 <td>{{$turno->Lugar}}</td>

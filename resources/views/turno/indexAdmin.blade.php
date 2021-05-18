@@ -45,7 +45,7 @@
               <input name="id" value="{{$turno->id}}" type="hidden">
                 <td>{{$turno->ApellidoPaciente}}</td>
                 <td>{{$turno->NombrePaciente}}</td>
-                <td>{{$turno->Dia == null ? 'PENDIENTE' : 'APROBADO'}}</td>
+                <td>{{$turno->Estado == 'Aprobado' ? Carbon\Carbon::parse($turno->Dia)->toFormattedDateString('d-m-Y') : $turno->Estado == 'Espera' ?'Turno en espera de aprobación' : 'Turno Cancelado'}}</td>
                 <td>
                   <select class="form-control" id="medico" name="medico" required>
                     @if($turno->Medico != null)
@@ -70,8 +70,9 @@
                   </select>
                 </td>
                 <td>
-                  
-                    <button type="submit" class="btn btn-success btn-sm">{{$turno->Dia == null ? 'Asignar' : 'Reprogramar'}}</button>
+                  @if($turno->Estado != 'Cancelado')
+                    <button type="submit" class="btn btn-success btn-sm">{{$turno->Estado == 'Espera' ? 'Asignar' : $turno->Estado == 'Aprobado' ? 'Reprogramar' : null}}</button>
+                  @endif
                   </form>
                            
                 <form method="POST" action="{{ url('turno/'.$turno->id) }}">
