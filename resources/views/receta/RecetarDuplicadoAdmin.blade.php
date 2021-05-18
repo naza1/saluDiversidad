@@ -25,7 +25,7 @@
                 <div class="card-body">
                 <div class="alert alert-info">
                                 <ul>
-                                    <p><b>Fecha de inicio de hormonización: </b>{{$paciente->FechaInicioHormonizacion}}
+                                    <p><b>Fecha de inicio de hormonización: </b>{{$diff2}}
                                     <br><b>Medicación actual: </b>{{$paciente->Medicacion}}</p>
                                 </ul>
                             </div>

@@ -164,8 +164,13 @@ class RecetaController extends Controller
         $medicamentoChecks = DB::table('medicamento__recetas')
         ->where('receta_id', '=', $receta->id)->get();
 
+        $date = new DateTime($paciente->FechaInicioHormonizacion);
+        $date2 = new DateTime("now");
+        $diff = $date2->diff($date);
+        $diff2 = $diff->format('%y años %m meses %d días');
+
         $medicamentos = Medicamento::all();
-        return view('receta.recetarDuplicadoAdmin', compact('receta', 'medicamentos', 'id', 'medicamentoChecks', 'newId', 'paciente'));
+        return view('receta.recetarDuplicadoAdmin', compact('receta', 'medicamentos', 'id', 'medicamentoChecks', 'newId', 'paciente', 'diff2'));
     }
 
     /**
