@@ -71,7 +71,7 @@
                 </td>
                 <td>
                   @if($turno->Estado != 'Cancelado')
-                    <button type="submit" class="btn btn-success btn-sm">{{$turno->Estado == 'Espera' ? 'Asignar' : $turno->Estado == 'Aprobado' ? 'Reprogramar' : null}}</button>
+                    <button type="submit" class="btn btn-success btn-sm">{{$turno->Estado == 'Espera' ? 'Asignar' :  'Reprogramar'}}</button>
                   @endif
                   </form>
                            
