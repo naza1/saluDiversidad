@@ -81,6 +81,7 @@ class TurnoController extends Controller
         $turno->NombrePaciente = $paciente->Nombre;
         $turno->ApellidoPaciente = $paciente->Apellido;
         $turno->Lugar = "CAPS1 - Colón y Salta";
+        $turno->dia_horario_pref = $request->get('dia_horario_pref');
         $turno->save();
 
         return redirect('/turno');
