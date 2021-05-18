@@ -129,7 +129,8 @@ class RecetaController extends Controller
         $receta = DB::table('recetas')
         ->where('id', '=', $id)->first();
 
-        $paciente = DB::table('pacientes', '=', $receta->paciente_id)->first(); 
+        $paciente = DB::table('pacientes')
+        ->where('id', '=', $receta->paciente_id)->first();
 
         $date = new DateTime($paciente->FechaInicioHormonizacion);
         $date2 = new DateTime("now");
