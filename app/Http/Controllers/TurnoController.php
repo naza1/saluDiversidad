@@ -28,6 +28,7 @@ class TurnoController extends Controller
         $turnos = DB::table('turnos')
         ->where('paciente_id', '=', $paciente->id ?? null)
         ->where('IsActive', '=', 1)
+        ->where('Estado', '!=', 'Cancelado')
         ->orderBy('created_at', 'desc')
         ->paginate(10);
 

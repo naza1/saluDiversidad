@@ -41,6 +41,7 @@ Route::get('/dashboardAdmin', function() {
     {
         $amountTurnos = DB::table('turnos')
         ->where('IsActive', '=', 1)
+        ->where('Estado', '!=', 'Cancelado')
         ->whereNull("Dia")
         ->get()->count();
 
