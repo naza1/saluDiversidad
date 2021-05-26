@@ -28,6 +28,7 @@ class EstudioController extends Controller
         $estudios = DB::table('estudios')
             ->where('paciente_id', '=', $paciente->id)
             ->where('IsDeleted', '=', 0)
+            ->orderBy('created_at', 'desc')
             ->paginate(10);
 
         return view('estudio.indexPaciente', compact('estudios', 'paciente'));

@@ -54,12 +54,14 @@ class RecetaController extends Controller
             $recetas = DB::table('recetas')
             ->where('IsDeleted', '=', 0)
             ->whereIn('paciente_id', $pacientes)
+            ->orderBy('created_at', 'desc')
             ->paginate(10);
         }
         else
         {
             $recetas = DB::table('recetas')
             ->where('IsDeleted', '=', 0)
+            ->orderBy('created_at', 'desc')
             ->paginate(10);
         }
 
