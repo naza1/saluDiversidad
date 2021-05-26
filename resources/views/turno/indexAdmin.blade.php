@@ -45,7 +45,7 @@
               <input name="id" value="{{$turno->id}}" type="hidden">
                 <td>{{$turno->ApellidoPaciente}}</td>
                 <td>{{$turno->NombrePaciente}}</td>
-                <td>{{$turno->Estado == 'Aprobado' ? 'APROBADO' : $turno->Estado != 'Cancelado' ? 'PENDIENTE' : 'CANCELADO'}}</td>
+                <td>{{$turno->Estado == 'Aprobado' ? 'APROBADO' : ($turno->Estado != 'Cancelado' ? 'PENDIENTE' : 'CANCELADO')}}</td>
                 <td>
                   <select class="form-control" id="medico" name="medico" required>
                     @if($turno->Medico != null)

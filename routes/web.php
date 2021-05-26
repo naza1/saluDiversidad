@@ -80,6 +80,14 @@ Route::get('/storage-link', function(){
     Artisan::call('storage:link');
 });
 
+Route::get('/run-seed', function(){
+    Artisan::call('db:seed');
+});
+
+Route::get('/run-migration', function(){
+    Artisan::call('migrate:refresh');
+});
+
 Route::get('/indexAdmin','App\Http\Controllers\TurnoController@indexAdmin')->middleware('verified');
 
 Route::get('generate-pdf', [PdfController::class, 'generatePDF']);

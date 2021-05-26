@@ -139,42 +139,53 @@ class RecetaController extends Controller
         $diff = $date2->diff($date);
         $diff2 = $diff->format('%y años %m meses %d días');
 
-        $medicamentos = Medicamento::all();
-        return view('receta.recetarAdmin', compact('recetas', 'medicamentos', 'id', 'paciente', 'diff2'));
-    }
-
-    public function showDuplicadoAdmin($id)
-    {
-        $receta = DB::table('recetas')
-        ->where('IsDeleted', '=', 0)
-        ->where('id', '=', $id)
-        ->first();
-
-        $paciente = DB::table('pacientes')
-        ->where('id', '=', $receta->paciente_id)
-        ->first();
-
-        $recetaNew = new Receta();
-        $recetaNew->paciente_id = $receta->paciente_id;
-        $recetaNew->NombrePaciente = $paciente->Nombre;
-        $recetaNew->ApellidoPaciente = $paciente->Apellido;
-        $recetaNew->Dni = $paciente->Dni;
-        $recetaNew->Estado = "Espera";
-        $recetaNew->save();
-
-        $newId = $recetaNew->id;
-
         $medicamentoChecks = DB::table('medicamento__recetas')
-        ->where('receta_id', '=', $receta->id)->get();
+        ->join('recetas', 'recetas.id', '=', 'medicamento__recetas.receta_id')
+        ->where('paciente_id', '=', $paciente->id)
+        ->orderBy('receta_id', 'desc')
+        ->get();
 
-        $date = new DateTime($paciente->FechaInicioHormonizacion);
-        $date2 = new DateTime("now");
-        $diff = $date2->diff($date);
-        $diff2 = $diff->format('%y años %m meses %d días');
+        $receta =DB::table('recetas')
+        ->where('paciente_id', '=', $paciente->id)
+        ->orderBy('id', 'desc')
+        ->first();
 
         $medicamentos = Medicamento::all();
-        return view('receta.recetarDuplicadoAdmin', compact('receta', 'medicamentos', 'id', 'medicamentoChecks', 'newId', 'paciente', 'diff2'));
+        return view('receta.recetarDuplicadoAdmin', compact('receta', 'medicamentos', 'medicamentoChecks', 'id', 'paciente', 'diff2'));
     }
+
+    // public function showDuplicadoAdmin($id)
+    // {
+    //     $receta = DB::table('recetas')
+    //     ->where('IsDeleted', '=', 0)
+    //     ->where('id', '=', $id)
+    //     ->first();
+
+    //     $paciente = DB::table('pacientes')
+    //     ->where('id', '=', $receta->paciente_id)
+    //     ->first();
+
+    //     // $recetaNew = new Receta();
+    //     // $recetaNew->paciente_id = $receta->paciente_id;
+    //     // $recetaNew->NombrePaciente = $paciente->Nombre;
+    //     // $recetaNew->ApellidoPaciente = $paciente->Apellido;
+    //     // $recetaNew->Dni = $paciente->Dni;
+    //     // $recetaNew->Estado = "Espera";
+    //     // $recetaNew->save();
+
+    //     // $newId = $recetaNew->id;
+
+    //     $medicamentoChecks = DB::table('medicamento__recetas')
+    //     ->where('receta_id', '=', $receta->id)->get();
+
+    //     $date = new DateTime($paciente->FechaInicioHormonizacion);
+    //     $date2 = new DateTime("now");
+    //     $diff = $date2->diff($date);
+    //     $diff2 = $diff->format('%y años %m meses %d días');
+
+    //     $medicamentos = Medicamento::all();
+    //     return view('receta.recetarDuplicadoAdmin', compact('receta', 'medicamentos', 'id', 'medicamentoChecks', 'newId', 'paciente', 'diff2'));
+    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -184,6 +195,7 @@ class RecetaController extends Controller
      */
     public function edit($id)
     {
+        dd("");
         $recetaOld = DB::table('recetas')
         ->where('id', '=', $id)->first();
 
@@ -212,6 +224,7 @@ class RecetaController extends Controller
             $medicamentoxReceta->frecuencia = $medicamento->frecuencia;
             $medicamentoxReceta->cantidad = $medicamento->cantidad;
             $medicamentoxReceta->comentario = $medicamento->comentario;
+            $medicamentoxReceta->paciente_id = $paciente->id;
             $medicamentoxReceta->save();
         }
 

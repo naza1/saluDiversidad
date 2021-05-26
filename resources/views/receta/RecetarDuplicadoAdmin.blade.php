@@ -40,21 +40,21 @@
               <th>COMENTARIOS PARA EL USUARIE <!--SOLO VISIBLES PARA EL PACIENTE, ESTA COLUMNA NO VA A LA RECETA--></th>
             </thead>
             <tbody>
-              <form action="{{url('receta/'.$newId)}}" method="post">
+              <form action="{{url('receta/'.$id)}}" method="post">
               @csrf
               {{ method_field('PUT') }}
-              <input name="id" value="{{$newId}}" type="hidden" >
+              <input name="id" value="{{$id}}" type="hidden" >
               @foreach($medicamentos as $medicamento)
               <tr>
                 <td>
-                  @if($medicamentoChecks != null)
+                  @if(!$medicamentoChecks->isEmpty())
                     <input type="checkbox" class="form-check-input" name="drogas[]" value="{{$medicamento->nombre}}" {{ in_array($medicamento->id, $medicamentoChecks->pluck('medicamento_id')->toArray()) ? 'checked' : '' }}> {{$medicamento->nombre}}
                   @else
                     <input type="checkbox" class="form-check-input" name="drogas[]" value="{{$medicamento->nombre}}"> {{$medicamento->nombre}}
                   @endif
                 </td>
                 <td>
-                @if($medicamentoChecks != null)
+                @if(!$medicamentoChecks->isEmpty())
                     @foreach($medicamentoChecks as $medicamentoCheck)
                       @if($medicamentoCheck->medicamento_id == $medicamento->id)
                         <select class="form-control" id="frec_{{$medicamento->id}}" name="frec_{{$medicamento->id}}">
@@ -67,17 +67,17 @@
                         </select>
                         @break
                       @endif
-                    @endforeach
-                    @if($medicamentoCheck->medicamento_id != $medicamento->id)
-                      <select class="form-control" id="frec_{{$medicamento->id}}" name="frec_{{$medicamento->id}}">
+                      @if($loop->last)
+                        <select class="form-control" id="frec_{{$medicamento->id}}" name="frec_{{$medicamento->id}}">
                           <option value="">-- Escoja Frecuencia --</option>
                           <option value="Diaria">Diaria</option>
                           <option value="Semanal">Semanal</option>
                           <option value="Quincenal">Quincenal</option>
                           <option value="Mensual">Mensual</option>
                           <option value="Trimestral">Trimestral</option>
-                      </select>
-                    @endif
+                        </select>
+                      @endif
+                    @endforeach
                 @else
                     <select class="form-control" id="frec_{{$medicamento->id}}" name="frec_{{$medicamento->id}}">
                       <option value="">-- Escoja Frecuencia --</option>
@@ -90,31 +90,31 @@
                 @endif
                 </td>
                 <td>
-                @if($medicamentoChecks != null)
+                @if(!$medicamentoChecks->isEmpty())
                   @foreach($medicamentoChecks as $medicamentoCheck)
                     @if($medicamentoCheck->medicamento_id == $medicamento->id)
                       <input type="text" class="form-control" id="cant_{{$medicamento->id}}" name="cant_{{$medicamento->id}}" maxlength="250" placeholder="Ingrese cantidad" value="{{$medicamentoCheck->cantidad}}">
                       @break
                     @endif
-                  @endforeach
-                  @if($medicamentoCheck->medicamento_id != $medicamento->id)
+                    @if($loop->last)
                     <input type="text" class="form-control" id="cant_{{$medicamento->id}}" name="cant_{{$medicamento->id}}" maxlength="250" placeholder="Ingrese cantidad" value="">
-                  @endif
+                    @endif
+                  @endforeach
                 @else
                   <input type="text" class="form-control" id="cant_{{$medicamento->id}}" name="cant_{{$medicamento->id}}" maxlength="250" placeholder="Ingrese cantidad" value="">
                 @endif
                 </td>
                 <td>
-                @if($medicamentoChecks != null)
+                @if(!$medicamentoChecks->isEmpty())
                   @foreach($medicamentoChecks as $medicamentoCheck)
                     @if($medicamentoCheck->medicamento_id == $medicamento->id)
                       <textarea class="form-control" id="com_{{$medicamento->id}}" name="com_{{$medicamento->id}}" maxlength="250" placeholder="Comentario para paciente">{{$medicamentoCheck->comentario}}</textarea>
                       @break
                     @endif
-                  @endforeach
-                  @if($medicamentoCheck->medicamento_id != $medicamento->id)
+                    @if($loop->last)
                     <textarea class="form-control" id="com_{{$medicamento->id}}" value="" name="com_{{$medicamento->id}}" maxlength="250" placeholder="Comentario para paciente"></textarea>
-                  @endif
+                    @endif
+                  @endforeach
                 @else
                   <textarea class="form-control" id="com_{{$medicamento->id}}" value="" name="com_{{$medicamento->id}}" maxlength="250" placeholder="Comentario para paciente"></textarea>
                 @endif

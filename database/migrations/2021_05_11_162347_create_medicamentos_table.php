@@ -22,11 +22,11 @@ class CreateMedicamentosTable extends Migration
 
         $data = [
             ['nombre'=>'Acetato de triptorelina - ampolla inyectable 11.25 mg-kit'],
-            ['nombre'=>'Acetato de triptorelina - ampolla inyectable 3,75 mg-kit'],
+            ['nombre'=>'Acetato de triptorelina - ampolla inyectable 3.75 mg-kit'],
             ['nombre'=>'Finasteride - comprimidos 5 mg'],
             ['nombre'=>'Acetato de ciproterona - comprimido 50 mg'],
             ['nombre'=>'Estradiol cápsulas/comprimidos 2 mg'],
-            ['nombre'=>'Estradiol gel 0,06% - envase x 80 grs'],
+            ['nombre'=>'Estradiol gel 0.06% - envase x 80 grs'],
             ['nombre'=>'Testosterona gel 1% - envase por 150 grs'],
             ['nombre'=>'Undecanoato de testosterona - ampolla 1000 mg/4ml'],
             ['nombre'=>'Espironolactona - comprimidos 100 mg'],

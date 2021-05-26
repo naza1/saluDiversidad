@@ -101,7 +101,7 @@
                                         @endif
                                         @if($receta->Estado == "Aprobado")
                                           <div class="btn-group">
-                                            <a href="{{ url('showDuplicado/'.$receta->id) }}" class="btn btn-success btn-sm">Repetir receta</a><br>
+                                            <a href="{{ url('receta/'.$receta->id) }}" class="btn btn-success btn-sm">Recetar</a><br>
                                           </div>
                                          @endif
                                           <div class="btn-group">
