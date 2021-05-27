@@ -26,7 +26,7 @@
                 <div class="alert alert-info">
                                 <ul>
                                     <p>
-                                    <br><b>Datos del paciente: </b>{{$paciente->Nombre}} {{$paciente->Apellido}} ({{$paciente->Dni}})</br>
+                                    <br><b>Datos del usuarie: </b>{{$paciente->Nombre}} {{$paciente->Apellido}} ({{$paciente->Dni}})</br>
                                     <b>Fecha de inicio de hormonización: </b>{{$diff2}}
                                     <br><b>Medicación actual: </b>{{$paciente->Medicacion}}</p>
                                 </ul>
