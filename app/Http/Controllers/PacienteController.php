@@ -203,6 +203,7 @@ class PacienteController extends Controller
         $recetas = DB::table('recetas')
         ->where('paciente_id', '=', $id)
         ->where('IsDeleted', '=', 0)
+        ->orderBy('created_at', 'desc')
         ->paginate(10);
 
         $recetaIds = DB::table('recetas')
