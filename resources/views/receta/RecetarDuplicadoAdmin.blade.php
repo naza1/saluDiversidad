@@ -66,6 +66,7 @@
                           <option value="Quincenal">Quincenal</option>
                           <option value="Mensual">Mensual</option>
                           <option value="Trimestral">Trimestral</option>
+                          <option value="">-- Escoja Frecuencia --</option>
                         </select>
                         @break
                       @endif

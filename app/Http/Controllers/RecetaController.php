@@ -126,28 +126,33 @@ class RecetaController extends Controller
      */
     public function show($id)
     {
-        $recetas = DB::table('recetas')
-        ->where('IsDeleted', '=', 0)
-        ->paginate(10);
-
         $receta = DB::table('recetas')
-        ->where('id', '=', $id)->first();
+        ->where('id', '=', $id)
+        ->first();
 
         $paciente = DB::table('pacientes')
-        ->where('id', '=', $receta->paciente_id)->first();
+        ->where('id', '=', $receta->paciente_id)
+        ->first();
 
         $date = new DateTime($paciente->FechaInicioHormonizacion);
         $date2 = new DateTime("now");
         $diff = $date2->diff($date);
         $diff2 = $diff->format('%y años %m meses %d días');
 
+        $recetaLast = DB::table('recetas')
+        ->where('paciente_id', '=', $paciente->id)
+        ->where('IsDeleted', '=', '0')
+        ->orderBy('id', 'desc')
+        ->first();
+
         $medicamentoChecks = DB::table('medicamento__recetas')
         ->join('recetas', 'recetas.id', '=', 'medicamento__recetas.receta_id')
         ->where('paciente_id', '=', $paciente->id)
-        ->orderBy('receta_id', 'desc')
+        ->where('receta_id', '=', $recetaLast->id)
+        ->orderBy('receta_id', 'asc')
         ->get();
 
-        $receta =DB::table('recetas')
+        $receta = DB::table('recetas')
         ->where('paciente_id', '=', $paciente->id)
         ->orderBy('id', 'desc')
         ->first();
