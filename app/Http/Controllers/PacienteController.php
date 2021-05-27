@@ -108,7 +108,6 @@ class PacienteController extends Controller
         $paciente = Paciente::find($id);
 
         Turno::where('paciente_id', $paciente->id)->delete();
-        //Medicamento_Receta::where('receta')
         Receta::where('paciente_id', $paciente->id)->delete();
         Estudio::where('paciente_id', $paciente->id)->delete();
         DB::table('pacientes')->delete($id);
@@ -198,6 +197,7 @@ class PacienteController extends Controller
     {
         $estudioFiles = DB::table('estudio_files')
         ->where('paciente_id', '=', $id)
+        ->orderBy('created_at', 'desc')
         ->paginate(10);
 
         $recetas = DB::table('recetas')
@@ -219,6 +219,7 @@ class PacienteController extends Controller
         $estudios = DB::table('estudios')
         ->where('paciente_id', '=', $id)
         ->where('Estado', '=', "Asignado")
+        ->orderBy('created_at', 'desc')
         ->paginate(10);
 
         $paciente = DB::table('pacientes')
@@ -227,6 +228,7 @@ class PacienteController extends Controller
 
         $consultas = DB::table('consultas')
         ->where('paciente_id', '=', $id)
+        ->orderBy('created_at', 'desc')
         ->paginate(10);
 
         $date = new DateTime($paciente->FechaInicioHormonizacion);

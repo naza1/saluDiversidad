@@ -44,6 +44,7 @@ class ConsultaController extends Controller
 
         $consultas = DB::table('consultas')
         ->where('paciente_id', '=', $request->id)
+        ->orderBy('created_at', 'desc')
         ->paginate(10);
 
         return redirect()->to('showHistorial/'.$request->id)->with('consultas', $consultas);

@@ -27,6 +27,7 @@ class RecetaController extends Controller
         $recetas = DB::table('recetas')
         ->where('paciente_id', '=', $paciente->id)
         ->where('IsDeleted', '=', 0)
+        ->orderBy('created_at', 'desc')
         ->paginate(10);
 
         $recetasMedicamentos = DB::table('recetas')
@@ -111,6 +112,7 @@ class RecetaController extends Controller
         $recetas = DB::table('recetas')
         ->where('paciente_id', '=', $paciente->id)
         ->where('IsDeleted', '=', 0)
+        ->orderBy('created_at', 'desc')
         ->paginate(10);
 
         return redirect()->to('receta')->with('recetas', $recetas);
@@ -195,7 +197,6 @@ class RecetaController extends Controller
      */
     public function edit($id)
     {
-        dd("");
         $recetaOld = DB::table('recetas')
         ->where('id', '=', $id)->first();
 
@@ -230,6 +231,7 @@ class RecetaController extends Controller
 
         $recetas = DB::table('recetas')
         ->where('IsDeleted', '=', 0)
+        ->orderBy('created_at', 'desc')
         ->paginate(10);
 
         $medicamentosxRecetas = DB::table('medicamento__recetas')
@@ -284,6 +286,7 @@ class RecetaController extends Controller
 
         $recetas = DB::table('recetas')
         ->where('IsDeleted', '=', 0)
+        ->orderBy('created_at', 'desc')
         ->paginate(10);
 
         $medicamentosxRecetas = DB::table('medicamento__recetas')
@@ -314,6 +317,7 @@ class RecetaController extends Controller
 
         $recetas = DB::table('recetas')
         ->where('IsDeleted', '=', 0)
+        ->orderBy('created_at', 'desc')
         ->paginate(10);
 
         return redirect()->to('indexRecetaAdmin')->with('recetas', $recetas);

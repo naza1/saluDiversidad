@@ -42,6 +42,7 @@ class EstudioController extends Controller
 
         $estudioFiles = DB::table('estudio_files')
         ->where('paciente_id', '=', $paciente->id)
+        ->orderBy('created_at', 'desc')
         ->paginate(10);
 
         return view('estudio.subirEstudioPaciente', compact('paciente', 'estudioFiles'));
@@ -64,6 +65,7 @@ class EstudioController extends Controller
         
         $estudios = DB::table('estudios')
         ->where('IsDeleted', '=', 0)
+        ->orderBy('created_at', 'desc')
         ->paginate(10);
 
         return view('estudio.indexAdmin', compact('estudios'));
@@ -104,6 +106,7 @@ class EstudioController extends Controller
         $estudios = DB::table('estudios')
         ->where('paciente_id', '=', $paciente->id)
         ->where('IsDeleted', '=', 0)
+        ->orderBy('created_at', 'desc')
         ->paginate(10);
 
         return redirect('/estudio')->with('estudios', $estudios)->with('paciente', $paciente);
@@ -163,6 +166,7 @@ class EstudioController extends Controller
         
         $estudios = DB::table('estudios')
         ->where('IsDeleted', '=', 0)
+        ->orderBy('created_at', 'desc')
         ->paginate(10);
 
         return view('estudio.indexAdmin', compact('estudios'));
@@ -182,6 +186,7 @@ class EstudioController extends Controller
 
         $estudios = DB::table('estudios')
         ->where('IsDeleted', '=', 0)
+        ->orderBy('created_at', 'desc')
         ->paginate(10);
 
         return redirect('/indexEstudioAdmin')->with('estudios', $estudios);

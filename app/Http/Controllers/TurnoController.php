@@ -49,7 +49,9 @@ class TurnoController extends Controller
             $turno->ApellidoPaciente = $paciente->Apellido;
             $turno->save();
         }
-        $turnos = DB::table('turnos')->paginate(10);
+        $turnos = DB::table('turnos')
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
 
         return view('turno.indexAdmin', compact('turnos'));
     }
@@ -132,7 +134,9 @@ class TurnoController extends Controller
 
         Mail::to($paciente->Email)->send(new TurnoEmail($turno));
 
-        $turnos = DB::table('turnos')->paginate(10);
+        $turnos = DB::table('turnos')
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
 
         return redirect()->to('indexAdmin')->with('turnos', $turnos);
     }
@@ -175,7 +179,9 @@ class TurnoController extends Controller
 
         DB::table('turnos')->delete($id);
 
-        $turnos = DB::table('turnos')->paginate(10);
+        $turnos = DB::table('turnos')
+            ->orderBy('created_at', 'desc')
+            ->paginate(10);
 
         return view('turno.indexAdmin', compact('turnos'));
     }
