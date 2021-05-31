@@ -142,23 +142,18 @@ class RecetaController extends Controller
         $recetaLast = DB::table('recetas')
         ->where('paciente_id', '=', $paciente->id)
         ->where('IsDeleted', '=', '0')
-        ->orderBy('id', 'desc')
+        ->orderBy('updated_at', 'desc')
         ->first();
+
+        //dd($recetaLast);
 
         $medicamentoChecks = DB::table('medicamento__recetas')
         ->join('recetas', 'recetas.id', '=', 'medicamento__recetas.receta_id')
-        ->where('paciente_id', '=', $paciente->id)
         ->where('receta_id', '=', $recetaLast->id)
-        ->orderBy('receta_id', 'asc')
         ->get();
 
-        $receta = DB::table('recetas')
-        ->where('paciente_id', '=', $paciente->id)
-        ->orderBy('id', 'desc')
-        ->first();
-
         $medicamentos = Medicamento::all();
-        return view('receta.recetarDuplicadoAdmin', compact('receta', 'medicamentos', 'medicamentoChecks', 'id', 'paciente', 'diff2'));
+        return view('receta.recetarDuplicadoAdmin', compact('recetaLast', 'medicamentos', 'medicamentoChecks', 'id', 'paciente', 'diff2'));
     }
 
     // public function showDuplicadoAdmin($id)
@@ -267,7 +262,7 @@ class RecetaController extends Controller
             foreach(request()->drogas as $droga)
             {
                 $medicamentos_receta = DB::table('medicamento_recetas')
-                ->where('receta-id', '=', request()->get('id'));
+                ->where('receta_id', '=', request()->get('id'));
 
                 $medicamentoxReceta = new Medicamento_Receta();
                 $medicamentoxReceta->receta_id = request()->get('id');

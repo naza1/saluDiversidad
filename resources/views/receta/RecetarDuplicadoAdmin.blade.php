@@ -126,14 +126,14 @@
               @endforeach
               <tr>
                 <td colspan="4"><p><b>MEDICACION ADICIONAL</b></p>
-                  <textarea class="form-control" id="adicional" name="adicional" maxlength="250" placeholder="Añadir más medicación manualmente">{{$receta->Adicional}}</textarea>
+                  <textarea class="form-control" id="adicional" name="adicional" maxlength="250" placeholder="Añadir más medicación manualmente">{{$recetaLast->Adicional}}</textarea>
                 </td>
               </tr>
             
               <tr>
                 <td colspan="4"><p><b>SELECCIONE FIRMA DEL PROFESIONAL</b></p>
                   <select class="form-control" id="medico" name="medico" required>
-                    <option value="{{$receta->Medico}}">{{$receta->Medico}}</option>
+                    <option value="{{$recetaLast->Medico}}">{{$recetaLast->Medico}}</option>
                     <option value="Nicolás Zanier">Nicolás Zanier</option>
                     <option value="Virginia Barreneche">Virginia Barreneche</option>
                   </select>
