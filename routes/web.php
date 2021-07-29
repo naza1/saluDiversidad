@@ -17,8 +17,35 @@ use App\Http\Controllers\PdfController;
 |
 */
 
-Route::get('/', function () {
+ Route::get('/login', function () {
     return view('auth.login');
+});
+Route::get('/', function () {
+    return view('info.indexinfo');
+});
+Route::get('/info/quienes', function () {
+    return view('info.quienes');
+});
+Route::get('/info/donde', function () {
+    return view('info.donde');
+});
+Route::get('/info/derechos', function () {
+    return view('info.derechos');
+});
+Route::get('/info/diversidad', function () {
+    return view('info.diversidad');
+});
+Route::get('/info/faq', function () {
+    return view('info.faq');
+});
+Route::get('/info/interes', function () {
+    return view('info.interes');
+});
+Route::get('/about', function () {
+    return view('about.about');
+});
+Route::get('/offline', function () {    
+    return view('vendor/laravelpwa/offline');
 });
 
 Route::resource('/paciente', 'App\Http\Controllers\PacienteController');

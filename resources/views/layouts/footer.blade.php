@@ -10,7 +10,7 @@
         </div>
         <div class="row">
             <div class="col-md-12 footer-col">
-        <p class="">Copyright 2021</p>
+        <p class="">Copyright 2021 - <a href="{{ url('/about') }}" style="color:#fff;">Sobre el desarrollo de la APP</a></p>
             </div>
         </div>
     </div>
